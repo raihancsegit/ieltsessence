@@ -1854,6 +1854,56 @@ img, svg, video, canvas, audio, iframe, embed, object {
         font-size: 13.5px;
         line-height: 1.6;
     }
+
+    .hero-card-container {
+        padding: 20px 16px !important;
+        border-radius: 24px !important;
+        margin-top: 10px;
+    }
+
+    .hero-score-badge-card {
+        padding: 24px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    .score-giant-number {
+        font-size: 52px !important;
+    }
+
+    .hero-floating-tag-1, .hero-floating-tag-2 {
+        display: none !important;
+    }
+
+    .calculator-widget-box {
+        padding: 24px 16px !important;
+        border-radius: 24px !important;
+    }
+
+    .why-feature-card, .method-step-card {
+        padding: 22px 18px !important;
+        border-radius: 20px !important;
+    }
+
+    .icon-glow-box {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+        font-size: 20px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .counter-box {
+        padding: 18px 12px !important;
+        border-radius: 20px !important;
+    }
+
+    .counter-val-num {
+        font-size: 32px !important;
+    }
+
+    .counter-title-label {
+        font-size: 12px !important;
+    }
     
     .modal-body-card {
         padding: 20px 16px;
@@ -1915,11 +1965,16 @@ img, svg, video, canvas, audio, iframe, embed, object {
     }
     
     .hero-main-title {
-        font-size: 26px;
+        font-size: 26px !important;
+        line-height: 1.2 !important;
     }
     
     .cta-banner-headline {
         font-size: 24px;
         line-height: 1.2;
+    }
+
+    .score-giant-number {
+        font-size: 42px !important;
     }
 }
