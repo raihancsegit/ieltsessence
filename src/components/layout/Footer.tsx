@@ -1,0 +1,162 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { useModal } from "@/context/ModalContext";
+import { 
+  GraduationCap, Phone, Mail, MapPin, MessageSquare, 
+  ArrowRight, ShieldCheck, Heart, Globe 
+} from "lucide-react";
+
+export default function Footer() {
+  const { openModal } = useModal();
+
+  return (
+    <footer className="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+          {/* Brand Col */}
+          <div className="lg:col-span-2 space-y-4">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-600 to-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-rose-900/30">
+                <GraduationCap className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-extrabold text-white text-xl tracking-tight font-heading">IELTS ESSENCE</div>
+                <div className="text-[10px] font-bold text-rose-500 tracking-widest uppercase">Dream • Define • Dominate</div>
+              </div>
+            </Link>
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+              বাংলাদেশের শিক্ষার্থীদের জন্য প্রিমিয়াম IELTS লার্নিং প্ল্যাটফর্ম। Band 8.5 Scorer মেন্টরদের ডিরেক্ট মেন্টরশিপ ও বৈজ্ঞানিক মেথডে আপনার স্বপ্নের ব্যান্ডের নিশ্চয়তা।
+            </p>
+            <div className="flex items-center gap-3 pt-2">
+              <a 
+                href="https://wa.me/8801738474611" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center transition-all"
+                aria-label="WhatsApp"
+              >
+                <MessageSquare className="w-4 h-4" />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center transition-all"
+                aria-label="Facebook"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center transition-all"
+                aria-label="YouTube"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">Explore</h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/about" className="hover:text-rose-400 transition-colors">About IELTS ESSENCE</Link>
+              </li>
+              <li>
+                <Link href="/why-us" className="hover:text-rose-400 transition-colors">Why Choose Us</Link>
+              </li>
+              <li>
+                <Link href="/method" className="hover:text-rose-400 transition-colors">The 6-Step Method</Link>
+              </li>
+              <li>
+                <Link href="/mentors" className="hover:text-rose-400 transition-colors">Mentors & Instructors</Link>
+              </li>
+              <li>
+                <Link href="/success-stories" className="hover:text-rose-400 transition-colors">Success Stories & Results</Link>
+              </li>
+              <li>
+                <Link href="/calculator" className="hover:text-rose-400 transition-colors">IELTS Band Calculator</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Courses */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">Our Courses</h4>
+            <ul className="space-y-2 text-xs">
+              <li>
+                <Link href="/courses/course-basic-advanced" className="hover:text-rose-400 transition-colors">Basic To Advanced</Link>
+              </li>
+              <li>
+                <Link href="/courses/course-crash-course" className="hover:text-rose-400 transition-colors">40-Day Crash Course</Link>
+              </li>
+              <li>
+                <Link href="/courses/course-writing-masterclass" className="hover:text-rose-400 transition-colors">Writing 7.5+ Masterclass</Link>
+              </li>
+              <li>
+                <Link href="/courses/course-speaking-intensive" className="hover:text-rose-400 transition-colors">Daily Speaking Lab</Link>
+              </li>
+              <li>
+                <Link href="/writing-evaluation" className="hover:text-rose-400 transition-colors">Writing Evaluation</Link>
+              </li>
+              <li>
+                <Link href="/study-abroad" className="hover:text-rose-400 transition-colors">Study Abroad Support</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Campuses */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-heading">Get in Touch</h4>
+            <div className="space-y-2.5 text-xs text-slate-400">
+              <div className="flex items-start gap-2">
+                <Phone className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white font-bold">01738-474611</div>
+                  <div className="text-[11px] text-slate-500">9:00 AM – 10:00 PM Daily</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2">
+                <Mail className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                <span className="text-slate-300">support@ieltsessence.com</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <span className="text-slate-300">Dhanmondi, Uttara & Mirpur, Dhaka</span>
+              </div>
+              <div className="pt-2">
+                <button
+                  onClick={() => openModal("Footer Free Consultation")}
+                  className="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+                >
+                  <span>Book Free Session</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+          <div>
+            © {new Date().getFullYear()} <strong className="text-slate-400">IELTS ESSENCE</strong>. All rights reserved.
+          </div>
+          <div className="flex items-center gap-4 text-xs">
+            <Link href="/faq" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/faq" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-slate-300 transition-colors">Campus Map</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

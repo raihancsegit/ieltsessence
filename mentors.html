@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founder & Faculty Mentors — Meet The Band 8.5 Experts | IELTS ESSENCE</title>
+    <meta name="description" content="Meet Founder Jewel Ahamadinezad (DUET, Band 8.5) and our certified faculty panel of Band 8.0 & 8.5 mentors. Learn from experienced teachers who personally evaluate your performance.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        crimson: '#E11D48',
+                        secondary: '#0F172A',
+                        darknavy: '#0B132B',
+                        amberAccent: '#F59E0B',
+                        emeraldAccent: '#10B981',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Theme Engine Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-white text-slate-700 antialiased font-sans">
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <span class="live-pulse-dot"></span>
+        <span>🔴 Next Online & Offline Batch Admission Open</span>
+        <span id="live-batch-timer" class="timer-pill-badge">Batch Starts in: 03d : 14h : 22m : 45s</span>
+        <span class="hidden sm:inline text-slate-400">|</span>
+        <span class="hidden sm:inline text-amber-400 font-bold">Call / WhatsApp: 01738-474611</span>
+        <button onclick="openCounsellingModal('Free Counselling')" class="ml-2 px-3.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded-full text-xs font-bold transition-all flex items-center gap-1">
+            Claim Free Seat
+            <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-brand">
+                <div class="logo-badge">
+                    <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div>
+                    <div class="logo-title">IELTS ESSENCE</div>
+                    <div class="logo-subtitle">Dream • Define • Dominate</div>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <ul class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                
+                <!-- About Us Mega Menu (Active) -->
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link active text-rose-600 font-extrabold">
+                        About Us
+                        <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <div class="mega-dropdown-box">
+                        <div class="mega-menu-grid">
+                            <a href="why-us.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-base">💡</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">Why IELTS ESSENCE</div>
+                                    <div class="text-[10px] text-slate-400">Our unique advantages</div>
+                                </div>
+                            </a>
+                            <a href="method.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-base">🚀</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">The ESSENCE Method</div>
+                                    <div class="text-[10px] text-slate-400">6-Step Score Roadmap</div>
+                                </div>
+                            </a>
+                            <a href="mentors.html" class="mega-menu-card bg-blue-50/70 border-blue-200">
+                                <div class="w-8 h-8 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-base">👨‍🏫</div>
+                                <div>
+                                    <div class="font-bold text-xs text-blue-600">Founder & Mentors</div>
+                                    <div class="text-[10px] text-slate-500">Jewel Ahamadinezad (DUET)</div>
+                                </div>
+                            </a>
+                            <a href="success-stories.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base">⭐</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">Success Stories</div>
+                                    <div class="text-[10px] text-slate-400">Real student reviews</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Courses Mega Menu -->
+                <li class="nav-item">
+                    <a href="courses.html" class="nav-link">
+                        Courses
+                        <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <div class="mega-dropdown-box">
+                        <div class="mega-menu-grid">
+                            <a href="course-basic-advanced.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-base">📘</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">Basic To Advanced</div>
+                                    <div class="text-[10px] text-blue-600 font-bold">3–4 Months • Complete</div>
+                                </div>
+                            </a>
+                            <a href="course-crash-course.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-base">⚡</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">IELTS Crash Course</div>
+                                    <div class="text-[10px] text-rose-600 font-bold">40 Days Fast Track</div>
+                                </div>
+                            </a>
+                            <a href="course-writing-masterclass.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-base">✍️</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">Writing Masterclass</div>
+                                    <div class="text-[10px] text-purple-600 font-bold">Line-by-Line Feedback</div>
+                                </div>
+                            </a>
+                            <a href="course-speaking-intensive.html" class="mega-menu-card">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-base">🗣️</div>
+                                <div>
+                                    <div class="font-bold text-xs text-secondary">Speaking Intensive</div>
+                                    <div class="text-[10px] text-emerald-600 font-bold">Daily Partner Practice</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a href="calculator.html" class="nav-link">Score Calc</a></li>
+                <li class="nav-item"><a href="writing-evaluation.html" class="nav-link">Writing Eval</a></li>
+                <li class="nav-item"><a href="study-abroad.html" class="nav-link">Study Abroad</a></li>
+                <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Header Action Group -->
+            <div class="nav-actions-group">
+                <a href="https://wa.me/8801738474611" target="_blank" class="btn-header-outline">
+                    <svg class="w-4 h-4 text-emerald-500 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    WhatsApp
+                </a>
+                <button onclick="openCounsellingModal('Admission')" class="btn-header-crimson hidden sm:inline-flex">
+                    <svg class="w-4 h-4 text-white fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Admission Open
+                </button>
+                <button id="mobile-toggle-btn" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+                    <svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2.5"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Slide-Over Drawer Menu -->
+    <div id="mobile-drawer-overlay" class="mobile-drawer-overlay"></div>
+    <div id="mobile-drawer-card" class="mobile-drawer-card">
+        <div>
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center font-bold text-xs">🎓</div>
+                    <span class="font-extrabold text-secondary text-base">IELTS ESSENCE</span>
+                </div>
+                <button id="close-drawer-btn" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center text-lg font-bold">&times;</button>
+            </div>
+
+            <nav class="space-y-1">
+                <a href="index.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">Home</a>
+                
+                <!-- About Us Accordion Mobile -->
+                <div>
+                    <button class="mobile-accordion-toggle active" data-accordion-target="mobile-about-submenu">
+                        <span>About Us</span>
+                        <svg class="mobile-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div id="mobile-about-submenu" class="mobile-accordion-content open">
+                        <a href="about.html" class="mobile-sublink">🏛️ About Overview</a>
+                        <a href="why-us.html" class="mobile-sublink">💡 Why IELTS ESSENCE</a>
+                        <a href="method.html" class="mobile-sublink">🚀 The ESSENCE Method</a>
+                        <a href="mentors.html" class="mobile-sublink active">👨‍🏫 Founder & Mentors</a>
+                        <a href="success-stories.html" class="mobile-sublink">⭐ Success Stories</a>
+                    </div>
+                </div>
+
+                <!-- Courses Accordion Mobile -->
+                <div>
+                    <button class="mobile-accordion-toggle" data-accordion-target="mobile-courses-submenu">
+                        <span>Courses</span>
+                        <svg class="mobile-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div id="mobile-courses-submenu" class="mobile-accordion-content">
+                        <a href="courses.html" class="mobile-sublink">📚 All Courses</a>
+                        <a href="course-basic-advanced.html" class="mobile-sublink">📘 Basic To Advanced</a>
+                        <a href="course-crash-course.html" class="mobile-sublink">⚡ IELTS Crash Course</a>
+                        <a href="course-writing-masterclass.html" class="mobile-sublink">✍️ Writing Masterclass</a>
+                        <a href="course-speaking-intensive.html" class="mobile-sublink">🗣️ Speaking Intensive</a>
+                    </div>
+                </div>
+
+                <a href="calculator.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">Score Calculator</a>
+                <a href="writing-evaluation.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">Writing Evaluation</a>
+                <a href="study-abroad.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">Study Abroad</a>
+                <a href="faq.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">FAQ</a>
+                <a href="contact.html" class="block px-3.5 py-2.5 rounded-xl font-bold text-sm text-slate-700 hover:bg-rose-50 hover:text-rose-600">Contact Us</a>
+            </nav>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 space-y-2">
+                <button onclick="openCounsellingModal('Free Counselling')" class="btn-cta-amber w-full py-3 justify-center text-xs font-bold">
+                    Claim Free Diagnostic Seat
+                </button>
+                <a href="https://wa.me/8801738474611" target="_blank" class="btn-header-outline w-full py-2.5 justify-center text-xs">
+                    💬 WhatsApp: 01738-474611
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         INNER HERO SECTION
+         ========================================================================== -->
+    <section class="inner-hero-section">
+        <div class="max-w-[1320px] mx-auto px-6 text-center">
+            
+            <div class="inner-breadcrumb">
+                <a href="index.html">Home</a>
+                <svg class="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
+                <a href="about.html">About</a>
+                <svg class="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 18l6-6-6-6"/></svg>
+                <span class="text-rose-400">Founder & Faculty Mentors</span>
+            </div>
+
+            <h1 class="inner-hero-title">
+                Learn From Certified Mentors <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-rose-300 to-amber-300">
+                    Who Have Achieved Band 8.0 & 8.5
+                </span>
+            </h1>
+
+            <p class="inner-hero-subtitle">
+                আমাদের মেন্টর প্যানেলে রয়েছেন ঢাকা বিশ্ববিদ্যালয়, ডুয়েট ও আন্তর্জাতিক বিশ্ববিদ্যালয়ের সার্টিফায়েড ট্রেইনাররা, যারা প্রতিদিন আপনার লেখার মূল্যায়ন ও স্পিকিং মেন্টরিং করেন।
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <button onclick="openCounsellingModal('Faculty Demo Class')" class="btn-cta-amber">
+                    Book A Demo Class with Jewel Sir →
+                </button>
+                <a href="success-stories.html" class="btn-cta-blue">
+                    See Student Reviews ↓
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOUNDER SPOTLIGHT CARD
+         ========================================================================== -->
+    <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-[1320px] mx-auto px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 text-center">
+                    <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-rose-900/60 to-slate-800 border border-white/10 p-8 shadow-2xl">
+                        <div class="w-36 h-36 rounded-full mx-auto bg-gradient-to-tr from-rose-500 to-blue-500 p-1 mb-6 shadow-2xl">
+                            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-5xl">
+                                👨‍🏫
+                            </div>
+                        </div>
+                        <h2 class="text-3xl font-black text-white font-heading">Jewel Ahamadinezad</h2>
+                        <div class="text-rose-400 font-bold text-sm mt-1">Founder & Lead Mentor | DUET Graduate</div>
+                        
+                        <div class="inline-block px-4 py-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-full text-xs font-extrabold mt-4">
+                            Official IELTS Band 8.5 Scorer
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-black text-white font-heading">7+ Yrs</div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Experience</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-black text-rose-400 font-heading">2,500+</div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Trained</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-black text-amber-300 font-heading">8.5</div>
+                                <div class="text-[10px] text-slate-400 uppercase font-semibold">Band Score</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="feature-pill-badge bg-rose-500/20 text-rose-400 border border-rose-500/30">🎯 Mentorship Philosophy</div>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
+                        "IELTS পরীক্ষায় সফলতার জন্য প্রয়োজন সঠিক দিকনির্দেশনা ও রিয়েল প্র্যাকটিস"
+                    </h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        আমি জুয়েল আহমেদ, ঢাকা ইউনিভার্সিটি অব ইঞ্জিনিয়ারিং অ্যান্ড টেকনোলজি (DUET) থেকে পড়াশোনা সম্পন্ন করে বিগত ৭ বছর ধরে বাংলাদেশের শিক্ষার্থীদের IELTS ও স্টাডি অ্যাব্রড রোডম্যাপে সরাসরি মেন্টরিং করে আসছি।
+                    </p>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        আমার ইউটিউব ক্লাস ও অফলাইন সেশনের মাধ্যমে হাজারো শিক্ষার্থী কোনো ব্যাকগ্রাউন্ডের দুর্বলতা সত্ত্বেও প্রথমবারেই ব্যান্ড ৭.০, ৭.৫ এবং ৮.০ স্কোর অর্জন করতে পেরেছে। মুখস্থ ফরম্যাট নয়—ক্যামব্রিজ অথেনটিক লজিকই আমাদের সাফল্যের চাবিকাঠি।
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <button onclick="openCounsellingModal('Jewel Sir 1on1')" class="btn-cta-amber">
+                            Book 1-on-1 Profile Counselling →
+                        </button>
+                        <a href="https://wa.me/8801738474611" target="_blank" class="btn-header-outline text-white border-white/20 bg-white/5 hover:bg-white/10">
+                            💬 Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         EXPERT FACULTY PANELS
+         ========================================================================== -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-[1320px] mx-auto px-6">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="feature-pill-badge bg-blue-100 text-blue-700 mb-3">👨‍🎓 Specialized Faculty</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-secondary font-heading">
+                    Module-Wise Specialist Faculty Team
+                </h2>
+                <p class="text-slate-500 text-sm sm:text-base mt-3">
+                    প্রতিটি মডিউলের জন্য ডেডিকেটেড এক্সপার্ট যারা আপনার দুর্বল জায়গায় সরাসরি কাজ করেন।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 hover-elevate">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-3xl mb-4 font-bold">✍️</div>
+                    <span class="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-extrabold">Band 8.0+ Evaluators</span>
+                    <h3 class="text-xl font-extrabold text-secondary font-heading">Writing Evaluation Panel</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        প্রতিটি রচনায় TR, CC, LR, এবং GRA ধরে ভুল মার্কিং করেন এবং ব্যান্ড ৯ অল্টারনেটিভ সেন্টেন্স প্রোভাইড করে ২৪ ঘণ্টার মধ্যে ফিডব্যাক দেন।
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 hover-elevate">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-4 font-bold">🗣️</div>
+                    <span class="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-extrabold">Fluency & Accent Coaches</span>
+                    <h3 class="text-xl font-extrabold text-secondary font-heading">Speaking Masterclass Coaches</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        দৈনিক ওয়ান-অন-ওয়ান স্পিকিং সেশন পরিচালনা করেন, ভয় দূর করে ন্যাচারাল ফ্লো এবং এক্সামিনার কিউ কার্ড ট্যাকল করার মাস্টারক্লাস দেন।
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-4 hover-elevate">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-3xl mb-4 font-bold">🎯</div>
+                    <span class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-extrabold">Cambridge Strategists</span>
+                    <h3 class="text-xl font-extrabold text-secondary font-heading">Reading & Listening Experts</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        টাইম ম্যানেজমেন্ট, প্যারাফ্রেজিং ডিকোডিং এবং ট্র্যাপ অপশন এলিমিনেশন টেকনিকের মাধ্যমে রিডিং ও লিসেনিংয়ে ব্যান্ড ৮.৫+ নিশ্চিত করেন।
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: 1-ON-1 MENTOR OFFICE HOURS & PRIVATE DOUBT CLEARING
+         ========================================================================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-[1320px] mx-auto px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="feature-pill-badge bg-rose-100 text-rose-700">💬 Personalized Support</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-secondary font-heading leading-tight">
+                        Unlimited 1-on-1 Office Hours With Jewel Sir
+                    </h2>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        বড় কোচিং সেন্টারের মতো শত শত শিক্ষার্থীর ভিড়ে আপনি হারিয়ে যাবেন না। আমাদের সিস্টেমে প্রতি সপ্তাহে মেন্টরের সাথে ওয়ান-অন-ওয়ান বসার নির্ধারিত অফিস আওয়ার স্লট পাবেন।
+                    </p>
+                    
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <span class="text-emerald-500 font-bold text-base">✓</span>
+                            <div>
+                                <h4 class="font-bold text-secondary text-sm">Personalized Mistake Log Review</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">আপনার বিগত মক টেস্টের ভুলের খাতা দেখে দুর্বল অংশের জন্য স্পেশাল এক্সারসাইজ প্ল্যান।</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <span class="text-emerald-500 font-bold text-base">✓</span>
+                            <div>
+                                <h4 class="font-bold text-secondary text-sm">Direct WhatsApp Mentor Helpline</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">যেকোনো রিডিং বা রাইটিং ডাউটে তাৎক্ষণিক ভয়েস নোট ও সমাধান সহায়তা।</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                            <span class="text-emerald-500 font-bold text-base">✓</span>
+                            <div>
+                                <h4 class="font-bold text-secondary text-sm">Pre-Exam Psychological Readiness</h4>
+                                <p class="text-xs text-slate-500 mt-0.5">পরীক্ষার ৭ দিন আগে এক্সাম ডে স্ট্র্যাটেজি ও স্ট্রেস ম্যানেজমেন্ট সেশন।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-slate-900 rounded-3xl p-8 text-white border border-slate-800 space-y-6 shadow-2xl relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-rose-600 flex items-center justify-center font-bold">JA</div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Office Hour Booking</h4>
+                                    <div class="text-[11px] text-emerald-400 font-bold">● Active For Enrolled Students</div>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 bg-white/10 text-amber-300 text-xs font-bold rounded-full">Free With Course</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                                <span>📅 Slot 1: Tuesday (4:00 PM – 6:00 PM)</span>
+                                <span class="text-rose-400 font-bold">Writing Focus</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                                <span>📅 Slot 2: Thursday (4:00 PM – 6:00 PM)</span>
+                                <span class="text-blue-400 font-bold">Speaking Focus</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+                                <span>📅 Slot 3: Saturday (7:00 PM – 9:00 PM)</span>
+                                <span class="text-emerald-400 font-bold">Mock Analysis</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 text-center">
+                            <button onclick="openCounsellingModal('Office Hour Consultation')" class="btn-cta-amber w-full py-3.5 justify-center text-xs">
+                                Book A Free Trial Mentorship Slot →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: MENTOR'S RESEARCH & PUBLISHED STRATEGY MATERIALS
+         ========================================================================== -->
+    <section class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-[1320px] mx-auto px-6 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-extrabold uppercase tracking-wider border border-emerald-500/30">
+                    <span>📚 Exclusive Curriculum</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading">
+                    Proprietary Study Materials Prepared By Our Faculty
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    আমাদের মেন্টরদের নিজস্ব গবেষণায় প্রস্তুতকৃত এক্সক্লুসিভ রিসোর্স যা শুধু আমাদের শিক্ষার্থীদের বিনামূল্যে সরবরাহ করা হয়।
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="p-8 rounded-3xl bg-slate-800 border border-slate-700 space-y-4 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl font-bold">📕</div>
+                    <h3 class="text-lg font-bold text-white font-heading">Band 9 Writing Model Vault</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        বিগত ১০ বছরের রিয়েল পরীক্ষার ১৫০+ টাস্ক ১ ও টাস্ক ২ এর ফুল ব্যান্ড ৯ স্যাম্পল রচনা ও এক্সামিনার কমেন্টারি।
+                    </p>
+                    <span class="inline-block px-3 py-1 bg-white/10 text-emerald-400 font-bold text-[11px] rounded-lg">Included Free In Course</span>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-800 border border-slate-700 space-y-4 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl font-bold">📘</div>
+                    <h3 class="text-lg font-bold text-white font-heading">500 Academic Collocations Bible</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        সাধারণ শব্দ পরিহার করে কীভাবে রাইটিং ও স্পিকিংয়ে ন্যাচারাল ফ্রেজ ও কলকেশন ব্যবহার করবেন তার কমপ্লিট ডিকশনারি।
+                    </p>
+                    <span class="inline-block px-3 py-1 bg-white/10 text-emerald-400 font-bold text-[11px] rounded-lg">Included Free In Course</span>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-800 border border-slate-700 space-y-4 hover:border-emerald-500/40 transition-all">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl font-bold">📗</div>
+                    <h3 class="text-lg font-bold text-white font-heading">Speaking Cue Card Master Formula</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        যেকোনো আনকমন টপিক আসলেও ৩টি ইউনিভার্সাল স্টোরিলাইন দিয়ে ২ মিনিট ফ্লুয়েন্টলি কথা বলার প্রমাণিত কৌশল।
+                    </p>
+                    <span class="inline-block px-3 py-1 bg-white/10 text-emerald-400 font-bold text-[11px] rounded-lg">Included Free In Course</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         CALL TO ACTION BANNER
+         ========================================================================== -->
+    <section class="cta-banner-wrapper">
+        <div class="max-w-[1320px] mx-auto px-6 text-center space-y-6">
+            <span class="px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider border border-white/20">
+                Meet The Lead Mentor
+            </span>
+            <h2 class="cta-banner-headline">
+                Have Questions About Your IELTS Preparation?
+            </h2>
+            <p class="text-blue-100 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
+                জুয়েল স্যারের সাথে সরাসরি কথা বলে আপনার বর্তমান লেভেলের সঠিক মূল্যায়ন নিন।
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                <button onclick="openCounsellingModal('Mentor Direct Connect')" class="btn-cta-amber">
+                    Connect With Jewel Sir on WhatsApp →
+                </button>
+                <a href="courses.html" class="btn-cta-blue">
+                    View Course Catalog →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+        <div class="max-w-[1320px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold">🎓</div>
+                        <span class="text-white font-extrabold text-xl">IELTS ESSENCE</span>
+                    </div>
+                    <div class="text-xs text-rose-400 font-bold uppercase tracking-wider">Dream • Define • Dominate</div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Premium IELTS Preparation & Study Abroad Pathway Platform in Bangladesh.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-extrabold text-sm uppercase tracking-wider mb-4">About Links</h4>
+                    <ul class="space-y-2 text-xs font-semibold">
+                        <li><a href="about.html" class="hover:text-rose-400 transition-colors">About Overview</a></li>
+                        <li><a href="why-us.html" class="hover:text-rose-400 transition-colors">Why IELTS ESSENCE</a></li>
+                        <li><a href="method.html" class="hover:text-rose-400 transition-colors">The ESSENCE Method</a></li>
+                        <li><a href="mentors.html" class="text-rose-400 font-bold">Founder & Mentors</a></li>
+                        <li><a href="success-stories.html" class="hover:text-rose-400 transition-colors">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-extrabold text-sm uppercase tracking-wider mb-4">Direct Contact</h4>
+                    <ul class="space-y-3 text-xs">
+                        <li class="flex items-center gap-2">
+                            <span>💬</span>
+                            <span class="text-white font-bold">WhatsApp: 01738-474611</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span>📍</span>
+                            <span>Cha-75/C, SM Bhaban, Badda, Dhaka (Hossain Market Adjacent)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-white font-extrabold text-sm uppercase tracking-wider">Admission Status</h4>
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                        <div class="flex items-center gap-2 text-xs text-emerald-400 font-bold">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Next Batch Admissions Open
+                        </div>
+                        <p class="text-[11px] text-slate-400 leading-relaxed">
+                            Limited seats (15-20 students/batch). Book your diagnostic test & counselling slot now.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+                © 2026 IELTS ESSENCE. All Rights Reserved. Built with excellence for ambitious Bangladeshi students.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Counselling Modal -->
+    <div id="admission-modal" class="modal-wrapper">
+        <div class="modal-body-card">
+            <button class="btn-close-modal">&times;</button>
+            <div class="text-center mb-6">
+                <span class="px-3 py-1 bg-rose-50 text-rose-600 text-xs font-bold rounded-full uppercase">Instant WhatsApp Connect</span>
+                <h3 id="modal-title-heading" class="text-2xl font-extrabold text-secondary mt-2">Get Free IELTS Counselling</h3>
+                <p class="text-xs text-slate-500 mt-1">Fill in your details to connect with our lead mentor on WhatsApp.</p>
+            </div>
+            <form id="admission-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-secondary uppercase mb-1">Your Full Name</label>
+                    <input type="text" id="student-name" placeholder="John Doe" class="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" required />
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-secondary uppercase mb-1">Phone Number (WhatsApp)</label>
+                    <input type="tel" id="student-phone" placeholder="01738474611" class="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" required />
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-secondary uppercase mb-1">Target Band Score</label>
+                    <select id="student-target" class="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600">
+                        <option value="Band 7.0">Band 7.0</option>
+                        <option value="Band 7.5">Band 7.5</option>
+                        <option value="Band 8.0+">Band 8.0+</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-secondary uppercase mb-1">Interested Course</label>
+                    <select id="student-course" class="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600">
+                        <option value="Free Counselling">Free 1-on-1 Counselling</option>
+                        <option value="IELTS Basic To Advanced">IELTS Basic To Advanced (3-4 Months)</option>
+                        <option value="IELTS Crash Course">IELTS Crash Course (40 Days)</option>
+                        <option value="Writing Masterclass">Writing Masterclass (1 Month)</option>
+                        <option value="Speaking Intensive">Speaking Intensive (1 Month)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-cta-amber w-full py-4 text-base font-extrabold mt-2 justify-center">
+                    Send WhatsApp Request →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Application Script Engine -->
+    <script src="js/script.js"></script>
+</body>
+</html>
