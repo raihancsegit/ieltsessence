@@ -94,7 +94,7 @@ export default function HomePage() {
     },
     {
       q: "5. Do you offer online classes?",
-      a: "Yes, we offer live interactive online classes with HD recording access as well as physical offline classes at our SM Bhaban, Badda campus."
+      a: "Yes, we offer live interactive online classes with HD recording access as well as physical offline classes at our 41 Lane, Badda, Dhaka 6000 campus."
     },
     {
       q: "6. Do you provide Mock Tests?",

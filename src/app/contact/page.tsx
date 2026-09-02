@@ -50,7 +50,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="inner-hero-subtitle">
-            আমাদের বাড্ডা ও ধানমন্ডি ক্যাম্পাসে সরাসরি এসে ফ্রি ডায়াগনস্টিক টেস্ট দিন অথবা হোয়াটসঅ্যাপে অনলাইনে কথা বলুন।
+            আমাদের বাড্ডা হেড অফিসে সরাসরি এসে ফ্রি ডায়াগনস্টিক টেস্ট দিন অথবা হোয়াটসঅ্যাপে অনলাইনে কথা বলুন।
           </p>
         </div>
       </section>
@@ -72,10 +72,9 @@ export default function ContactPage() {
                     📍
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-sm font-heading">Main Campus & Head Office</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                      Cha-75/C, SM Bhaban, Badda, Dhaka-1212<br />
-                      (Hossain Market Adjacent / Near Pragati Sarani)
+                    <h4 className="font-bold text-slate-900 text-sm font-heading">Head Office & Main Campus</h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed font-medium">
+                      41 Lane, Badda, Dhaka 6000, Bangladesh
                     </p>
                   </div>
                 </div>
@@ -88,14 +87,27 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm font-heading">Call & WhatsApp Helpline</h4>
                     <p className="text-xs text-slate-500 mt-1">
-                      <strong className="text-slate-900 text-sm font-heading">01738-474611</strong> (24/7 Response)
+                      <strong className="text-slate-900 text-sm font-heading">+880 1738-474611</strong> (24/7 Response)
                     </p>
                   </div>
                 </div>
 
-                {/* Item 3: Hours */}
+                {/* Item 3: Email */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg flex-shrink-0">
+                    ✉️
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900 text-sm font-heading">Official Email</h4>
+                    <p className="text-xs text-slate-600 mt-1">
+                      <a href="mailto:ieltsessencehr@gmail.com" className="text-rose-600 font-bold hover:underline">ieltsessencehr@gmail.com</a>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Item 4: Hours */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg flex-shrink-0">
                     ⏰
                   </div>
                   <div>
@@ -103,19 +115,6 @@ export default function ContactPage() {
                     <p className="text-xs text-slate-500 mt-1 leading-relaxed">
                       শনিবার — বৃহস্পতিবার: সকাল ১০:০০ টা — রাত ৮:০০ টা<br />
                       (শুক্রবার নামাজের পর বিকাল ৩:০০ টা — রাত ৮:০০ টা)
-                    </p>
-                  </div>
-                </div>
-
-                {/* Item 4: Online Zoom */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg flex-shrink-0">
-                    💻
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm font-heading">Online Virtual Campus</h4>
-                    <p className="text-xs text-slate-500 mt-1">
-                      সারা বাংলাদেশ ও প্রবাসীদের জন্য জুম লাইভ ক্লাসরুম।
                     </p>
                   </div>
                 </div>
@@ -347,28 +346,28 @@ export default function ContactPage() {
               <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">🎓</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Admission & Batch Info</h4>
               <p className="text-xs text-slate-500">নতুন ব্যাচের সময়সূচী ও সিট বুকিং</p>
-              <div className="text-xs font-bold text-rose-600 pt-1 font-heading">01738-474611 (Ext. 1)</div>
+              <div className="text-xs font-bold text-rose-600 pt-1 font-heading">+880 1738-474611</div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">✈️</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Study Abroad & Visa</h4>
               <p className="text-xs text-slate-500">ইউনিভার্সিটি শর্টলিস্ট ও এসওপি রিভিউ</p>
-              <div className="text-xs font-bold text-blue-600 pt-1 font-heading">01738-474611 (Ext. 2)</div>
+              <div className="text-xs font-bold text-blue-600 pt-1 font-heading">+880 1738-474611</div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">✍️</div>
-              <h4 className="font-bold text-slate-900 text-sm font-heading">Writing Evaluation Desk</h4>
+              <h4 className="font-bold text-slate-900 text-sm font-heading">Writing & Support Desk</h4>
               <p className="text-xs text-slate-500">রচনা জমা ও লাল কালি কারেকশন ফিডব্যাক</p>
-              <div className="text-xs font-bold text-purple-600 pt-1 font-heading">writing@ieltsessence.com</div>
+              <div className="text-xs font-bold text-purple-600 pt-1 font-heading">ieltsessencehr@gmail.com</div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">👨‍🏫</div>
-              <h4 className="font-bold text-slate-900 text-sm font-heading">Founder's Direct Office</h4>
-              <p className="text-xs text-slate-500">জুয়েল স্যারের সাথে সরাসরি এপয়েন্টমেন্ট</p>
-              <div className="text-xs font-bold text-emerald-600 pt-1 font-heading">mentor@ieltsessence.com</div>
+              <h4 className="font-bold text-slate-900 text-sm font-heading">Mentor Direct Contact</h4>
+              <p className="text-xs text-slate-500">জুয়েল স্যারের সাথে সরাসরি যোগাযোগ</p>
+              <div className="text-xs font-bold text-emerald-600 pt-1 font-heading">ieltsessencehr@gmail.com</div>
             </div>
           </div>
         </div>

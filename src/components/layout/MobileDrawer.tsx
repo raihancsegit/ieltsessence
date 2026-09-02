@@ -238,9 +238,9 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <span>Helpline: +880 1738-474611</span>
           </a>
 
-          <div className="flex items-center justify-center gap-1 text-[11px] text-slate-400 font-medium text-center">
-            <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
-            <span>SM Bhaban, Badda, Dhaka</span>
+          <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 font-medium text-center">
+            <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+            <span>41 Lane, Badda, Dhaka 6000, Bangladesh</span>
           </div>
         </div>
       </div>

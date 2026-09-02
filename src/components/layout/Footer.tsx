@@ -124,11 +124,11 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                <span className="text-slate-300">support@ieltsessence.com</span>
+                <a href="mailto:ieltsessencehr@gmail.com" className="text-slate-300 hover:text-white transition-colors">ieltsessencehr@gmail.com</a>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                <span className="text-slate-300">Dhanmondi, Uttara & Mirpur, Dhaka</span>
+                <span className="text-slate-300">41 Lane, Badda, Dhaka 6000, Bangladesh</span>
               </div>
               <div className="pt-2">
                 <button

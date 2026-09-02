@@ -151,10 +151,8 @@ export default function CounsellingModal() {
                     onChange={(e) => setMode(e.target.value)}
                     className="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 outline-none text-xs text-slate-800 font-semibold bg-white cursor-pointer"
                   >
-                    <option value="Online Zoom Live">Online Zoom Live</option>
-                    <option value="Offline Dhanmondi">Offline Dhanmondi</option>
-                    <option value="Offline Uttara">Offline Uttara</option>
-                    <option value="Offline Mirpur">Offline Mirpur</option>
+                    <option value="Online Zoom Live">Online (Zoom Live)</option>
+                    <option value="Offline Badda Campus">Offline (Badda Campus)</option>
                   </select>
                 </div>
               </div>
