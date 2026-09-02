@@ -413,12 +413,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive Navigation Breakpoints */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .nav-links {
         display: none !important;
     }
     .mobile-toggle-btn {
         display: flex !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-container {
+        padding: 8px 14px;
+    }
+    .logo-badge {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+    }
+    .logo-title {
+        font-size: 16px;
+        letter-spacing: -0.3px;
+    }
+    .logo-subtitle {
+        font-size: 7.5px;
+        letter-spacing: 0.6px;
+    }
+    .hero-wrapper {
+        padding: 35px 0 45px 0;
     }
 }
 

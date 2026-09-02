@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useModal } from "@/context/ModalContext";
-import { X, ChevronDown, GraduationCap, Phone, MessageSquare, ArrowRight } from "lucide-react";
+import { 
+  X, ChevronDown, GraduationCap, Phone, MessageSquare, ArrowRight, 
+  Sparkles, BookOpen, Clock, PenTool, Mic, Award, HelpCircle, Mail, MapPin
+} from "lucide-react";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -19,34 +22,67 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
   if (!isOpen) return null;
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => {
+    if (path === "/" && pathname === "/") return true;
+    if (path !== "/" && pathname.startsWith(path)) return true;
+    return false;
+  };
 
   return (
     <>
+      {/* Backdrop */}
       <div 
-        className="fixed inset-0 z-[2000] bg-slate-950/60 backdrop-blur-sm transition-opacity animate-fadeIn"
+        className="fixed inset-0 z-[2000] bg-slate-950/70 backdrop-blur-md transition-opacity animate-fadeIn"
         onClick={onClose}
       />
+
+      {/* Drawer Card */}
       <div 
-        className="fixed inset-y-0 right-0 z-[2001] w-[85%] max-w-sm bg-white shadow-2xl p-6 overflow-y-auto flex flex-col justify-between animate-slideLeft"
+        className="fixed inset-y-0 right-0 z-[2001] w-[88%] max-w-sm bg-white shadow-2xl p-5 sm:p-6 overflow-y-auto flex flex-col justify-between animate-slideLeft"
       >
         <div>
           {/* Header */}
           <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-rose-600 to-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-md">
-                <GraduationCap className="w-4 h-4" />
+            <Link href="/" onClick={onClose} className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-600 to-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-rose-200">
+                <GraduationCap className="w-5 h-5" />
               </div>
               <div>
                 <div className="font-extrabold text-slate-900 text-sm tracking-tight font-heading">IELTS ESSENCE</div>
                 <div className="text-[9px] font-bold text-rose-600 tracking-wider">Dream • Define • Dominate</div>
               </div>
-            </div>
+            </Link>
+            
             <button 
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold transition-all cursor-pointer"
+              className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold transition-all cursor-pointer"
+              aria-label="Close menu"
             >
               <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* Quick CTAs in Drawer Header */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <a
+              href="https://wa.me/8801738474611"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-emerald-100 transition-all shadow-sm"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <span>WhatsApp</span>
+            </a>
+
+            <button
+              onClick={() => {
+                onClose();
+                openModal("Mobile Drawer Top CTA");
+              }}
+              className="py-2 px-3 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 shadow-sm shadow-rose-200 cursor-pointer"
+            >
+              <GraduationCap className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>Admission</span>
             </button>
           </div>
 
@@ -55,26 +91,34 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <Link 
               href="/"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
-                isActive("/") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
+                isActive("/") && pathname === "/" ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              Home
+              <span>🏠</span>
+              <span>Home</span>
             </Link>
 
             {/* About Submenu Accordion */}
             <div>
               <button 
                 onClick={() => setAboutOpen(!aboutOpen)}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-all text-left cursor-pointer"
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-all text-left cursor-pointer ${
+                  ["/about", "/why-us", "/method", "/mentors", "/success-stories"].some(p => pathname.startsWith(p))
+                    ? "text-rose-600 font-bold"
+                    : ""
+                }`}
               >
-                <span>About Us</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${aboutOpen ? "rotate-180 text-rose-600" : "text-slate-400"}`} />
+                <div className="flex items-center gap-2">
+                  <span>🏛️</span>
+                  <span>About Us</span>
+                </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${aboutOpen ? "rotate-180 text-rose-600" : "text-slate-400"}`} />
               </button>
               {aboutOpen && (
-                <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/70 rounded-xl my-1 border border-slate-100">
+                <div className="pl-4 pr-2 py-1.5 space-y-1 bg-slate-50/80 rounded-xl my-1 border border-slate-100 animate-fadeIn">
                   <Link href="/about" onClick={onClose} className="block px-3 py-2 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    🏛️ About Overview
+                    📌 About Overview
                   </Link>
                   <Link href="/why-us" onClick={onClose} className="block px-3 py-2 text-xs font-medium text-slate-600 hover:text-rose-600">
                     💡 Why IELTS ESSENCE
@@ -96,21 +140,26 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <div>
               <button 
                 onClick={() => setCoursesOpen(!coursesOpen)}
-                className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-all text-left cursor-pointer"
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-50 transition-all text-left cursor-pointer ${
+                  pathname.startsWith("/courses") || pathname.startsWith("/course-") ? "text-rose-600 font-bold" : ""
+                }`}
               >
-                <span>Courses</span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${coursesOpen ? "rotate-180 text-rose-600" : "text-slate-400"}`} />
+                <div className="flex items-center gap-2">
+                  <span>📚</span>
+                  <span>All Courses</span>
+                </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${coursesOpen ? "rotate-180 text-rose-600" : "text-slate-400"}`} />
               </button>
               {coursesOpen && (
-                <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50/70 rounded-xl my-1 border border-slate-100">
+                <div className="pl-4 pr-2 py-1.5 space-y-1 bg-slate-50/80 rounded-xl my-1 border border-slate-100 animate-fadeIn">
                   <Link href="/courses" onClick={onClose} className="block px-3 py-2 text-xs font-bold text-rose-600 hover:underline">
-                    📚 View All Courses
+                    🔍 View Course Catalog
                   </Link>
                   <Link href="/course-basic-advanced" onClick={onClose} className="block px-3 py-2 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    📘 Basic To Advanced (3.5M)
+                    📘 Basic To Advanced (3.5 Months)
                   </Link>
                   <Link href="/course-crash-course" onClick={onClose} className="block px-3 py-2 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    ⚡ 40-Day Crash Course
+                    ⚡ 40-Day IELTS Crash Course
                   </Link>
                   <Link href="/course-writing-masterclass" onClick={onClose} className="block px-3 py-2 text-xs font-medium text-slate-600 hover:text-rose-600">
                     ✍️ Writing 7.5+ Masterclass
@@ -125,77 +174,74 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             <Link 
               href="/calculator"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
                 isActive("/calculator") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              Score Calculator
+              <span>🧮</span>
+              <span>Score Calculator</span>
             </Link>
 
             <Link 
               href="/writing-evaluation"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
                 isActive("/writing-evaluation") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              Writing Evaluation
+              <span>📝</span>
+              <span>Writing Evaluation</span>
             </Link>
 
             <Link 
               href="/study-abroad"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
                 isActive("/study-abroad") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              Study Abroad
+              <span>🌍</span>
+              <span>Study Abroad</span>
             </Link>
 
             <Link 
               href="/faq"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
                 isActive("/faq") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              FAQ
+              <span>❓</span>
+              <span>FAQ</span>
             </Link>
 
             <Link 
               href="/contact"
               onClick={onClose}
-              className={`block px-3.5 py-2.5 rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl transition-all ${
                 isActive("/contact") ? "bg-rose-50 text-rose-600 font-bold" : "hover:bg-slate-50 hover:text-rose-600"
               }`}
             >
-              Contact
+              <span>📞</span>
+              <span>Contact & Campus</span>
             </Link>
           </nav>
         </div>
 
-        {/* Footer Actions in Drawer */}
-        <div className="pt-6 border-t border-slate-100 space-y-3">
+        {/* Footer Actions & Contact in Drawer */}
+        <div className="pt-4 border-t border-slate-100 space-y-3 mt-4">
           <a
-            href="https://wa.me/8801738474611"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-2.5 px-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-100 transition-all"
+            href="tel:+8801738474611"
+            className="w-full py-2 px-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center gap-2 hover:bg-slate-100 transition-all"
           >
-            <MessageSquare className="w-4 h-4 text-emerald-600" />
-            WhatsApp Direct Chat
+            <Phone className="w-3.5 h-3.5 text-rose-600" />
+            <span>Helpline: +880 1738-474611</span>
           </a>
 
-          <button
-            onClick={() => {
-              onClose();
-              openModal("Mobile Drawer Admission CTA");
-            }}
-            className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-rose-200 transition-all cursor-pointer"
-          >
-            <span>Admission Open</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="flex items-center justify-center gap-1 text-[11px] text-slate-400 font-medium text-center">
+            <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+            <span>SM Bhaban, Badda, Dhaka</span>
+          </div>
         </div>
       </div>
     </>
