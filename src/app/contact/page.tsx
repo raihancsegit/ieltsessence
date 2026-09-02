@@ -225,53 +225,88 @@ export default function ContactPage() {
           </div>
 
           {/* INTERACTIVE CAMPUS MAP & DIRECTIONS CARD */}
-          <div className="mt-16 bg-white rounded-3xl p-8 border border-slate-200 shadow-xl hover-elevate">
+          <div className="mt-16 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl hover-elevate">
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-100 pb-4">
               <div>
-                <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-1">🗺️ Campus Directions</div>
-                <h3 className="text-2xl font-black text-slate-900 font-heading">Visit Our Main Campus In Person</h3>
+                <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-1">🗺️ Campus Directions & Location</div>
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading">Visit Our Main Campus In Person</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                  📍 41 Lane, Badda, Dhaka 6000, Bangladesh
+                </p>
               </div>
               <a 
-                href="https://maps.google.com/?q=Badda+Dhaka+Bangladesh" 
+                href="https://maps.google.com/?q=41+Lane+Badda+Dhaka+6000+Bangladesh" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="btn-cta-blue text-xs py-2 px-5 font-bold"
+                className="btn-cta-blue text-xs sm:text-sm py-2.5 px-6 font-bold shadow-md cursor-pointer"
               >
                 Open in Google Maps App ↗
               </a>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 rounded-2xl overflow-hidden border border-slate-200 shadow-inner h-[320px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              {/* Google Map Embedded Frame */}
+              <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 shadow-inner min-h-[380px] sm:min-h-[420px] bg-slate-100">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14605.006935741695!2d90.41785564887352!3d23.774046187766518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.5!3m3!1m2!1s0x3755c79893d56ef1%3A0x9d4948a32bb58448!2sBadda%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1716500000000!5m2!1sen!2sbd" 
+                  src="https://maps.google.com/maps?q=41+Lane,+Badda,+Dhaka+6000,+Bangladesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={false} 
+                  className="w-full h-full min-h-[380px] sm:min-h-[420px] border-0"
+                  allowFullScreen={true} 
                   loading="lazy" 
                   referrerPolicy="no-referrer-when-downgrade"
+                  title="IELTS Essence Location Map"
                 />
               </div>
 
-              <div className="lg:col-span-4 space-y-4 text-xs text-slate-600">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-                  <strong className="text-slate-900 font-bold flex items-center gap-1.5 text-sm font-heading">
-                    <span>🚌</span> How to reach by Bus / Metro:
+              {/* Address & Direction Guides */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-4 text-xs text-slate-600">
+                <div className="p-4 sm:p-5 rounded-2xl bg-rose-50/70 border border-rose-100 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🏢</span>
+                    <strong className="text-slate-900 font-extrabold text-sm sm:text-base font-heading">
+                      IELTS ESSENCE Head Office
+                    </strong>
+                  </div>
+                  <p className="text-slate-700 font-semibold text-xs sm:text-sm leading-relaxed">
+                    41 Lane, Badda, Dhaka 6000, Bangladesh
+                  </p>
+                  <div className="pt-1 flex flex-wrap gap-2 text-xs">
+                    <span className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold">
+                      📞 +880 1738-474611
+                    </span>
+                    <span className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold">
+                      ✉️ ieltsessencehr@gmail.com
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                  <strong className="text-slate-900 font-bold flex items-center gap-1.5 text-xs sm:text-sm font-heading">
+                    <span>🚌</span> How to reach by Bus / Metro / Rickshaw:
                   </strong>
-                  <p className="leading-relaxed">
-                    প্রগতি সরণি হয়ে যেকোনো বাসে (অনাবিল, রাইদা, তুরাগ, ভিক্টর) হোসেন মার্কেট স্টপেজে নামলেই হাতের কাছে এসএম ভবন।
+                  <p className="leading-relaxed text-slate-600 text-[11px] sm:text-xs">
+                    প্রগতি সরণি হয়ে বাড্ডা লিংক রোড বা হোসেন মার্কেট স্টপেজে নেমে ৪১ নং লেনে চলে আসলেই আমাদের ক্যাম্পাস দেখতে পাবেন।
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1">
-                  <strong className="text-slate-900 font-bold flex items-center gap-1.5 text-sm font-heading">
-                    <span>🚗</span> Parking & Accessibility:
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
+                  <strong className="text-slate-900 font-bold flex items-center gap-1.5 text-xs sm:text-sm font-heading">
+                    <span>🚗</span> Parking & Lift Accessibility:
                   </strong>
-                  <p className="leading-relaxed">
-                    ভবনের সামনে পর্যাপ্ত পার্কিং সুবিধা এবং লিফট সুবিধা বিদ্যমান।
+                  <p className="leading-relaxed text-slate-600 text-[11px] sm:text-xs">
+                    ক্যাম্পাসের সামনে নিরাপদ পার্কিং সুবিধা ও সরাসরি লিফট অ্যাক্সেস রয়েছে।
                   </p>
                 </div>
+
+                <a
+                  href="https://wa.me/8801738474611?text=Hi%20IELTS%20ESSENCE%2C%20I%20am%20coming%20to%20visit%20your%20Badda%20Campus!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md"
+                >
+                  <span>💬 WhatsApp for Live Location Directions</span>
+                </a>
               </div>
             </div>
           </div>
