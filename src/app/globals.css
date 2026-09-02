@@ -417,6 +417,10 @@ h1, h2, h3, h4, h5, h6 {
     .nav-links {
         display: none !important;
     }
+    .btn-header-outline, 
+    .btn-header-crimson {
+        display: none !important;
+    }
     .mobile-toggle-btn {
         display: flex !important;
     }

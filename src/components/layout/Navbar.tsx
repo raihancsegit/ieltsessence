@@ -215,7 +215,7 @@ export default function Navbar() {
               href="https://wa.me/8801738474611"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-header-outline hidden lg:inline-flex"
+              className="btn-header-outline"
             >
               <MessageSquare className="w-4 h-4 text-emerald-500" />
               <span>WhatsApp</span>
@@ -223,7 +223,7 @@ export default function Navbar() {
 
             <button
               onClick={() => openModal("Admission Open - Header CTA")}
-              className="btn-header-crimson hidden lg:inline-flex cursor-pointer"
+              className="btn-header-crimson cursor-pointer"
             >
               <GraduationCap className="w-4 h-4 text-white" />
               <span>Admission Open</span>
@@ -232,7 +232,7 @@ export default function Navbar() {
             {/* Mobile Hamburger Menu Toggle Button */}
             <button
               onClick={() => setIsMobileDrawerOpen(true)}
-              className="mobile-toggle-btn cursor-pointer flex lg:hidden items-center justify-center shrink-0 w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 transition-all shadow-sm"
+              className="mobile-toggle-btn cursor-pointer"
               aria-label="Open Navigation Menu"
             >
               <Menu className="w-5 h-5 text-slate-800" />
