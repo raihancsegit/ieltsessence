@@ -141,6 +141,45 @@ export default function ContactPage() {
                   Chat on WhatsApp Now →
                 </a>
               </div>
+
+              {/* Official Social Channels (Facebook & YouTube) */}
+              <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">Official Media Channels</div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61565824504813"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-2xl bg-blue-50/70 border border-blue-200/80 hover:bg-blue-100/70 transition-all group flex items-center gap-3"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="font-bold text-xs text-blue-900 group-hover:text-blue-700 truncate">Facebook Page</div>
+                      <div className="text-[10px] text-blue-600 truncate">Follow Updates ↗</div>
+                    </div>
+                  </a>
+
+                  {/* YouTube */}
+                  <a
+                    href="https://www.youtube.com/@IELTSEssence/videos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 rounded-2xl bg-red-50/70 border border-red-200/80 hover:bg-red-100/70 transition-all group flex items-center gap-3"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="font-bold text-xs text-red-900 group-hover:text-red-700 truncate">YouTube Channel</div>
+                      <div className="text-[10px] text-red-600 truncate">@IELTSEssence ↗</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Right Interactive Contact Form */}

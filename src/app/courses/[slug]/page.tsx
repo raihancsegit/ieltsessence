@@ -125,41 +125,43 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
       </section>
 
       {/* Syllabus Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="Curriculum Breakdown"
-          title="কোর্সের বিস্তারিত সিলেবাস ও মডিউলসমূহ"
-          subtitle="প্রতিটি ক্লাসের সুনির্দিষ্ট টপিক এবং ব্যবহারিক প্র্যাকটিস ফ্রেমওয়ার্ক।"
-        />
+      {course.syllabus && course.syllabus.length > 0 && (
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Curriculum Breakdown"
+            title="কোর্সের বিস্তারিত সিলেবাস ও মডিউলসমূহ"
+            subtitle="প্রতিটি ক্লাসের সুনির্দিষ্ট টপিক এবং ব্যবহারিক প্র্যাকটিস ফ্রেমওয়ার্ক।"
+          />
 
-        <div className="space-y-6 pt-4">
-          {course.syllabus.map((mod, idx) => (
-            <div key={idx} className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <span className="px-3 py-1 rounded-full bg-rose-50 text-rose-600 font-bold text-xs border border-rose-200">
-                  {mod.week}
-                </span>
-                <span className="text-xs font-bold text-slate-400 font-heading">
-                  Module {idx + 1}
-                </span>
+          <div className="space-y-6 pt-4">
+            {course.syllabus.map((mod, idx) => (
+              <div key={idx} className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                  <span className="px-3 py-1 rounded-full bg-rose-50 text-rose-600 font-bold text-xs border border-rose-200">
+                    {mod.week}
+                  </span>
+                  <span className="text-xs font-bold text-slate-400 font-heading">
+                    Module {idx + 1}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-extrabold text-slate-900 font-heading">
+                  {mod.title}
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  {mod.topics.map((topic, tIdx) => (
+                    <div key={tIdx} className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{topic}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <h3 className="text-lg font-extrabold text-slate-900 font-heading">
-                {mod.title}
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                {mod.topics.map((topic, tIdx) => (
-                  <div key={tIdx} className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                    <span>{topic}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Course Highlights & Features */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

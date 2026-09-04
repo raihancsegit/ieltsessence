@@ -18,13 +18,30 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-600 to-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-lg shadow-rose-900/30">
-                <GraduationCap className="w-5 h-5" />
+            <Link href="/" className="inline-flex items-center gap-2.5" aria-label="IELTS ESSENCE Home">
+              <div className="w-10 h-11 flex items-center justify-center shrink-0">
+                <img 
+                  src="/images/emblem-transparent.png" 
+                  alt="IELTS ESSENCE Emblem" 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div>
-                <div className="font-extrabold text-white text-xl tracking-tight font-heading">IELTS ESSENCE</div>
-                <div className="text-[10px] font-bold text-rose-500 tracking-widest uppercase">Dream • Define • Dominate</div>
+              <div className="flex flex-col justify-center select-none">
+                <div className="flex items-center gap-1.5 leading-none">
+                  <span className="font-black text-white text-[19px] tracking-tight font-heading">
+                    I<span className="relative inline-block text-white">E<span className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[2px] bg-rose-500"></span></span>LTS
+                  </span>
+                  <span className="font-black text-white text-[17px] tracking-wider font-heading">
+                    ESSENCE
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 mt-1 text-[8px] font-black text-rose-400 tracking-[0.16em] uppercase">
+                  <span>DREAM</span>
+                  <span className="w-1 h-1 rounded-full bg-rose-500 inline-block shrink-0"></span>
+                  <span>DEFINE</span>
+                  <span className="w-1 h-1 rounded-full bg-rose-500 inline-block shrink-0"></span>
+                  <span>DOMINATE</span>
+                </div>
               </div>
             </Link>
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -37,24 +54,27 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center transition-all"
                 aria-label="WhatsApp"
+                title="Chat on WhatsApp (+880 1738-474611)"
               >
                 <MessageSquare className="w-4 h-4" />
               </a>
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/profile.php?id=61565824504813" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 flex items-center justify-center transition-all"
-                aria-label="Facebook"
+                aria-label="Facebook Page"
+                title="Official Facebook Page"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://www.youtube.com/@IELTSEssence/videos" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center transition-all"
-                aria-label="YouTube"
+                aria-label="YouTube Channel"
+                title="Official YouTube Channel (@IELTSEssence)"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useModal } from "@/context/ModalContext";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageSquare, GraduationCap, Phone } from "lucide-react";
 
 export default function AnnouncementBar() {
   const { openModal } = useModal();
@@ -30,27 +30,46 @@ export default function AnnouncementBar() {
   const format2 = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <div className="announcement-bar px-3 py-2 text-xs text-center flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
-      <div className="flex items-center gap-2">
-        <span className="live-pulse-dot shrink-0"></span>
-        <span className="text-xs font-bold text-white font-heading">
-          🔥 Next Batch Admission Open
-        </span>
+    <div className="bg-slate-950 text-white border-b border-slate-800/80 py-1.5 px-4 sm:px-6 relative z-50">
+      <div className="max-w-[1536px] mx-auto flex items-center justify-between gap-3 text-xs flex-wrap sm:flex-nowrap">
+        
+        {/* Left: Next Batch & Timer */}
+        <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping inline-block shrink-0"></span>
+            <span className="font-extrabold text-white font-heading text-[12px] sm:text-[13px] tracking-tight">
+              🔥 Next Batch Admissions Open
+            </span>
+          </div>
+          <span className="bg-slate-900 border border-slate-700/80 text-amber-300 text-[11px] py-0.5 px-2.5 rounded-full font-mono font-bold shadow-xs">
+            Starts in: {format2(timeLeft.days)}d : {format2(timeLeft.hours)}h : {format2(timeLeft.minutes)}m : {format2(timeLeft.seconds)}s
+          </span>
+        </div>
+
+        {/* Right: WhatsApp + Admissions Open Buttons (Moved to Top) */}
+        <div className="flex items-center gap-2.5 shrink-0 ml-auto">
+          <a
+            href="https://wa.me/8801738474611"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-emerald-400 font-bold text-[11.5px] transition-all hover:scale-105"
+          >
+            <MessageSquare className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span className="hidden md:inline text-slate-300 font-medium">Help:</span>
+            <span>+880 1738–474611</span>
+          </a>
+
+          <button 
+            onClick={() => openModal("Top Bar — Admissions Open")}
+            className="px-3.5 py-1 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white rounded-full text-[11.5px] font-extrabold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-rose-900/30 shrink-0 hover:scale-105"
+          >
+            <GraduationCap className="w-3.5 h-3.5 text-white" />
+            <span>Admissions Open</span>
+            <ArrowRight className="w-3 h-3" />
+          </button>
+        </div>
+
       </div>
-      <span className="timer-pill-badge text-[11px] sm:text-xs py-0.5 px-2.5 font-mono">
-        Starts in: {format2(timeLeft.days)}d : {format2(timeLeft.hours)}h : {format2(timeLeft.minutes)}m : {format2(timeLeft.seconds)}s
-      </span>
-      <span className="hidden lg:inline text-slate-500">|</span>
-      <span className="hidden sm:inline text-amber-400 font-bold text-xs">
-        Call / WhatsApp: +880 1738-474611
-      </span>
-      <button 
-        onClick={() => openModal("Next Batch Free Seat Claim")}
-        className="px-3.5 py-1 bg-rose-600 hover:bg-rose-500 text-white rounded-full text-xs font-bold transition-all flex items-center gap-1 cursor-pointer shadow-md shrink-0 hover:scale-105"
-      >
-        <span>Claim Seat</span>
-        <ArrowRight className="w-3 h-3" />
-      </button>
     </div>
   );
 }

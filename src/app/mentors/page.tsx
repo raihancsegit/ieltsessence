@@ -59,10 +59,12 @@ export default function MentorsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 text-center">
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-rose-900/60 to-slate-800 border border-white/10 p-8 shadow-2xl">
-                <div className="w-36 h-36 rounded-full mx-auto bg-gradient-to-tr from-rose-500 to-blue-500 p-1 mb-6 shadow-2xl">
-                  <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-5xl">
-                    👨‍🏫
-                  </div>
+                <div className="w-40 h-40 rounded-3xl mx-auto bg-gradient-to-tr from-rose-500 to-blue-500 p-1 mb-6 shadow-2xl overflow-hidden">
+                  <img 
+                    src="/images/jewel.png" 
+                    alt="Jewel Ahamadinezad - Lead Mentor" 
+                    className="w-full h-full object-cover rounded-[22px]"
+                  />
                 </div>
                 <h2 className="text-3xl font-black text-white font-heading">Jewel Ahamadinezad</h2>
                 <div className="text-rose-400 font-bold text-sm mt-1">Founder & Lead Mentor | DUET Graduate</div>

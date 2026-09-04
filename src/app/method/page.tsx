@@ -52,119 +52,119 @@ export default function MethodPage() {
       </section>
 
       {/* ==========================================================================
-          DETAILED 6-STEP ROADMAP
+          DETAILED 6-STEP ROADMAP (From PDF Pages 6-7)
           ========================================================================== */}
-      <section className="py-20 bg-slate-50">
+      <section id="pipeline" className="py-20 bg-slate-50">
         <div className="max-w-[1320px] mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="feature-pill-badge bg-purple-100 text-purple-700 mb-3">🚀 Systematic Score Acceleration</div>
+            <div className="feature-pill-badge bg-purple-100 text-purple-700 mb-3">🚀 6-Stage Proprietary Pipeline</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-              How We Transform Your English in 6 Steps
+              The 6-Stage System: Assess to Perform
             </h2>
             <p className="text-slate-500 text-sm sm:text-base mt-3">
-              অগোছালো প্রস্তুতির বদলে প্রতিটি ধাপ সুনির্দিষ্ট লক্ষ্যে পরিচালিত।
+              অগোছালো প্রস্তুতির বদলে প্রতিটি ধাপ সুনির্দিষ্ট ইঞ্জিনিয়ারিং রোডম্যাপে পরিচালিত।
             </p>
           </div>
 
           <div className="space-y-8 max-w-4xl mx-auto">
-            {/* Step 1 */}
+            {/* Stage 1: Assess */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-700 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/20 font-heading">
                 01
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-extrabold uppercase">Diagnostic & Baseline</span>
-                  <span className="text-xs text-slate-400 font-bold">• Day 1</span>
+                  <span className="px-3 py-1 bg-rose-50 text-rose-600 rounded-full text-xs font-extrabold uppercase">Stage 01 • Assess</span>
+                  <span className="text-xs text-slate-400 font-bold">• Day 1 Diagnostic</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Diagnostic Benchmark Assessment</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 01: Assess — Diagnostic Benchmark</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   কোর্সের প্রথম দিনেই অফিসিয়াল ক্যামব্রিজ টেস্টের মাধ্যমে ৪টি মডিউলের (Listening, Reading, Writing, Speaking) আলাদা আলাদা লেভেল নির্ধারণ করা হয়। আপনার বর্তমান শক্তি ও ঘাটতি বিশ্লেষণ করে একটি পার্সোনালাইজড স্টাডি টার্গেট তৈরি করা হয়।
                 </p>
               </div>
             </div>
 
-            {/* Step 2 */}
+            {/* Stage 2: Strategize */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20 font-heading">
                 02
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-extrabold uppercase">Foundation Booster</span>
-                  <span className="text-xs text-slate-400 font-bold">• Week 1–2</span>
+                  <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-extrabold uppercase">Stage 02 • Strategize</span>
+                  <span className="text-xs text-slate-400 font-bold">• Tailored Blueprint</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Core Grammar, Collocations & Lexical Building</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 02: Strategize — Custom Action Blueprint</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  সঠিক কমপ্লেক্স ও কম্পাউন্ড সেন্টেন্স তৈরি, কমন ব্যাকরণগত ভুল দূরীকরণ এবং টপিক-ওয়াইজ একাডেমিক ভোকাবুলারি (Environment, Technology, Education, Society) আত্মস্থ করার নিবিড় সেশন।
+                  আপনার ডেডলাইন ও টার্গেট ব্যান্ডের ওপর ভিত্তি করে ৩০ দিন থেকে ৩.৫ মাসের নিখুঁত টাইমলাইন নির্ধারণ। প্রতিটি মডিউলে দুর্বলতা দূরীকরণের কৌশল ও রিসোর্স ম্যাপিং।
                 </p>
               </div>
             </div>
 
-            {/* Step 3 */}
+            {/* Stage 3: Practice */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/20 font-heading">
                 03
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-extrabold uppercase">Tactical Mastery</span>
-                  <span className="text-xs text-slate-400 font-bold">• Week 3–7</span>
+                  <span className="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-extrabold uppercase">Stage 03 • Practice</span>
+                  <span className="text-xs text-slate-400 font-bold">• Cambridge Standards</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Module-Wise Cambridge Trap Elimination Lab</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 03: Practice — Cambridge Trap Elimination</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  রিডিংয়ে Heading Matching ও True/False/Not Given এর কী-ওয়ার্ড ট্র্যাকিং টেকনিক, লিসেনিংয়ে ডিস্ট্র্যাক্টর এলিমিনেশন এবং রাইটিং টাস্ক ১ ও ২-এর জন্য ব্যান্ড ৯ স্ট্রাকচারাল টেমপ্লেট ড্রিলিং।
+                  ১০০% অফিসিয়াল স্ট্যান্ডার্ড উপাদান দিয়ে অনুশীলন। রিডিংয়ে Heading Matching ও True/False/Not Given কী-ওয়ার্ড ট্র্যাকিং, লিসেনিংয়ে ডিস্ট্র্যাক্টর এলিমিনেশন ড্রিলিং।
                 </p>
               </div>
             </div>
 
-            {/* Step 4 */}
+            {/* Stage 4: Evaluate */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-700 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/20 font-heading">
                 04
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-extrabold uppercase">Fluency Lab</span>
-                  <span className="text-xs text-slate-400 font-bold">• Daily Practice</span>
+                  <span className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-extrabold uppercase">Stage 04 • Evaluate</span>
+                  <span className="text-xs text-slate-400 font-bold">• Line-by-Line Feedback</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Daily 1-on-1 Speaking Simulation & Voice Auditing</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 04: Evaluate — Criterion-Level Line Feedback</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  স্পিকিং পার্ট ১ এর কনফিডেন্ট স্টার্ট, পার্ট ২ কিউ কার্ডে Past-Present-Future এক্সটেনশন মেথড এবং পার্ট ৩ তে ডিপ অ্যানালিটিক্যাল আর্গুমেন্ট প্রেজেন্টেশনের প্রতিদিনের ওয়ান-অন-ওয়ান সিমুলেশন।
+                  আনুমানিক স্কোর নয়, রাইটিংয়ে টাস্ক রেসপন্স (TR), কোহেরেন্স (CC), লেক্সিকাল রিসোর্স (LR) ও গ্রামাটিক্যাল রেঞ্জ (GRA)-এর পূর্ণ ব্রেকডাউনসহ লাইন-বাই-লাইন মূল্যায়ন ও স্পিকিং অডিও অডিট।
                 </p>
               </div>
             </div>
 
-            {/* Step 5 */}
+            {/* Stage 5: Improve */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/20 font-heading">
                 05
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-extrabold uppercase">Exam Conditioning</span>
-                  <span className="text-xs text-slate-400 font-bold">• 20 Full Mocks</span>
+                  <span className="px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-extrabold uppercase">Stage 05 • Improve</span>
+                  <span className="text-xs text-slate-400 font-bold">• Correction Loops</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Full-Length Real Mock Test Series with Diagnostic Review</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 05: Improve — Targeted Weakness Elimination</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  আইডিপি ও ব্রিটিশ কাউন্সিলের টাইম-স্ট্রেস এনভায়রনমেন্টে ২০টি পূর্ণাঙ্গ মক টেস্ট। প্রতিটি মকের পর মেন্টরের সাথে বসে ভুল চিহ্নিতকরণ ও তাৎক্ষণিক সংশোধন।
+                  বারবার একই ভুল এড়াতে টার্গেটেড কারেকশন লুপ। চিহ্নিত ভুলের ওপর ভিত্তি করে ব্যক্তিগত রি-রাইটিং অ্যাসাইনমেন্ট ও ১-অন-১ মেন্টরিং সেশন।
                 </p>
               </div>
             </div>
 
-            {/* Step 6 */}
+            {/* Stage 6: Perform */}
             <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md flex flex-col md:flex-row gap-6 items-start hover-elevate">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white font-black text-2xl flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20 font-heading">
                 06
               </div>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-cyan-50 text-cyan-600 rounded-full text-xs font-extrabold uppercase">Global Dream</span>
-                  <span className="text-xs text-slate-400 font-bold">• Visa & Admission</span>
+                  <span className="px-3 py-1 bg-cyan-50 text-cyan-600 rounded-full text-xs font-extrabold uppercase">Stage 06 • Perform</span>
+                  <span className="text-xs text-slate-400 font-bold">• Exam Day Simulation</span>
                 </div>
-                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Study Abroad Pathway & Visa Interview Coaching</h3>
+                <h3 className="text-xl font-extrabold text-slate-900 font-heading">Stage 06: Perform — Full Simulation Mock Tests</h3>
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  ব্যান্ড স্কোর অর্জনের পর কানাডা, ইউকে, অস্ট্রেলিয়া ও ইউরোপের সেরা বিশ্ববিদ্যালয় বাছাই, পার্সোনাল স্টেটমেন্ট (SOP) রাইটিং সাপোর্ট ও ভিসা ইন্টারভিউ প্রিপারেশন।
+                  আইডিপি ও ব্রিটিশ কাউন্সিলের টাইম-স্ট্রেস এনভায়রনমেন্টে ২০টি পূর্ণাঙ্গ মক টেস্টের মাধ্যমে স্ট্যামিনা ও কনফিডেন্স বিল্ডআপ। কাঙ্ক্ষিত স্কোর অর্জন এবং ভিসা ও স্কলারশিপ প্রিপারেশন।
                 </p>
               </div>
             </div>

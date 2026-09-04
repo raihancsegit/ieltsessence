@@ -7,7 +7,7 @@ import confetti from "canvas-confetti";
 import { 
   Sparkles, ArrowRight, CheckCircle2, Star, Trophy, Users, BookOpen, 
   ShieldCheck, Calculator, PenTool, Award, PlayCircle, ChevronRight, 
-  MessageSquare, ChevronDown, Phone, Globe, Volume2, Pause, Play, ArrowUp
+  MessageSquare, ChevronDown, Phone, Globe, Volume2, Pause, Play, ArrowUp, GraduationCap
 } from "lucide-react";
 
 export default function HomePage() {
@@ -15,6 +15,67 @@ export default function HomePage() {
   
   // Interactive Speaking Audio Player State
   const [playingAudio, setPlayingAudio] = useState<"band8" | "band6" | null>(null);
+
+  // Target Band Interactive Selector State
+  const [selectedTargetBand, setSelectedTargetBand] = useState<string>("7.0+");
+
+  const targetBandData: Record<string, {
+    title: string;
+    badge: string;
+    description: string;
+    timeline: string;
+    pathway: string;
+    focus: string;
+  }> = {
+    "5.5": {
+      title: "Emerging Performer",
+      badge: "Foundation Level",
+      description: "Build strong grammatical fundamentals, core sentence construction, basic listening comprehension, and confidence in daily conversational speaking.",
+      timeline: "2.5 – 3.5 Months",
+      pathway: "Build Pathway (5.0–6.0)",
+      focus: "Basic Grammar & Vocabulary + Question Type Orientation"
+    },
+    "6.0": {
+      title: "Competent Proficiency",
+      badge: "Undergrad Standard",
+      description: "Master Cambridge reading traps, improve writing Task 1 & Task 2 structural cohesion, and eliminate repetitive vocabulary in speaking.",
+      timeline: "2 – 3 Months",
+      pathway: "Build / Master Pathway",
+      focus: "Time Management + Structural Essay Cohesion"
+    },
+    "6.5": {
+      title: "Confident Communicator",
+      badge: "Global Direct Entry",
+      description: "Direct entry requirement for most UK, Canada, Australia & European Master's programs. Focus on Task 2 nuance and fluency under timed pressure.",
+      timeline: "1.5 – 2.5 Months",
+      pathway: "Master Pathway (6.0–7.0)",
+      focus: "Complex Sentence Precision + Pronunciation Refinement"
+    },
+    "7.0+": {
+      title: "Global Achiever",
+      badge: "Top University Threshold",
+      description: "Highly competitive threshold for prestigious universities and immigration PR. Emphasizes sophisticated discourse markers and natural collocations.",
+      timeline: "1 – 2 Months",
+      pathway: "Accelerate Pathway (7.0–8.0+)",
+      focus: "Band 9 Collocations + High-Yield Distractor Elimination"
+    },
+    "7.5+": {
+      title: "Distinguished Competence",
+      badge: "Ivy League & Oxbridge",
+      description: "Distinguished academic level needed for top Ivy League, Oxford, Cambridge, and competitive doctoral fellowships.",
+      timeline: "30 – 60 Days",
+      pathway: "Accelerate Pathway (7.0–8.0+)",
+      focus: "Idiomatic Fluency + Error-Free Complex Grammar"
+    },
+    "8.0+": {
+      title: "Excellence Benchmark",
+      badge: "Full Scholarship Tier",
+      description: "Excellence benchmark for global faculty appointments, prestigious Chevening / Commonwealth scholarships, and zero-compromise mastery.",
+      timeline: "Sprint / Masterclass",
+      pathway: "Accelerate Pathway + Mock Series",
+      focus: "Line-by-Line Polish + Full Exam Simulation"
+    }
+  };
 
   // Band Score Calculator State
   const [calcL, setCalcL] = useState<number>(7.5);
@@ -130,36 +191,64 @@ export default function HomePage() {
               </div>
 
               <h1 className="hero-main-title text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight font-heading">
-                যে IELTS দেয়, <br />
-                <span className="gradient-title-text animate-gradient-text">সে বিদেশ যায়</span>
+                &ldquo; IELTS দিলে, ভাগ্য খোলে &rdquo; <br />
+                <span className="gradient-title-text animate-gradient-text">- IELTS ESSENCE</span>
               </h1>
 
-              {/* Feature Pills Grid */}
-              <div className="hero-feature-pills">
-                <span className="pill-item pill-rose hover-elevate">🏆 Band 8.5 DUET Mentors</span>
-                <span className="pill-item pill-purple hover-elevate">✍️ Line-by-Line Writing Eval</span>
-                <span className="pill-item pill-emerald hover-elevate">🎙️ Daily Speaking Lab</span>
-                <span className="pill-item pill-amber hover-elevate">📝 20 Full Mock Tests</span>
+              <div className="flex items-center gap-2 text-xs font-black text-rose-600 uppercase tracking-widest bg-rose-50 px-3 py-1 rounded-full w-fit border border-rose-100">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Dream • Define • Dominate</span>
+              </div>
+
+              {/* 4 Feature Points from PDF */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>1-on-1 Diagnostic & Engineering Method</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
+                  <CheckCircle2 className="w-4 h-4 text-rose-600 shrink-0" />
+                  <span>Band 8.0+ Mentor-Led Custom Roadmap</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>Real-Time Speaking & Writing Evaluation</span>
+                </div>
+                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
+                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                  <span>100% Exam-Standard Cambridge Practice</span>
+                </div>
               </div>
 
               <p className="hero-description text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-                <strong className="text-rose-600 font-bold">জুয়েল ভাইয়ের</strong> ইউটিউব ক্লাস দেখে IELTS-এ সফল হয়েছেন হাজারো শিক্ষার্থী — এবার আপনার পালা! IELTS পরীক্ষায় সফলতার জন্য প্রয়োজন সঠিক দিকনির্দেশনা ও প্রস্তুতির কৌশল।
+                IELTS পরীক্ষায় সফলতার জন্য প্রয়োজন সঠিক কৌশল ও ইঞ্জিনিয়ারিং প্রিসিশন। গতানুগতিক ১০০ জনের ব্যাচে সময় নষ্ট না করে, DUET মেন্টরদের ওয়ান-অন-ওয়ান তত্ত্বাবধানে প্রথমবারেই নিশ্চিত করুন আপনার কাঙ্ক্ষিত ব্যান্ড স্কোর।
               </p>
 
-              {/* CTAs */}
-              <div className="hero-cta-group">
+              {/* 3 CTAs from PDF */}
+              <div className="hero-cta-group flex flex-wrap items-center gap-3">
                 <button 
-                  onClick={() => openModal("Hero Free Counselling")} 
-                  className="btn-cta-amber btn-shimmer cursor-pointer"
+                  onClick={() => openModal("Book an Expert Consultation - Hero")} 
+                  className="btn-cta-amber btn-shimmer cursor-pointer flex items-center gap-2 text-sm"
                 >
-                  📞 Free Counselling
+                  <span>Book an Expert Consultation</span>
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <button 
-                  onClick={() => openModal("Hero Apply For Admission")} 
-                  className="btn-cta-blue btn-shimmer cursor-pointer"
+                  onClick={() => openModal("Course Enrollment - Hero")} 
+                  className="btn-cta-blue btn-shimmer cursor-pointer flex items-center gap-2 text-sm"
                 >
-                  🚀 Apply For Admission
+                  <span>Course Enrollment</span>
+                  <GraduationCap className="w-4 h-4" />
                 </button>
+                <a
+                  href="https://wa.me/8801738474611"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-header-outline text-slate-800 font-bold border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 flex items-center gap-2 px-5 py-3 rounded-full text-sm transition-all shadow-xs"
+                >
+                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  <span>Guidance on WhatsApp</span>
+                </a>
               </div>
 
               <div className="pt-4 flex items-center gap-4 text-xs font-semibold text-slate-500">
@@ -463,9 +552,104 @@ export default function HomePage() {
       </section>
 
       {/* ==========================================================================
+          5. INTERACTIVE TARGET BAND NAVIGATOR (From PDF Pages 10-11)
+          ========================================================================== */}
+      <section id="target-band" className="py-20 bg-slate-900 text-white border-t border-slate-800">
+        <div className="max-w-[1320px] mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="px-4 py-1.5 bg-rose-500/20 text-rose-400 font-extrabold text-xs uppercase tracking-widest rounded-full border border-rose-500/30">
+              Interactive Goal Navigator
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight mt-4 font-heading text-white">
+              WHAT&apos;S YOUR TARGET BAND?
+            </h2>
+            <p className="text-slate-300 text-base font-light mt-3">
+              আপনার কাঙ্ক্ষিত স্কোর নির্বাচন করুন — জেনে নিন প্রয়োজনীয় প্রস্তুতি সময়, দক্ষতার মাপকাঠি ও উপযুক্ত কোর্স পাথওয়ে।
+            </p>
+
+            {/* Clickable Band Score Selector Chips */}
+            <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-8">
+              {["5.5", "6.0", "6.5", "7.0+", "7.5+", "8.0+"].map((band) => {
+                const isSelected = selectedTargetBand === band;
+                return (
+                  <button
+                    key={band}
+                    onClick={() => setSelectedTargetBand(band)}
+                    className={`px-5 py-3 rounded-2xl font-black text-base sm:text-lg transition-all cursor-pointer ${
+                      isSelected
+                        ? "bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 text-white shadow-lg shadow-rose-500/40 scale-105 border-2 border-white/30"
+                        : "bg-slate-800/80 hover:bg-slate-800 text-slate-300 border border-slate-700 hover:text-white hover:border-slate-500"
+                    }`}
+                  >
+                    Band {band}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Dynamic Band Detail Card */}
+          {targetBandData[selectedTargetBand] && (
+            <div className="max-w-4xl mx-auto bg-slate-800/90 rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-2xl backdrop-blur-md animate-fadeIn">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div className="md:col-span-8 space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="px-3.5 py-1 bg-rose-500/20 text-rose-400 font-extrabold text-xs rounded-full uppercase tracking-wider border border-rose-500/30">
+                      {targetBandData[selectedTargetBand].badge}
+                    </span>
+                    <span className="text-xs text-slate-400 font-semibold">
+                      ⏱️ {targetBandData[selectedTargetBand].timeline}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                    Band {selectedTargetBand} — {targetBandData[selectedTargetBand].title}
+                  </h3>
+
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    {targetBandData[selectedTargetBand].description}
+                  </p>
+
+                  <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 text-xs">
+                    <div className="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                      <div className="text-slate-400 font-medium">Recommended Pathway</div>
+                      <div className="text-amber-400 font-bold mt-0.5">{targetBandData[selectedTargetBand].pathway}</div>
+                    </div>
+                    <div className="bg-slate-900/60 p-3 rounded-xl border border-slate-700/60">
+                      <div className="text-slate-400 font-medium">Core Strategic Focus</div>
+                      <div className="text-emerald-400 font-bold mt-0.5">{targetBandData[selectedTargetBand].focus}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-4 bg-gradient-to-b from-rose-600/20 to-purple-600/20 p-6 rounded-2xl border border-rose-500/30 text-center space-y-4">
+                  <div className="text-xs font-bold text-slate-300 uppercase tracking-widest">Selected Goal</div>
+                  <div className="text-5xl font-black text-amber-400 font-heading">
+                    {selectedTargetBand}
+                  </div>
+                  <button
+                    onClick={() => openModal(`Target Band ${selectedTargetBand} Action Plan`)}
+                    className="btn-cta-amber w-full py-3.5 text-xs font-bold cursor-pointer"
+                  >
+                    Start Band {selectedTargetBand} Plan →
+                  </button>
+                  <Link
+                    href="/courses"
+                    className="block text-xs font-bold text-slate-300 hover:text-white underline"
+                  >
+                    View Matching Courses
+                  </Link>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ==========================================================================
           5. INTERACTIVE BAND SCORE CALCULATOR WIDGET
           ========================================================================== */}
-      <section id="calculator" className="py-20 bg-slate-900 border-t border-b border-slate-800">
+      <section id="calculator" className="py-20 bg-slate-950 border-t border-b border-slate-800">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="calculator-widget-box">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -944,34 +1128,92 @@ export default function HomePage() {
       </section>
 
       {/* ==========================================================================
-          10. FOUNDER SECTION — Jewel Ahamadinezad
+          10. FOUNDER SECTION — Jewel Ahamadinezad (From PDF Pages 4-5)
           ========================================================================== */}
-      <section id="founder" className="py-24 bg-slate-50 border-t border-slate-100">
+      <section id="founder" className="py-24 bg-slate-900 border-t border-slate-800 text-white">
         <div className="max-w-[1320px] mx-auto px-6">
-          <div className="founder-banner-card">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="px-4 py-1.5 bg-amber-500/20 text-amber-400 font-extrabold text-xs uppercase tracking-widest rounded-full border border-amber-500/30">
+              Visionary Leadership
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight mt-4 font-heading text-white">
+              MEET THE MIND BEHIND IELTS ESSENCE
+            </h2>
+            <p className="text-slate-400 text-base font-light mt-3">
+              Engineering Precision Meets English Language Mastery
+            </p>
+          </div>
+
+          <div className="founder-banner-card bg-slate-800/80 border border-slate-700 rounded-3xl p-8 sm:p-12 shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Founder Avatar & Badges */}
               <div className="lg:col-span-4 text-center">
-                <div className="w-44 h-44 mx-auto rounded-full bg-gradient-to-br from-rose-500 to-purple-600 p-1.5 shadow-2xl mb-6">
-                  <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center font-extrabold text-4xl text-white font-heading">
-                    JA
-                  </div>
+                <div className="w-52 h-52 mx-auto rounded-3xl bg-gradient-to-br from-rose-500 via-purple-600 to-blue-600 p-1.5 shadow-2xl mb-6 overflow-hidden">
+                  <img 
+                    src="/images/jewel.png" 
+                    alt="Jewel Ahamadinezad - Founder & Academic Director, IELTS ESSENCE" 
+                    className="w-full h-full object-cover rounded-[22px] bg-slate-950"
+                  />
                 </div>
-                <h3 className="text-2xl font-extrabold text-white font-heading">Jewel Ahamadinezad</h3>
-                <p className="text-xs font-bold text-rose-400 mt-1 uppercase tracking-wider">Founder & Lead Mentor</p>
-                <p className="text-xs text-slate-300 mt-2 font-medium">
-                  B.Sc & M.Sc in Computer Science & Engineering <br />
-                  Dhaka University of Engineering & Technology (DUET)
+                <h3 className="text-2xl font-black text-white font-heading">Jewel Ahamadinezad</h3>
+                <p className="text-xs font-bold text-rose-400 mt-1 uppercase tracking-wider">
+                  Founder &amp; Academic Director
                 </p>
+                <div className="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-slate-700 text-left space-y-1 text-xs text-slate-300">
+                  <div className="font-bold text-amber-400">🎓 Academic Background:</div>
+                  <div>• B.Sc &amp; M.Sc in CSE (DUET)</div>
+                  <div>• Former President, DUET English Language Club (ELC)</div>
+                  <div>• Certified IELTS Strategist &amp; Mentor</div>
+                </div>
               </div>
 
+              {/* Founder Speech & Engineering Mindset */}
               <div className="lg:col-span-8 space-y-6">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">A Message From Our Founder</span>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-heading">
-                  "Empowering Students To Achieve Their Academic & Migration Goals"
-                </h2>
-                <blockquote className="text-slate-300 text-base leading-relaxed font-light italic border-l-2 border-rose-500 pl-6">
-                  At IELTS ESSENCE, our mission is simple: to provide practical, result-oriented IELTS preparation that empowers students to achieve their academic and migration goals. We believe that success in IELTS comes from consistency, smart strategies and continuous improvement. Every student deserves proper guidance, honest feedback and a structured learning pathway. That is exactly what we strive to deliver every day.
+                <span className="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                  A Message From Our Founder
+                </span>
+                
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight font-heading">
+                  &ldquo; IELTS is not a test of intelligence; it is a standardized engineering puzzle of language precision and logic. &rdquo;
+                </h3>
+
+                <blockquote className="text-slate-300 text-sm sm:text-base leading-relaxed font-light italic border-l-3 border-rose-500 pl-6 space-y-3">
+                  <p>
+                    &ldquo;Coming from an engineering background at DUET, I observed that thousands of brilliant students in Bangladesh fail to achieve their target band simply because they approach IELTS with rote memorization instead of systematic problem-solving.
+                  </p>
+                  <p>
+                    At IELTS ESSENCE, we deconstruct every single question type, eliminate guesswork, and treat language learning like building scalable software — one robust layer at a time. Every student deserves honest diagnostic feedback, line-by-line correction, and a scientific roadmap.&rdquo;
+                  </p>
                 </blockquote>
+
+                {/* 5-Step Engineering Mindset Grid */}
+                <div className="pt-4 border-t border-slate-700/80">
+                  <div className="text-xs font-black text-slate-300 uppercase tracking-wider mb-3">
+                    The 5-Point Engineering Mindset:
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60">
+                      <div className="text-xs font-bold text-rose-400">01. Data-Driven Diagnostic</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Pinpoint exact baseline and error patterns.</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60">
+                      <div className="text-xs font-bold text-blue-400">02. Modular Curriculum</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Repeatable algorithms for L, R, W, S.</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60">
+                      <div className="text-xs font-bold text-purple-400">03. Line-by-Line Iteration</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Rigorous feedback on every written sentence.</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60">
+                      <div className="text-xs font-bold text-amber-400">04. Trap Deconstruction</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Neutralize Cambridge distractors easily.</div>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-700/60 sm:col-span-2">
+                      <div className="text-xs font-bold text-emerald-400">05. Uncompromising Standard</div>
+                      <div className="text-[11px] text-slate-400 mt-0.5">Trained for Band 8.5 so exam day feels effortless and natural.</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

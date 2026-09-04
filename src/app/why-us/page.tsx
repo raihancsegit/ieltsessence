@@ -54,7 +54,7 @@ export default function WhyUsPage() {
       {/* ==========================================================================
           COMPARISON SECTION: TRADITIONAL VS ESSENCE
           ========================================================================== */}
-      <section className="py-20 bg-slate-50">
+      <section id="comparison" className="py-20 bg-slate-50">
         <div className="max-w-[1320px] mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-3">⚖️ The Honest Comparison</div>
@@ -67,45 +67,160 @@ export default function WhyUsPage() {
           </div>
 
           {/* Comparison Table Responsive Wrapper */}
-          <div className="responsive-table-wrapper bg-white shadow-xl">
-            <table className="w-full text-left border-collapse min-w-[650px]">
+          <div className="responsive-table-wrapper bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
+            <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr className="border-b border-slate-200 bg-slate-900 text-white">
-                  <th className="p-5 font-extrabold text-sm uppercase tracking-wider w-1/3">বৈশিষ্ট্য (Features)</th>
-                  <th className="p-5 font-extrabold text-sm uppercase tracking-wider w-1/3 bg-slate-800 text-slate-300">গতানুগতিক কোচিং সেন্টার</th>
-                  <th className="p-5 font-extrabold text-sm uppercase tracking-wider w-1/3 bg-rose-600 text-white">IELTS ESSENCE স্ট্যান্ডার্ড</th>
+                  <th className="p-4 sm:p-5 font-black text-sm uppercase tracking-wider w-[28%] text-emerald-400 bg-slate-950">
+                    মূল পার্থক্য
+                  </th>
+                  <th className="p-4 sm:p-5 font-black text-sm uppercase tracking-wider w-[36%] bg-slate-900 text-slate-200 border-l border-slate-800">
+                    Traditional Coaching
+                  </th>
+                  <th className="p-4 sm:p-5 font-black text-sm uppercase tracking-wider w-[36%] bg-emerald-700 text-white border-l border-emerald-600">
+                    IELTS ESSENCE
+                  </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">ব্যাচ সাইজ ও পারসোনাল কেয়ার</td>
-                  <td className="p-4 text-slate-500">১০০–১৫০ জনের বড় ব্যাচ, ব্যক্তিগত সমস্যা শোনার সুযোগ নেই</td>
-                  <td className="p-4 font-bold text-rose-600 bg-rose-50/50">সর্বোচ্চ ১৫–২০ জন (প্রতিটি শিক্ষার্থীকে ওয়ান-অন-ওয়ান মনিটরিং)</td>
+              <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
+                {/* 1. Starting Point Diagnosis */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>🎯</span>
+                    <span>Starting Point Diagnosis</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    সবার জন্য একই প্রস্তুতি
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    <span className="font-extrabold text-emerald-700">প্রথমেই</span> Individual Skill Diagnosis & Target Band Mapping
+                  </td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">Writing Evaluation মেথড</td>
-                  <td className="p-4 text-slate-500">শুধুমাত্র আনুমানিক ব্যান্ড স্কোর বসিয়ে দেওয়া হয়, ভুল ধরিয়ে দেওয়া হয় না</td>
-                  <td className="p-4 font-bold text-emerald-600 bg-rose-50/50">Line-by-Line ভুল মার্কিং, TR/CC/LR/GRA ব্রেকডাউন ও Band 9 মডেল অল্টারনেটিভ প্রদান</td>
+
+                {/* 2. Batch Experience */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>👥</span>
+                    <span>Batch Experience</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    বড় ব্যাচে ব্যক্তিগত নজরদারি সীমিত
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Small-Batch Learning + Individual Attention
+                  </td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">Speaking প্র্যাকটিস সেশন</td>
-                  <td className="p-4 text-slate-500">সপ্তাহে ১ দিন বা শুধু গ্রুপে দায়সারা আড্ডা</td>
-                  <td className="p-4 font-bold text-blue-600 bg-rose-50/50">প্রতিদিন ১-অন-১ স্পিকিং পার্টনার ড্রিল ও রিয়েল এক্সামিনার টেস্ট সিমুলেশন</td>
+
+                {/* 3. Writing Feedback */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>✍️</span>
+                    <span>Writing Feedback</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    শুধু correction / estimated score
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Line-by-Line Evaluation + TR/CC/LR/GRA Breakdown + Band 9 Benchmark
+                  </td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">মেন্টর কোয়ালিফিকেশন</td>
-                  <td className="p-4 text-slate-500">অনেক সেন্টারে অনভিজ্ঞ ট্রেইনার বা অস্পষ্ট ব্যাকগ্রাউন্ড</td>
-                  <td className="p-4 font-bold text-purple-600 bg-rose-50/50">DUET গ্র্যাজুয়েট ও সার্টিফাইড Band 8.5 স্কোরের লিড মেন্টর প্যানেল</td>
+
+                {/* 4. Speaking Development */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>🎙️</span>
+                    <span>Speaking Development</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    সপ্তাহে সীমিত practice
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Regular 1-to-1 / Focused Speaking Simulation + Fluency & Pronunciation Analysis
+                  </td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">মক টেস্ট ও সলিউশন ক্লাস</td>
-                  <td className="p-4 text-slate-500">৩–৫টি বেসিক মক টেস্ট, কোনো পার্সোনালাইজড পোস্ট-টেস্ট অ্যানালাইসিস নেই</td>
-                  <td className="p-4 font-bold text-amber-600 bg-rose-50/50">২০+ ফুল লেংথ ক্যামব্রিজ স্ট্যান্ডার্ড মক টেস্ট সাথে লাইভ ডায়াগনস্টিক কাউন্সিলিং</td>
+
+                {/* 5. Learning Psychology */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>🧠</span>
+                    <span>Learning Psychology</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    ভুল করলে শুধু correction
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Mistake → Diagnosis → Strategy → Reattempt
+                  </td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900 font-heading">স্টাডি অ্যাব্রড ও ভিসা সাপোর্ট</td>
-                  <td className="p-4 text-slate-500">কোর্স শেষ হলে আর কোনো সম্পর্ক থাকে না</td>
-                  <td className="p-4 font-bold text-emerald-700 bg-rose-50/50">স্কোর পাওয়ার পর ১০০% ফ্রি ইউনিভার্সিটি শর্টলিস্টিং, SOP গাইডেন্স ও ভিসা সহায়তা</td>
+
+                {/* 6. Progress Tracking */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>📈</span>
+                    <span>Progress Tracking</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    Mock score-ই progress indicator
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Skill-wise Progress Tracking + Target-Band Readiness Monitoring
+                  </td>
+                </tr>
+
+                {/* 7. Instructor Model */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>👨‍🏫</span>
+                    <span>Instructor Model</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    একজন trainer—সব module
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    4 Modules → 4 Expert Instructors → <span className="font-extrabold text-emerald-800">Specialised Guidance</span>
+                  </td>
+                </tr>
+
+                {/* 8. Mock Test Strategy */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>📝</span>
+                    <span>Mock Test Strategy</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    Test দেওয়া ও score জানা
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Full Mock → Performance Analysis → Targeted Improvement Plan
+                  </td>
+                </tr>
+
+                {/* 9. Learning Resources */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>📚</span>
+                    <span>Learning Resources</span>
+                  </td>
+                  <td className="p-4 text-slate-700 font-medium border-l border-slate-100">
+                    Generic notes & materials
+                  </td>
+                  <td className="p-4 font-semibold text-emerald-900 bg-emerald-50/60 border-l border-emerald-100">
+                    Structured Resources + Band 9 Standard Hand Notes + Guided Practice
+                  </td>
+                </tr>
+
+                {/* 10. Practice Philosophy */}
+                <tr className="hover:bg-slate-50/80 transition-colors">
+                  <td className="p-4 font-bold text-slate-900 font-heading flex items-center gap-2">
+                    <span>🔄</span>
+                    <span>Practice Philosophy</span>
+                  </td>
+                  <td className="p-4 text-slate-900 font-bold border-l border-slate-100">
+                    Practice More
+                  </td>
+                  <td className="p-4 font-bold text-emerald-950 bg-emerald-50/60 border-l border-emerald-100">
+                    Practise Right → Get Feedback → Fix → Reattempt
+                  </td>
                 </tr>
               </tbody>
             </table>
