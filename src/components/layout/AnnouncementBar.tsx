@@ -30,12 +30,12 @@ export default function AnnouncementBar() {
   const format2 = (n: number) => n.toString().padStart(2, "0");
 
   return (
-    <div className="bg-slate-950 text-white border-b border-slate-800/80 py-1.5 px-4 sm:px-6 relative z-50">
-      <div className="max-w-[1536px] mx-auto flex items-center justify-between gap-3 text-xs flex-wrap sm:flex-nowrap">
+    <div className="bg-slate-950 text-white border-b border-slate-800/80 py-2 sm:py-1.5 px-3 sm:px-6 relative z-50">
+      <div className="max-w-[1536px] mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2.5 sm:gap-3 text-xs text-center sm:text-left">
         
-        {/* Left: Next Batch & Timer */}
-        <div className="flex items-center gap-2.5 flex-wrap">
-          <div className="flex items-center gap-1.5">
+        {/* Left: Next Batch & Timer - Centered on Mobile */}
+        <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5">
+          <div className="flex items-center justify-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping inline-block shrink-0"></span>
             <span className="font-extrabold text-white font-heading text-[12px] sm:text-[13px] tracking-tight">
               🔥 Next Batch Admissions Open
@@ -46,8 +46,8 @@ export default function AnnouncementBar() {
           </span>
         </div>
 
-        {/* Right: WhatsApp + Admissions Open Buttons (Moved to Top) */}
-        <div className="flex items-center gap-2.5 shrink-0 ml-auto">
+        {/* Right: WhatsApp + Admissions Open Buttons - Centered on Mobile */}
+        <div className="flex items-center justify-center gap-2.5 shrink-0 sm:ml-auto">
           <a
             href="https://wa.me/8801738474611"
             target="_blank"

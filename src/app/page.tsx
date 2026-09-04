@@ -200,29 +200,50 @@ export default function HomePage() {
                 <span>Dream • Define • Dominate</span>
               </div>
 
-              {/* 4 Feature Points from PDF */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>1-on-1 Diagnostic & Engineering Method</span>
+              {/* 4 Feature Points - Line by Line Tick List */}
+              <div className="space-y-3 pt-1">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                    ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত ইন্সট্রাকটরদের সরাসরি তত্ত্বাবধানে
+                  </span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
-                  <CheckCircle2 className="w-4 h-4 text-rose-600 shrink-0" />
-                  <span>Band 8.0+ Mentor-Led Custom Roadmap</span>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-rose-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-rose-600" />
+                  </div>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                    ৪ মডিউলের জন্য ৪ জন ডেডিকেটেড এক্সপার্টস
+                  </span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
-                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Real-Time Speaking & Writing Evaluation</span>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                    প্রতিদিন আনলিমিটেড WRITING ইভ্যালুয়েশন ও ফিডব্যাক
+                  </span>
                 </div>
-                <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold text-slate-700 bg-white p-3 rounded-xl border border-slate-200 shadow-xs hover-elevate">
-                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>100% Exam-Standard Cambridge Practice</span>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <span className="text-sm sm:text-base font-bold text-slate-800">
+                    SPEAKING প্র্যাকটিসের জন্য Partner Pairing ও অ্যাসেসমেন্ট
+                  </span>
                 </div>
               </div>
 
-              <p className="hero-description text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-                IELTS পরীক্ষায় সফলতার জন্য প্রয়োজন সঠিক কৌশল ও ইঞ্জিনিয়ারিং প্রিসিশন। গতানুগতিক ১০০ জনের ব্যাচে সময় নষ্ট না করে, DUET মেন্টরদের ওয়ান-অন-ওয়ান তত্ত্বাবধানে প্রথমবারেই নিশ্চিত করুন আপনার কাঙ্ক্ষিত ব্যান্ড স্কোর।
-              </p>
+              <div className="space-y-2">
+                <p className="hero-description text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                  We diagnose your current performance, build your score roadmap, train your weaknesses, measure your improvement, and prepare you to perform.
+                </p>
+                <p className="text-sm sm:text-base font-bold text-emerald-700">
+                  Structured Preparation - Expert Feedback - Measurable Improvement
+                </p>
+              </div>
 
               {/* 3 CTAs from PDF */}
               <div className="hero-cta-group flex flex-wrap items-center gap-3">
