@@ -138,17 +138,33 @@ export default function Footer() {
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-white font-bold">01738-474611</div>
-                  <div className="text-[11px] text-slate-500">9:00 AM – 10:00 PM Daily</div>
+                  <div className="text-white font-bold flex flex-col gap-0.5">
+                    <a href="tel:+8801738474611" className="hover:text-amber-300 transition-colors">01738-474611</a>
+                    <a href="tel:+8801540796074" className="hover:text-amber-300 transition-colors">01540-796074</a>
+                  </div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">9:00 AM – 10:00 PM Daily</div>
                 </div>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                <a href="mailto:ieltsessencehr@gmail.com" className="text-slate-300 hover:text-white transition-colors">ieltsessencehr@gmail.com</a>
+                <div className="flex flex-col gap-0.5">
+                  <a href="mailto:ieltsessencehr@gmail.com" className="text-slate-300 hover:text-white transition-colors">ieltsessencehr@gmail.com</a>
+                  <a href="mailto:ieltsinhome@gmail.com" className="text-slate-300 hover:text-white transition-colors">ieltsinhome@gmail.com</a>
+                </div>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                <span className="text-slate-300">41 Lane, Badda, Dhaka 6000, Bangladesh</span>
+                <div className="text-slate-300 leading-relaxed text-[11px] space-y-1.5">
+                  <div>
+                    <strong className="text-amber-400 block text-xs font-heading">Branch Office:</strong>
+                    Cha-75/C, SM Bhaban, Badda, Dhaka-1212
+                    <div className="text-slate-400 text-[10.5px]">(মেইনরোডের সাথে, হোসেন মার্কেট সংলগ্ন)</div>
+                  </div>
+                  <div className="pt-1 border-t border-slate-800">
+                    <strong className="text-blue-400 block text-xs font-heading">Headquarter:</strong>
+                    House - 1/B, Block - I, Road - 08, Banani, Dhaka-1213
+                  </div>
+                </div>
               </div>
               <div className="pt-2">
                 <button

@@ -711,7 +711,7 @@ export default function SuccessStoriesPage() {
 
           <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-slate-400 px-2">
             <span>⚡ রেজাল্টগুলো অফিসিয়াল ব্রিটিশ কাউন্সিল ও আইডিপি এক্সাম স্ট্যান্ডার্ড মেনে প্রস্তুতকৃত।</span>
-            <span className="font-bold text-emerald-600">Verified by Jewel Ahamadinezad (Band 8.5)</span>
+            <span className="font-bold text-emerald-600">Verified by Jewel Ahamadinezad (Founder &amp; Academic Director)</span>
           </div>
         </div>
       </section>

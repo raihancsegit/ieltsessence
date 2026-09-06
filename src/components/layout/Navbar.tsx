@@ -65,7 +65,7 @@ export default function Navbar() {
                   isActive("/method") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>ESSENCE METHOD™</span>
+                <span>Essence Method™</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -142,7 +142,7 @@ export default function Navbar() {
                   isActive("/calculator") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>SCORE ROADMAP</span>
+                <span>Score Roadmap</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -168,13 +168,13 @@ export default function Navbar() {
                     </div>
                   </Link>
 
-                  <Link href="/why-us#comparison" className="mega-menu-card">
+                  <Link href="/diagnostic" className="mega-menu-card">
                     <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0">
                       <BarChart3 className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-bold text-xs text-slate-900">Weakness Analyzer</div>
-                      <div className="text-[10px] text-slate-500">Module-wise diagnostics</div>
+                      <div className="font-bold text-xs text-slate-900">Diagnostic Assessment</div>
+                      <div className="text-[10px] text-slate-500">Student Profile & 20 MCQs</div>
                     </div>
                   </Link>
 
@@ -199,7 +199,7 @@ export default function Navbar() {
                   isActive("/why-us") || isActive("/writing-evaluation") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>SCORE IMPROVEMENT</span>
+                <span>Score Improvement</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -246,79 +246,39 @@ export default function Navbar() {
                   isActive("/courses") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>PROGRAMS</span>
+                <span>Programs</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
-              <div className="mega-dropdown-box dropdown-left w-[530px]">
-                <div className="mega-menu-grid">
-                  <Link href="/courses#build" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <BookOpen className="w-4 h-4" />
+              <div className="mega-dropdown-box dropdown-left w-[440px]">
+                <div className="flex flex-col gap-2">
+                  <Link href="/courses?tab=online" className="mega-menu-card p-3.5 hover:bg-rose-50/60 rounded-2xl border border-slate-100 hover:border-rose-200 transition-all">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md shadow-rose-500/20">
+                      🌐
                     </div>
                     <div>
-                      <div className="font-bold text-xs text-slate-900">Pathway 01: Foundation to Adv</div>
-                      <div className="text-[10px] text-blue-600 font-bold">Build Basics → Score Higher</div>
+                      <div className="font-extrabold text-sm text-slate-900 flex items-center gap-2">
+                        <span>Online Courses</span>
+                        <span className="px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 text-[10px] font-black">Live Zoom</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 font-medium">
+                        ১/২ Modules • Crash Course (৪০ দিন) • Full Course (৳৭,৯৯৯)
+                      </div>
                     </div>
                   </Link>
 
-                  <Link href="/courses#master" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <Award className="w-4 h-4" />
+                  <Link href="/courses?tab=offline" className="mega-menu-card p-3.5 hover:bg-blue-50/60 rounded-2xl border border-slate-100 hover:border-blue-200 transition-all">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md shadow-blue-500/20">
+                      🏢
                     </div>
                     <div>
-                      <div className="font-bold text-xs text-slate-900">Pathway 02: Complete Mastery</div>
-                      <div className="text-[10px] text-rose-600 font-bold">Mastering All 4 Modules</div>
-                    </div>
-                  </Link>
-
-                  <Link href="/courses#accelerate" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <Sparkles className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs text-slate-900">Pathway 03: 40-Day Crash</div>
-                      <div className="text-[10px] text-purple-600 font-bold">Exam Ready Preparation</div>
-                    </div>
-                  </Link>
-
-                  <Link href="/courses#writing" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <PenTool className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs text-slate-900">30-Day Writing Excellence</div>
-                      <div className="text-[10px] text-slate-500">Evaluate • Correct • Improve</div>
-                    </div>
-                  </Link>
-
-                  <Link href="/courses#speaking" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <Mic className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs text-slate-900">30-Day Speaking Sprinter</div>
-                      <div className="text-[10px] text-slate-500">Practice • Assess • Perform</div>
-                    </div>
-                  </Link>
-
-                  <Link href="/courses#combo" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <Layers className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs text-slate-900">35-Day Any 2 Modules Combo</div>
-                      <div className="text-[10px] text-amber-600 font-bold">Retake Expert Pack</div>
-                    </div>
-                  </Link>
-
-                  <Link href="/courses#mock-series" className="mega-menu-card col-span-2">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
-                      <FileText className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-xs text-slate-900">IELTS Mock Test Program (3, 5, 7, 10 Mocks)</div>
-                      <div className="text-[10px] text-emerald-600 font-bold">Real Exam Simulation • CD & Paper-based</div>
+                      <div className="font-extrabold text-sm text-slate-900 flex items-center gap-2">
+                        <span>Offline Courses</span>
+                        <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[10px] font-black">Badda Campus</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 mt-0.5 font-medium">
+                        Basic to Advanced (৩.৫ মাস) • Full Course • Speaking / Writing
+                      </div>
                     </div>
                   </Link>
                 </div>
@@ -333,7 +293,7 @@ export default function Navbar() {
                   isActive("/resources") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>RESOURCE HUB™</span>
+                <span>Resource Hub™</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -349,15 +309,23 @@ export default function Navbar() {
                     </div>
                   </Link>
 
-                  <Link href="/resources#recordings" className="mega-menu-card">
-                    <div className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-sm shrink-0">
+                  <a 
+                    href="https://www.youtube.com/@IELTSEssence/videos" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="mega-menu-card group"
+                  >
+                    <div className="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold text-sm shrink-0">
                       🎬
                     </div>
                     <div>
-                      <div className="font-bold text-xs text-slate-900">Class Recordings</div>
-                      <div className="text-[10px] text-slate-500">Archive & video lessons</div>
+                      <div className="font-bold text-xs text-slate-900 flex items-center gap-1">
+                        <span>Class Recordings</span>
+                        <span className="text-[10px] text-red-600 font-bold">YouTube ↗</span>
+                      </div>
+                      <div className="text-[10px] text-slate-500">Official Video Lessons & Archives</div>
                     </div>
-                  </Link>
+                  </a>
 
                   <Link href="/resources#vault" className="mega-menu-card">
                     <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-sm shrink-0">
@@ -369,15 +337,23 @@ export default function Navbar() {
                     </div>
                   </Link>
 
-                  <Link href="/resources#samples" className="mega-menu-card">
+                  <a 
+                    href="https://writing9.com/band/7/0" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="mega-menu-card group"
+                  >
                     <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">
                       ✍️
                     </div>
                     <div>
-                      <div className="font-bold text-xs text-slate-900">Band 7+ Writing Samples</div>
-                      <div className="text-[10px] text-slate-500">Task 1 & 2 model essays</div>
+                      <div className="font-bold text-xs text-slate-900 flex items-center gap-1">
+                        <span>Band 7+ Writing Samples</span>
+                        <span className="text-[10px] text-amber-600 font-bold">↗</span>
+                      </div>
+                      <div className="text-[10px] text-slate-500">Writing9.com Band 7.0+ Library</div>
                     </div>
-                  </Link>
+                  </a>
 
                   <Link href="/resources#speaking-qa" className="mega-menu-card">
                     <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
@@ -410,7 +386,7 @@ export default function Navbar() {
                   isActive("/success-stories") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>ACHIEVEMENTS</span>
+                <span>Achievements</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -477,7 +453,7 @@ export default function Navbar() {
                   isActive("/study-abroad") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>STUDY ABROAD</span>
+                <span>Study Abroad</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 
@@ -554,7 +530,7 @@ export default function Navbar() {
                   isActive("/contact") ? "active text-rose-600 font-extrabold" : ""
                 }`}
               >
-                <span>VISIT US</span>
+                <span>Visit Us</span>
                 <ChevronDown className="w-3.5 h-3.5 opacity-60 transition-transform duration-200 group-hover:rotate-180 group-hover:text-rose-600" />
               </Link>
 

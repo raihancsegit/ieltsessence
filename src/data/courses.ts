@@ -42,65 +42,65 @@ export interface Course {
 
 export const coursesData: Course[] = [
   // --------------------------------------------------------------------------
-  // PATHWAY 01 — BUILD
+  // PATHWAY 01 — BUILD (BASIC TO ADVANCED IELTS)
   // --------------------------------------------------------------------------
   {
     id: "pathway-build",
     slug: "course-foundation-to-advanced",
     pathwayNumber: "PATHWAY 01 — BUILD",
-    title: "IELTS Foundation to Advanced",
-    subHeadline: "Build Basics → Score Higher",
-    tagline: "বেসিক থেকে শুরু করে ব্যান্ড ৭.৫+ অর্জনের কমপ্লিট ৩.৫–৪ মাসের ফাউন্ডেশন ও মাস্টার কোর্স।",
+    title: "Basic to Advanced IELTS",
+    subHeadline: "Build Basics → Score Band 7.5+",
+    tagline: "বেসিক থেকে শুরু করে ব্যান্ড ৭.৫+ অর্জনের কমপ্লিট ৩.৫ মাসের অফলাইন ফাউন্ডেশন ও মাস্টার কোর্স।",
     category: "Core Pathway",
     badge: "Most Popular • Foundation",
     badgeColor: "bg-blue-600 text-white",
-    duration: "3.5 – 4 Months",
+    duration: "আনুমানিক ৩.৫ মাস",
     totalClasses: "48 Live Classes",
     mockTests: "15 Full Mocks",
-    price: "৳ 10,500",
-    originalPrice: "৳ 15,000",
-    targetBand: "Band 5.0 – 6.5+",
-    overview: "যাদের বেসিক গ্রামার বা ভোকাবুলারিতে দুর্বলতা আছে এবং শূন্য থেকে শুরু করে আন্তর্জাতিক মানের IELTS প্রস্তুতি নিতে চান, তাদের জন্য এই ফ্ল্যাগশিপ বিল্ড প্রোগ্রাম।",
+    price: "৳ ১৫,৯৯৯",
+    originalPrice: "৳ ২২,০০০",
+    targetBand: "Band 6.5 – 7.5+",
+    overview: "যাদের বেসিক গ্রামার বা ভোকাবুলারিতে দুর্বলতা আছে এবং শূন্য থেকে শুরু করে আন্তর্জাতিক মানের IELTS প্রস্তুতি নিতে চান, তাদের জন্য বাড্ডা ক্যাম্পাসে এই ফ্ল্যাগশিপ অফলাইন প্রোগ্রাম।",
     highlights: [
       "Grammar & Complex Sentence Structure Foundation (12 Classes)",
       "Listening & Reading 9.0 Strategy Lab (12 Classes)",
       "Writing Task 1 & Task 2 Line-by-Line Correction (14 Classes)",
       "Daily 1-on-1 Speaking Practice with Mentors (10 Classes)",
       "15 Full-Length Real CD/PB Mock Tests with Assessment",
-      "Lifetime Batch Repeat Privilege (Free of Cost)"
+      "৫ মাস ভ্যালিডিটি (৩ মাস কোর্স কমপ্লিশন + ২ মাস প্র্যাকটিস)"
     ],
     features: [
       "প্রতিটি ক্লাসের ফুল এইচডি রেকর্ডিং ও লেকচার নোটস",
       "Cambridge 1-19 এর প্রতিটি প্যাসেজের বাংলা অডিও-ভিডিও সমাধান",
-      "সপ্তাহে ৭ দিন প্র্যাকটিস ল্যাব অ্যাক্সেস",
+      "সপ্তাহে ৭ দিন প্র্যাকটিস ল্যাব ও লাইব্রেরি অ্যাক্সেস",
       "আনলিমিটেড রাইটিং কপি চেক ও ফিডব্যাক",
       "মক টেস্ট শেষে মেন্টরের সাথে ব্যক্তিগত ইন্টারভিউ ও স্ট্র্যাটেজি মিটিং"
     ],
     schedule: {
       days: "Sunday, Tuesday, Thursday",
-      time: "8:00 PM – 10:00 PM (Online / Offline)",
-      format: "Interactive Zoom Live & On-Campus Classroom"
+      time: "8:00 PM – 10:00 PM (Offline Campus)",
+      format: "SM Bhaban Campus, Badda, Dhaka"
     }
   },
 
   // --------------------------------------------------------------------------
-  // PATHWAY 02 — MASTER
+  // PATHWAY 02 — MASTER (IELTS FULL COURSE)
   // --------------------------------------------------------------------------
   {
     id: "pathway-master",
     slug: "course-complete-mastery",
     pathwayNumber: "PATHWAY 02 — MASTER",
-    title: "Complete IELTS Mastery",
+    title: "IELTS Full Course (4 Modules)",
     subHeadline: "Mastering All 4 Modules",
     tagline: "লিসেনিং, রিডিং, রাইটিং ও স্পিকিং ৪টি মডিউলেরই কমপ্লিট স্ট্র্যাটেজি ও প্রিমিয়াম প্রিপারেশন।",
     category: "Core Pathway",
     badge: "Flagship • All 4 Modules",
     badgeColor: "bg-rose-600 text-white",
-    duration: "2.5 – 3 Months",
+    duration: "আনুমানিক ২ মাস ১০ দিন",
     totalClasses: "36 Live Classes",
     mockTests: "20 Full Mocks",
-    price: "৳ 9,500",
-    originalPrice: "৳ 14,000",
+    price: "৳ ৭,৯৯৯ (Online) / ৳ ১২,৯৯৯ (Offline)",
+    originalPrice: "৳ ১২,০০০",
     targetBand: "Band 6.5 – 7.5+",
     overview: "কানাডা, যুক্তরাজ্য ও অস্ট্রেলিয়ার বিশ্ববিদ্যালয়গুলোতে সরাসরি ভর্তির জন্য নির্ধারিত কাট-অফ স্কোর নিশ্চিত করার স্পেশাল অল-ইন-ওয়ান ট্র্যাক।",
     highlights: [
@@ -109,7 +109,7 @@ export const coursesData: Course[] = [
       "Task 1 & Task 2 Line-by-Line Feedback & Band 9 Alternative Models",
       "Daily 1-on-1 Speaking Simulations with Real Examiner Drills",
       "20 Full-Length Cambridge Standard Mock Tests with Live Diagnostic Counseling",
-      "100% Free University Shortlisting, SOP Guidance & Visa Support"
+      "৫ মাস ভ্যালিডিটি (৩ মাস কোর্স + ২ মাস প্র্যাকটিস সাপোর্ট)"
     ],
     features: [
       "৪টি মডিউলে ৪ জন স্পেশালিস্ট মেন্টরের নিবিড় গাইডেন্স",
@@ -125,32 +125,32 @@ export const coursesData: Course[] = [
   },
 
   // --------------------------------------------------------------------------
-  // PATHWAY 03 — ACCELERATE
+  // PATHWAY 03 — ACCELERATE (IELTS CRASH COURSE)
   // --------------------------------------------------------------------------
   {
     id: "pathway-accelerate",
     slug: "course-40day-crash",
     pathwayNumber: "PATHWAY 03 — ACCELERATE",
-    title: "40-Day IELTS Crash Preparation",
-    subHeadline: "Exam Ready",
+    title: "IELTS CRASH COURSE",
+    subHeadline: "Exam Ready in 40 Days",
     tagline: "যাদের পরীক্ষা খুব নিকটে—দ্রুততম সময়ে স্কোর বুস্ট করার হাই-ইনটেনসিটি স্ট্র্যাটেজি ক্র্যাশ প্রোগ্রাম।",
     category: "Core Pathway",
     badge: "Fast Track • High Speed",
-    badgeColor: "bg-purple-600 text-white",
-    duration: "40 Days",
+    badgeColor: "bg-amber-600 text-white",
+    duration: "৪০ দিন",
     totalClasses: "24 Intensive Classes",
     mockTests: "10 Full Mocks",
-    price: "৳ 7,500",
-    originalPrice: "৳ 11,000",
+    price: "৳ ৫,৯৯৯",
+    originalPrice: "৳ ৮,০০০",
     targetBand: "Band 7.0 – 8.0+",
-    overview: "জরুরী ইনটেক ডেডলাইন বা দ্রুত পরীক্ষার জন্য যাদের মাত্র ১–১.৫ মাস সময় আছে, তাদের সম্পূর্ণ প্র্যাকটিস ও হ্যাক্স-ভিত্তিক ইনটেনসিভ ক্র্যাশ কোর্স।",
+    overview: "জরুরী ইনটেক ডেডলাইন বা দ্রুত পরীক্ষার জন্য যাদের মাত্র ৪০ দিন সময় আছে, তাদের সম্পূর্ণ প্র্যাকটিস ও হ্যাক্স-ভিত্তিক ইনটেনসিভ ক্র্যাশ কোর্স।",
     highlights: [
       "24 High-Yield Strategy Sessions (Zero wasted theory)",
       "Daily Reading & Listening Speed Drills with Timed Pressure",
       "Writing Band 7.5+ Ready Fast Templates & Structure Blueprints",
       "Daily Speaking Mock Drills with Fluency Polishing",
       "10 Full Mock Tests with Instant Result & Diagnostic Analytics",
-      "Official Exam Booking Assistance & Test Voucher"
+      "৫ মাস ভ্যালিডিটি সাপোর্ট"
     ],
     features: [
       "কম সময়ে দ্রুত স্কোর বাড়ানোর টার্গেটেড হ্যাকস",
@@ -166,22 +166,22 @@ export const coursesData: Course[] = [
   },
 
   // --------------------------------------------------------------------------
-  // FAST-TRACK: WRITING EXCELLENCE
+  // FAST-TRACK: WRITING EXPERTIZER
   // --------------------------------------------------------------------------
   {
     id: "fasttrack-writing",
     slug: "course-writing-excellence",
-    title: "30-Day Writing Excellence",
+    title: "Only Writing Expertizer",
     subHeadline: "Evaluate • Correct • Improve",
     tagline: "রাইটিংয়ে আটকে থাকা ৫.৫ বা ৬.০ স্কোরকে ৭.৫+ এ উন্নীত করার ডেডিকেটেড স্পেশালাইজড ল্যাব।",
     category: "Fast-Track Program",
     badge: "Specialized • Writing Lab",
     badgeColor: "bg-purple-600 text-white",
-    duration: "30 Days (1 Month)",
+    duration: "১ মাস ১০ দিন",
     totalClasses: "16 Dedicated Sessions",
     mockTests: "8 Writing Mocks",
-    price: "৳ 4,500",
-    originalPrice: "৳ 7,000",
+    price: "৳ ৪,৯৯৯ (Offline) / ৳ ২,৯৯৯ (Online)",
+    originalPrice: "৳ ৭,০০০",
     targetBand: "Band 7.0 – 8.5",
     overview: "IELTS শিক্ষার্থীদের সবচেয়ে বড় চ্যালেঞ্জ রাইটিং সেকশন। লাইন-বাই-লাইন সংশোধন ও ৪টি অফিসিয়াল ক্রাইটেরিয়া (TR, CC, LR, GRA) অনুসারে স্কিল ডেভেলপমেন্টের জন্য এই স্পেশালাইজড কোর্স।",
     highlights: [
@@ -190,47 +190,47 @@ export const coursesData: Course[] = [
       "Lexical Resource: Less Common Words & Collocations Master-list",
       "Grammatical Range: Inversions, Conditionals & Complex Syntax",
       "30+ Essay Line-by-Line Corrections with Detailed Breakdown",
-      "100+ Band 8.5 & Band 9 Model Essays (Task 1 & Task 2)"
+      "৫ মাস ভ্যালিডিটি সাপোর্ট"
     ],
     features: [
       "প্রতিটি এসাইনমেন্টের বিস্তারিত গ্রাফিকাল মার্কিং ও ব্যাখ্যা",
       "লাইভ ব্রেনস্টর্মিং ক্লাস ও আইডিয়া ব্যাংক",
       "প্যারাফ্রেজিং ও সিনোনিম ডিকশনারি",
-      "পারসোনাল ফিডব্যাক মিটিং জুম কলে"
+      "পারসোনাল ফিডব্যাক মিটিং"
     ],
     schedule: {
       days: "Monday, Thursday",
       time: "8:30 PM – 10:30 PM",
-      format: "Online Live Interactive"
+      format: "Online Live & Offline Campus"
     }
   },
 
   // --------------------------------------------------------------------------
-  // FAST-TRACK: SPEAKING SPRINTER
+  // FAST-TRACK: SPEAKING INTENSIVE
   // --------------------------------------------------------------------------
   {
     id: "fasttrack-speaking",
     slug: "course-speaking-sprinter",
-    title: "30-Day Speaking Sprinter",
+    title: "Only Speaking Intensive",
     subHeadline: "Practice • Assess • Perform",
     tagline: "প্রতিদিন ওয়ান-অন-ওয়ান স্পিকিং প্র্যাকটিস ও সাবলীল ইংরেজি বলার নির্ভুল আত্মবিশ্বাস।",
     category: "Fast-Track Program",
     badge: "Interactive • Speaking Bootcamp",
     badgeColor: "bg-emerald-600 text-white",
-    duration: "30 Days (1 Month)",
+    duration: "১ মাস ১০ দিন",
     totalClasses: "30 Daily Labs",
     mockTests: "8 Speaking Mocks",
-    price: "৳ 4,000",
-    originalPrice: "৳ 6,500",
+    price: "৳ ৪,৯৯৯ (Offline) / ৳ ২,৯৯৯ (Online)",
+    originalPrice: "৳ ৭,০০০",
     targetBand: "Band 7.5 – 8.5",
     overview: "হেজিটেশন দূর করে সাবলীলভাবে ইংরেজিতে কথা বলা এবং স্পিকিং টেস্টে ৭.৫+ অর্জনের জন্য দৈনিক প্র্যাকটিস বুটক্যাম্প।",
     highlights: [
       "Daily Speaking Partner Pair-up with Mentors",
       "Part 1 100+ Common Topic Instant Answer Strategies",
-      "Part 2 1-Minute Preparation Note-Taking Method (Past-Present-Future)",
+      "Part 2 1-Minute Preparation Note-Taking Method",
       "Part 3 Abstract & Philosophical Question Explanations",
       "Pronunciation, Intonation & Natural Expression Training",
-      "Recorded Speaking Mock Tests with Detailed Scoring Rubric"
+      "৫ মাস ভ্যালিডিটি সাপোর্ট"
     ],
     features: [
       "প্রতিদিন ৩০ মিনিট লাইভ মেন্টর সেশন",
@@ -241,7 +241,7 @@ export const coursesData: Course[] = [
     schedule: {
       days: "Everyday (Saturday to Thursday)",
       time: "Flexible Slots (Morning / Afternoon / Night)",
-      format: "1-on-1 Zoom Audio/Video Room"
+      format: "1-on-1 Zoom Audio/Video & Campus Room"
     }
   },
 
@@ -251,17 +251,17 @@ export const coursesData: Course[] = [
   {
     id: "fasttrack-combo",
     slug: "course-any-2-modules",
-    title: "35-Day Any 2 Modules Combo Pack",
+    title: "Any 2 Modules Combo Pack",
     subHeadline: "Retake Expert",
     tagline: "যাদের নির্দিষ্ট ২টি মডিউলে (যেমন Writing + Speaking বা Reading + Writing) স্কোর বাড়ানো প্রয়োজন।",
     category: "Fast-Track Program",
     badge: "Combo Pack • Retake Focused",
     badgeColor: "bg-amber-500 text-white",
-    duration: "35 Days",
+    duration: "১ মাস ১০ দিন",
     totalClasses: "20 Live Sessions",
     mockTests: "6 Skill Mocks",
-    price: "৳ 5,500",
-    originalPrice: "৳ 8,500",
+    price: "৳ ৪,৫০০",
+    originalPrice: "৳ ৬,০০০",
     targetBand: "Band 7.0 – 8.0+",
     overview: "রিটেক পরীক্ষার্থী বা যারা নির্দিষ্ট মডিউলে দুর্বল, তাদের জন্য আপনার পছন্দের যে কোনো ২টি মডিউল বেছে নেওয়ার কাস্টমাইজড কম্বো কোর্স।",
     highlights: [
@@ -270,7 +270,7 @@ export const coursesData: Course[] = [
       "Line-by-line task corrections & daily speaking simulation",
       "Cambridge Traps & Speed Reading Scanning Methods",
       "6 Targeted Skill-based Mock Tests with Performance Breakdown",
-      "Flexible Study Schedule & Archive Access"
+      "৫ মাস ভ্যালিডিটি সাপোর্ট"
     ],
     features: [
       "নিজের দুর্বলতা অনুযায়ী মডিউল কম্বিনেশনের স্বাধীনতা",

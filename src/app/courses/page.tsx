@@ -1,16 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useModal } from "@/context/ModalContext";
 import { 
   ChevronRight, CheckCircle2, Award, Users, 
-  Target, Sparkles, BookOpen, Clock, Calendar, ArrowRight, ShieldCheck, Crown, Layers, Zap, PenTool, Mic, FileText
+  Target, Sparkles, BookOpen, Clock, Calendar, ArrowRight, ShieldCheck, Zap, PenTool, Mic, Globe, Building2, HelpCircle, Check, X, FileText
 } from "lucide-react";
+import { coursesData } from "@/data/courses";
 
-export default function CoursesPage() {
+function CoursesContent() {
   const { openModal } = useModal();
-  const [activeCategory, setActiveCategory] = useState<"all" | "pathways" | "fasttrack" | "mocks">("all");
+  const searchParams = useSearchParams();
+  const [activeTab, setActiveTab] = useState<"online" | "offline">("online");
+
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam === "offline") {
+      setActiveTab("offline");
+    } else if (tabParam === "online") {
+      setActiveTab("online");
+    }
+  }, [searchParams]);
+
+  const mockProgram = coursesData.find(c => c.id === "mock-program");
 
   return (
     <div className="space-y-0">
@@ -22,592 +36,639 @@ export default function CoursesPage() {
           <div className="inner-breadcrumb">
             <Link href="/">Home</Link>
             <ChevronRight className="w-3 h-3 text-slate-400" />
-            <span className="text-rose-400">Our Courses</span>
+            <span className="text-rose-400">Course Programs & Fee Structure</span>
           </div>
 
           <h1 className="inner-hero-title font-heading">
             Master Every IELTS Module <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-rose-300 to-amber-300">
-              With Proven High-Yield Programs
+              Online & Offline Certified Programs
             </span>
           </h1>
 
           <p className="inner-hero-subtitle">
-            আপনার বর্তমান লেভেল ও সময় অনুযায়ী তৈরি করা স্পেশালাইজড কোর্স কারিকুলাম। ফুল লেংথ মক টেস্ট, আনলিমিটেড রাইটিং ইভালুয়েশন ও ডেইলি স্পিকিং প্র্যাকটিস সাপোর্ট।
+            আপনার সুবিধা অনুযায়ী লাইভ অনলাইন বা বাড্ডা ক্যাম্পাসে অফলাইন ক্লাসরুম ব্যাচে ভর্তি হোন। ১০০% ক্যামব্রিজ মেথডোলজি, লাইন-বাই-লাইন রাইটিং ইভাল্যুয়েশন ও ডেইলি স্পিকিং প্র্যাকটিস।
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-3xl mx-auto">
+          {/* ONLINE / OFFLINE TAB SWITCHER */}
+          <div className="inline-flex items-center p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl max-w-md mx-auto">
             <button 
-              onClick={() => setActiveCategory("all")} 
-              className={`custom-tab-btn cursor-pointer ${activeCategory === "all" ? "active" : ""}`}
+              onClick={() => setActiveTab("online")} 
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-heading text-sm font-extrabold transition-all cursor-pointer ${
+                activeTab === "online" 
+                  ? "bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-lg shadow-rose-600/30 scale-102" 
+                  : "text-slate-300 hover:text-white"
+              }`}
             >
-              All Programs
+              <Globe className="w-4 h-4" />
+              <span>🌐 Online Courses</span>
             </button>
             <button 
-              onClick={() => setActiveCategory("pathways")} 
-              className={`custom-tab-btn cursor-pointer ${activeCategory === "pathways" ? "active" : ""}`}
+              onClick={() => setActiveTab("offline")} 
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-heading text-sm font-extrabold transition-all cursor-pointer ${
+                activeTab === "offline" 
+                  ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/30 scale-102" 
+                  : "text-slate-300 hover:text-white"
+              }`}
             >
-              3 Core Pathways
-            </button>
-            <button 
-              onClick={() => setActiveCategory("fasttrack")} 
-              className={`custom-tab-btn cursor-pointer ${activeCategory === "fasttrack" ? "active" : ""}`}
-            >
-              Fast-Track Programs
-            </button>
-            <button 
-              onClick={() => setActiveCategory("mocks")} 
-              className={`custom-tab-btn cursor-pointer ${activeCategory === "mocks" ? "active" : ""}`}
-            >
-              Mock Test Program
+              <Building2 className="w-4 h-4" />
+              <span>🏢 Offline Courses</span>
             </button>
           </div>
         </div>
       </section>
 
       {/* ==========================================================================
-          COURSES DIRECTORY SECTION
+          COURSE DURATION & 5-MONTH VALIDITY SUMMARY BANNER
           ========================================================================== */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-[1320px] mx-auto px-6 space-y-16">
-
-          {/* ----------------------------------------------------------------------
-              SECTION: 3 CORE PATHWAYS
-              ---------------------------------------------------------------------- */}
-          {(activeCategory === "all" || activeCategory === "pathways") && (
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
-                <div>
-                  <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-2">🎓 Complete Roadmaps</div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-                    The 3 Core Academic Pathways
-                  </h2>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                    জিরো ফাউন্ডেশন থেকে শুরু করে এক্সাম-রেডি হওয়ার স্ট্রাকচার্ড কমপ্রিহেনসিভ কারিকুলাম।
-                  </p>
-                </div>
-                <div className="text-xs font-bold text-slate-400">3 Comprehensive Tracks</div>
+      <section className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border-y border-slate-800 text-white py-8">
+        <div className="max-w-[1320px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+            {/* Validity Pill */}
+            <div className="p-4 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                📅
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Pathway 1: Build Pathway */}
-                <div id="build" className="bg-white rounded-3xl p-8 border-2 border-blue-500 shadow-xl relative overflow-hidden flex flex-col justify-between hover-elevate">
-                  <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest font-heading">
-                    PATHWAY 01 • BUILD
-                  </div>
-
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-6">
-                      📘
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">3.5 – 4 Months</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-600 font-bold text-[11px]">Target: Band 5.0–6.5+</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      IELTS Foundation to Advanced
-                    </h3>
-                    <div className="text-xs font-black text-blue-600 mb-3 uppercase tracking-wider">
-                      Build Basics → Score Higher
-                    </div>
-
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      ইংরেজি ব্যাকরণ, ভোকাবুলারি ও প্রাথমিক ভীতি দূর করে বেসিক থেকে প্রতিটি মডিউলের ফাউন্ডেশন তৈরির কমপ্রিহেনসিভ প্রোগ্রাম।
-                    </p>
-
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-blue-600 font-bold">✔</span> <strong>৪৮টি লাইভ ক্লাস</strong> (L, R, W, S Complete)
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-blue-600 font-bold">✔</span> <strong>কমপ্লেক্স সেন্টেন্স ও গ্রামার বিল্ডার</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-blue-600 font-bold">✔</span> <strong>আনলিমিটেড রাইটিং ইভালুয়েশন</strong> উইথ ফিডব্যাক
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-blue-600 font-bold">✔</span> <strong>ডেইলি ১-অন-১ স্পিকিং প্র্যাকটিস</strong> সেশন
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-blue-600 font-bold">✔</span> <strong>১৫টি ফুল লেংথ মক টেস্ট</strong> + সল্যুশন ক্লাস
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 15,000</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 10,500</div>
-                      </div>
-                      <span className="px-3 py-1 bg-blue-50 text-blue-600 font-bold text-xs rounded-xl">30% Off</span>
-                    </div>
-                    <button 
-                      onClick={() => openModal("Pathway 01 — IELTS Foundation to Advanced")} 
-                      className="btn-cta-blue w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
-                    >
-                      Enroll in Pathway 01 →
-                    </button>
-                  </div>
-                </div>
-
-                {/* Pathway 2: Master Pathway */}
-                <div id="master" className="bg-white rounded-3xl p-8 border-2 border-rose-500 shadow-xl relative overflow-hidden flex flex-col justify-between hover-elevate">
-                  <div className="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest animate-pulse-glow font-heading">
-                    PATHWAY 02 • MASTER
-                  </div>
-
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-6">
-                      🚀
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">2.5 – 3 Months</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-600 font-bold text-[11px]">Target: Band 6.5–7.5+</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      Complete IELTS Mastery
-                    </h3>
-                    <div className="text-xs font-black text-rose-600 mb-3 uppercase tracking-wider">
-                      Mastering All 4 Modules
-                    </div>
-
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      কানাডা, যুক্তরাজ্য ও অস্ট্রেলিয়ার বিশ্ববিদ্যালয়গুলোতে সরাসরি ভর্তির জন্য নির্ধারিত কাট-অফ স্কোর নিশ্চিত করার স্পেশাল অল-ইন-ওয়ান ট্র্যাক।
-                    </p>
-
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-rose-600 font-bold">✔</span> <strong>৩৬টি হাই-ইল্ড স্ট্র্যাটেজি ক্লাস</strong> (All 4 Modules)
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-rose-600 font-bold">✔</span> <strong>ক্যামব্রিজ ট্র্যাপ এলিমিনেশন টেকনিক</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-rose-600 font-bold">✔</span> <strong>টাস্ক ১ ও ২ লাইন-বাই-লাইন ফিডব্যাক</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-rose-600 font-bold">✔</span> <strong>২০টি ফুল লেংথ ক্যামব্রিজ মক টেস্ট</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-rose-600 font-bold">✔</span> <strong>১০০% ফ্রি ইউনিভার্সিটি শর্টলিস্টিং ও SOP সাপোর্ট</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 14,000</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 9,500</div>
-                      </div>
-                      <span className="px-3 py-1 bg-rose-50 text-rose-600 font-bold text-xs rounded-xl">Most Popular</span>
-                    </div>
-                    <button 
-                      onClick={() => openModal("Pathway 02 — Complete IELTS Mastery")} 
-                      className="btn-cta-amber w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
-                    >
-                      Enroll in Pathway 02 →
-                    </button>
-                  </div>
-                </div>
-
-                {/* Pathway 3: Accelerate Pathway */}
-                <div id="accelerate" className="bg-white rounded-3xl p-8 border-2 border-purple-500 shadow-xl relative overflow-hidden flex flex-col justify-between hover-elevate">
-                  <div className="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest font-heading">
-                    PATHWAY 03 • ACCELERATE
-                  </div>
-
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-6 font-bold">
-                      ⚡
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">40 Days</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-600 font-bold text-[11px]">Target: Band 7.0–8.0+</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      40-Day IELTS Crash Preparation
-                    </h3>
-                    <div className="text-xs font-black text-purple-600 mb-3 uppercase tracking-wider">
-                      Exam Ready
-                    </div>
-
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      যাদের পরীক্ষার তারিখ খুব নিকটে—দ্রুততম সময়ে স্কোর বুস্ট করার হাই-ইনটেনসিটি কৌশল ও প্রিডিকশন বেসড স্প্রিন্ট কোর্স।
-                    </p>
-
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>২৪টি হাই-ইল্ড স্ট্র্যাটেজি সেশন</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>ক্যামব্রিজ ১৭-১৯ এর বিশেষ ট্র্যাপ ডিকোডিং</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>১০টি সিডি-আইইএলটিএস ফুল মক টেস্ট</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>এক্সপ্রেস রাইটিং ও স্পিকিং রিভিউ ড্রিলস</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>অফিসিয়াল এক্সাম রেজিস্ট্রেশন সহায়তা</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 11,000</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 7,500</div>
-                      </div>
-                      <span className="px-3 py-1 bg-purple-50 text-purple-600 font-bold text-xs rounded-xl">Fast Track</span>
-                    </div>
-                    <button 
-                      onClick={() => openModal("Pathway 03 — 40-Day IELTS Crash Preparation")} 
-                      className="btn-cta-blue w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
-                    >
-                      Enroll in Pathway 03 →
-                    </button>
-                  </div>
-                </div>
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-rose-300">Course Fee Validity</div>
+                <div className="text-sm font-extrabold text-white mt-0.5">৫ মাস ভ্যালিডিটি</div>
+                <div className="text-[10.5px] text-slate-300">(৩ মাস কোর্স + ২ মাস প্র্যাকটিস)</div>
               </div>
             </div>
-          )}
 
-          {/* ----------------------------------------------------------------------
-              SECTION: FAST-TRACK PROGRAMS
-              ---------------------------------------------------------------------- */}
-          {(activeCategory === "all" || activeCategory === "fasttrack") && (
-            <div className="space-y-8 pt-6">
+            {/* 1/2 Modules Duration */}
+            <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                ⏳
+              </div>
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-blue-300">১ / ২ টি Modules Duration</div>
+                <div className="text-sm font-extrabold text-white mt-0.5">১ মাস ১০ দিন</div>
+                <div className="text-[10.5px] text-slate-400">ইনটেনসিভ ফোকাসড ব্যাচ</div>
+              </div>
+            </div>
+
+            {/* Crash Course Duration */}
+            <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                ⚡
+              </div>
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-amber-300">Crash Course Duration</div>
+                <div className="text-sm font-extrabold text-white mt-0.5">৪০ দিন স্প্রিন্ট</div>
+                <div className="text-[10.5px] text-slate-400">এক্সাম রেডি ফাস্ট-ট্র্যাক</div>
+              </div>
+            </div>
+
+            {/* Full Course / Basic to Advanced Duration */}
+            <div className="p-4 rounded-2xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                🎯
+              </div>
+              <div>
+                <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Full / Basic to Adv Duration</div>
+                <div className="text-sm font-extrabold text-white mt-0.5">২ মাস ১০ দিন – ৩.৫ মাস</div>
+                <div className="text-[10.5px] text-slate-400">কমপ্লিট ফাউন্ডেশন ও প্র্যাকটিস</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 1: CORE COURSE PROGRAMS (ONLINE & OFFLINE TABS)
+          ========================================================================== */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-[1320px] mx-auto px-6 space-y-12">
+
+          {/* TAB 1: ONLINE COURSES */}
+          {activeTab === "online" && (
+            <div className="space-y-8 animate-fadeIn">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
                 <div>
-                  <div className="feature-pill-badge bg-purple-100 text-purple-700 mb-2">⚡ Skill Sprints</div>
+                  <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-2">🌐 Live Interactive Zoom Batches</div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-                    Fast-Track Specialized Programs
+                    Online Course Fee Structure & Programs
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                    রাইটিং, স্পিকিং বা যে কোনো ২টি মডিউলের রিটেক পরীক্ষার্থীদের জন্য টার্গেটেড স্পিড প্রোগ্রাম।
+                    বাসায় বসেই লাইভ ইন্টারঅ্যাক্টিভ ক্লাসে অংশ নিন, এইচডি রেকর্ডিং ও সার্বক্ষণিক মেন্টর ফিডব্যাক সহ।
                   </p>
                 </div>
-                <div className="text-xs font-bold text-slate-400">3 Targeted Programs</div>
+                <div className="px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold font-heading">
+                  Enrollment Validity: ৫ মাস
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Fast-Track 1: Writing Excellence */}
-                <div id="writing" className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:border-purple-300 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-6">
-                      ✍️
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">30 Days</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-600 font-bold text-[11px]">Band 7.0+ Target</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      30-Day Writing Excellence
-                    </h3>
-                    <div className="text-xs font-black text-purple-600 mb-3 uppercase tracking-wider">
-                      Evaluate • Correct • Improve
-                    </div>
-
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      রাইটিং এ বারবার ৫.৫ বা ৬.০ এ আটকে যাচ্ছেন? টাস্ক ১ এবং টাস্ক ২ এর নিখুঁত স্ট্রাকচার, কোহিশন এবং লাইন-বাই-লাইন ফিডব্যাক সেশন।
-                    </p>
-
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>১৬টি ডেডিকেটেড রাইটিং ক্লাস</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>৩০+ এসে লাইন-বাই-লাইন ইভালুয়েশন</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>ব্যান্ড ৯ মডেল ভোকাবুলারি ব্যাংক</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-purple-600 font-bold">✔</span> <strong>কমপ্লেক্স গ্রামার ও লিংকিং ডিভাইসেস</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 7,000</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 4,500</div>
-                      </div>
-                      <span className="px-3 py-1 bg-purple-50 text-purple-700 font-bold text-xs rounded-xl">Save BDT 2.5K</span>
-                    </div>
-                    <button 
-                      onClick={() => openModal("Fast-Track — 30-Day Writing Excellence")} 
-                      className="btn-cta-blue w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
-                    >
-                      Join Writing Excellence →
-                    </button>
-                  </div>
-                </div>
-
-                {/* Fast-Track 2: Speaking Sprinter */}
-                <div id="speaking" className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:border-emerald-300 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
-                      🗣️
-                    </div>
-
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">30 Days</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-600 font-bold text-[11px]">Daily 1-on-1</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      30-Day Speaking Sprinter
-                    </h3>
-                    <div className="text-xs font-black text-emerald-600 mb-3 uppercase tracking-wider">
-                      Practice • Assess • Perform
-                    </div>
-
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      কথার জড়তা, ফ্লুয়েন্সির অভাব এবং পার্ট ২ কিউ কার্ডের ২ মিনিট টানা কথা বলার ভয় দূর করার জন্য দৈনিক ওয়ান-টু-ওয়ান স্পিকিং ড্রিল।
-                    </p>
-
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-emerald-500 font-bold">✔</span> <strong>প্রতিদিন মেন্টরের সাথে ১-অন-১ টেস্ট</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-emerald-500 font-bold">✔</span> <strong>লেটেস্ট কিউ কার্ড প্রেডিকশন লিস্ট</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-emerald-500 font-bold">✔</span> <strong>প্রোনাউনসিয়েশন ও অ্যাকসেন্ট পলিশিং</strong>
-                      </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-emerald-500 font-bold">✔</span> <strong>ইনস্ট্যান্ট ব্যান্ড স্কোর ও অডিও রেকর্ডিং</strong>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 6,500</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 4,000</div>
-                      </div>
-                      <span className="px-3 py-1 bg-emerald-50 text-emerald-700 font-bold text-xs rounded-xl">Popular</span>
-                    </div>
-                    <button 
-                      onClick={() => openModal("Fast-Track — 30-Day Speaking Sprinter")} 
-                      className="btn-cta-blue w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
-                    >
-                      Join Speaking Sprinter →
-                    </button>
-                  </div>
-                </div>
-
-                {/* Fast-Track 3: Any 2 Modules Combo Pack */}
-                <div id="combo" className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:border-amber-300 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                
+                {/* 1. Online: Any 1 Module */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-slate-200 shadow-lg relative flex flex-col justify-between hover-elevate group">
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold">
                       🎯
                     </div>
 
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600 font-bold text-[11px]">35 Days</span>
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-600 font-bold text-[11px]">Custom Pair</span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">১ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-bold text-[11px]">Online Live</span>
                     </div>
 
-                    <h3 className="text-2xl font-black text-slate-900 font-heading mb-1">
-                      35-Day Any 2 Modules Combo Pack
-                    </h3>
-                    <div className="text-xs font-black text-amber-600 mb-3 uppercase tracking-wider">
-                      Retake Expert
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        যেকোন ১টি Module
+                      </h3>
+                      <div className="text-xs font-bold text-blue-600 mt-0.5">Reading / Writing / Speaking / Listening</div>
                     </div>
 
-                    <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                      রিটেক পরীক্ষার্থী বা যারা নির্দিষ্ট ২টি মডিউলে দুর্বল (যেমন Writing + Speaking বা Reading + Writing), তাদের জন্য কাস্টমাইজড কম্বো।
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      নির্দিষ্ট একটি মডিউলে স্কোর কম? শুধু সেই মডিউলটির উপর ফোকাসড প্রস্তুতি নিয়ে কাঙ্ক্ষিত ব্যান্ড তুলুন।
                     </p>
 
-                    <div className="space-y-3 pb-6 border-b border-slate-100 text-xs text-slate-700">
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-amber-500 font-bold">✔</span> <strong>পছন্দের যে কোনো ২টি মডিউল সিলেকশন</strong>
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>লাইভ ক্লাস ও স্পেসিফিক স্ট্র্যাটেজি</span>
                       </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-amber-500 font-bold">✔</span> <strong>২০টি স্পেশালাইজড লাইভ ক্লাস সেশন</strong>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>মডিউল-ওয়াইজ প্র্যাকটিস মেটেরিয়ালস</span>
                       </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-amber-500 font-bold">✔</span> <strong>লাইন-বাই-লাইন কারেকশন ও স্পিকিং সিমুলেশন</strong>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ফুল এইচডি ক্লাস রেকর্ডিং অ্যাক্সেস</span>
                       </div>
-                      <div className="flex items-center gap-2.5">
-                        <span className="text-amber-500 font-bold">✔</span> <strong>৬টি টার্গেটেড মডিউল-বেসড মক টেস্ট</strong>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <span className="text-[11px] text-slate-400 line-through">BDT 8,500</span>
-                        <div className="text-2xl font-black text-slate-900 font-heading">BDT 5,500</div>
-                      </div>
-                      <span className="px-3 py-1 bg-amber-50 text-amber-700 font-bold text-xs rounded-xl">Combo Deal</span>
+                  <div className="pt-6 mt-4 border-t border-slate-100">
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ৩,৫০০/-</div>
+                      <div className="text-2xl font-black text-slate-900 font-heading">৳ ২,৯৯৯/-</div>
                     </div>
                     <button 
-                      onClick={() => openModal("Fast-Track — 35-Day Any 2 Modules Combo Pack")} 
-                      className="btn-header-outline w-full justify-center py-3.5 text-sm font-bold cursor-pointer"
+                      onClick={() => openModal("Online Course — যেকোন ১টি Module (৳ ২,৯৯৯)")} 
+                      className="btn-cta-blue w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
                     >
-                      Join Any 2 Modules →
+                      Enroll in 1 Module →
                     </button>
                   </div>
                 </div>
+
+                {/* 2. Online: Any 2 Modules */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-purple-200 shadow-lg relative flex flex-col justify-between hover-elevate group">
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold">
+                      ✍️
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">১ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 font-bold text-[11px]">Combo Track</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        যেকোনো ২টি Module
+                      </h3>
+                      <div className="text-xs font-bold text-purple-600 mt-0.5">Writing + Speaking / Reading + Writing</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Writing & Speaking বা আপনার দুর্বল ২টি মডিউলের জন্য পারফেক্ট কম্বো প্যাকেজ।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>২টি মডিউলের কমপ্লিট সল্যুশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>আনলিমিটেড রাইটিং ইভাল্যুয়েশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ডেইলি স্পিকিং পার্টনার পেয়ারিং</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 mt-4 border-t border-slate-100">
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ৬,০০০/-</div>
+                      <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৫০০/-</div>
+                    </div>
+                    <button 
+                      onClick={() => openModal("Online Course — যেকোনো ২টি Module (৳ ৪,৫০০)")} 
+                      className="btn-cta-amber w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
+                    >
+                      Enroll in 2 Modules →
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. Online: IELTS Crash Course */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-amber-300 shadow-xl relative flex flex-col justify-between hover-elevate group">
+                  <div className="absolute top-0 right-0 bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1 rounded-bl-2xl uppercase tracking-wider">
+                    FAST-TRACK
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold">
+                      ⚡
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">৪০ দিন স্প্রিন্ট</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-bold text-[11px]">Exam Ready</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        IELTS CRASH COURSE
+                      </h3>
+                      <div className="text-xs font-bold text-amber-600 mt-0.5">হাই-ইল্ড ফাস্ট-ট্র্যাক প্রোগ্রাম</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      পরীক্ষার ডেট ফিক্সড? মাত্র ৪০ দিনে হাই-ফ্রিকোয়েন্সি স্ট্র্যাটেজি ও ট্র্যাপ এলিমিনেশন আয়ত্ত করুন।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>২৪টি ইনটেনসিভ লাইভ সেশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ক্যামব্রিজ ট্র্যাপ এলিমিনেশন টেকনিক</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ফুল লেন্থ মক টেস্ট ও স্কোর অ্যানালাইসিস</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 mt-4 border-t border-slate-100">
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ৮,০০০/-</div>
+                      <div className="text-2xl font-black text-amber-600 font-heading">৳ ৫,৯৯৯/-</div>
+                    </div>
+                    <button 
+                      onClick={() => openModal("Online Course — IELTS Crash Course (৳ ৫,৯৯৯)")} 
+                      className="btn-cta-amber w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
+                    >
+                      Enroll in Crash Course →
+                    </button>
+                  </div>
+                </div>
+
+                {/* 4. Online: IELTS Full Course */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-rose-500 shadow-2xl relative flex flex-col justify-between hover-elevate group">
+                  <div className="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-black px-3.5 py-1 rounded-bl-2xl uppercase tracking-wider animate-pulse">
+                    MOST POPULAR
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-bold">
+                      👑
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">আনুমানিক ২ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold text-[11px]">All 4 Modules</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        IELTS Full Course
+                      </h3>
+                      <div className="text-xs font-bold text-rose-600 mt-0.5">কমপ্লিট ৪ মডিউল মাস্টার প্রোগ্রাম</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      L, R, W, S চারটি মডিউলেরই পূর্ণাঙ্গ প্রস্তুতি, আনলিমিটেড রাইটিং ফিডব্যাক ও মক টেস্ট প্যাকেজ।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>৩৬টি পূর্ণাঙ্গ লাইভ মাস্টার ক্লাস</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>আনলিমিটেড রাইটিং লাল কালি কারেকশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ডেইলি স্পিকিং পার্টনারিং ও অ্যাসেসমেন্ট</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>১৫টি ফুল মক টেস্ট + ডাউট ক্লিয়ারিং</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি (৩ মাস + ২ মাস প্র্যাকটিস)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 mt-4 border-t border-slate-100">
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ১২,০০০/-</div>
+                      <div className="text-2xl font-black text-rose-600 font-heading">৳ ৭,৯৯৯/-</div>
+                    </div>
+                    <button 
+                      onClick={() => openModal("Online Course — IELTS Full Course (৳ ৭,৯৯৯)")} 
+                      className="btn-cta-blue w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
+                    >
+                      Enroll in Full Course →
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
           )}
 
-          {/* ----------------------------------------------------------------------
-              SECTION: MOCK TEST PROGRAM (3, 5, 7, 10 MOCKS)
-              ---------------------------------------------------------------------- */}
-          {(activeCategory === "all" || activeCategory === "mocks") && (
-            <div id="mock-series" className="space-y-8 pt-6">
+          {/* TAB 2: OFFLINE COURSES (BADDA CAMPUS) */}
+          {activeTab === "offline" && (
+            <div className="space-y-8 animate-fadeIn">
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
                 <div>
-                  <div className="feature-pill-badge bg-emerald-100 text-emerald-700 mb-2">📝 Exam Simulation</div>
+                  <div className="feature-pill-badge bg-blue-100 text-blue-700 mb-2">🏢 Badda Main Campus • Physical Classes</div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
-                    IELTS Mock Test Program
+                    Offline Course Fee Structure & Programs
                   </h2>
-                  <div className="text-sm font-bold text-emerald-700 mt-1">
-                    Real Exam Simulation • 3, 5, 7 & 10 Mock Packages
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                    আমাদের বাড্ডা ক্যাম্পাসে সরাসরি এসে ফেস-টু-ফেস ক্লাস, লাইব্রেরি ও প্র্যাকটিস ল্যাব সুবিধা নিন।
+                  </p>
                 </div>
-                <div className="text-xs font-bold text-slate-400">Computer-Delivered & Paper-Based</div>
+                <div className="px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold font-heading">
+                  Enrollment Validity: ৫ মাস
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {/* 3 Mock Package */}
-                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-emerald-400 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold mb-4">
-                      3x
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+                
+                {/* 1. Offline: Basic to Advanced IELTS */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-indigo-500 shadow-2xl relative flex flex-col justify-between hover-elevate group">
+                  <div className="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-black px-3.5 py-1 rounded-bl-2xl uppercase tracking-wider">
+                    FLAGSHIP FOUNDATION
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold">
+                      🏛️
                     </div>
-                    <h3 className="text-xl font-black text-slate-900 font-heading mb-1">3 Mock Package</h3>
-                    <p className="text-xs text-slate-500 mb-4">কুইক অ্যাসেসমেন্ট ও স্কোর ক্যালিব্রেশন</p>
-                    
-                    <ul className="space-y-2 text-xs text-slate-700 border-t border-slate-100 pt-4">
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ৩টি ফুল লেংথ মক টেস্ট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> CD / PB উভয় ফরম্যাট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> স্কোর প্রিডিকশন রিপোর্ট</li>
-                    </ul>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">আনুমানিক ৩.৫ মাস</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-700 font-bold text-[11px]">Zero to Advanced</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        Basic to Advanced IELTS
+                      </h3>
+                      <div className="text-xs font-bold text-indigo-600 mt-0.5">জিরো বেসিক থেকে ব্যান্ড ৭.৫+ পাথওয়ে</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      গ্রামার, ভোকাবুলারি এবং ফ্লুয়েন্সির বেসিক স্ট্রং করে ৪টি মডিউলে সম্পূর্ণ আত্মবিশ্বাস অর্জনের প্রিমিয়াম ক্যাম্পাসের কোর্স।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>৪৮টি ফেস-টু-ফেস ক্লাসরুম সেশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>কমপ্লেক্স গ্রামার ও সেন্টেন্স স্ট্রাকচারিং</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ক্যাম্পাস লাইব্রেরি ও স্পিকিং ল্যাব ফ্রি</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>১৫টি ফুল পেপার/সিডি মক টেস্ট</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি (৩ মাস + ২ মাস প্র্যাকটিস)</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="text-xs text-slate-400 line-through">BDT 2,500</div>
-                    <div className="text-2xl font-black text-slate-900 font-heading mb-3">BDT 1,500</div>
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ২২,০০০/-</div>
+                      <div className="text-2xl font-black text-indigo-700 font-heading">৳ ১৫,৯৯৯/-</div>
+                    </div>
                     <button 
-                      onClick={() => openModal("Mock Program — 3 Mock Package")}
-                      className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold cursor-pointer"
+                      onClick={() => openModal("Offline Course — Basic to Advanced IELTS (৳ ১৫,৯৯৯)")} 
+                      className="btn-cta-amber w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
                     >
-                      Book 3 Mocks →
+                      Enroll in Basic to Adv →
                     </button>
                   </div>
                 </div>
 
-                {/* 5 Mock Package */}
-                <div className="bg-white rounded-3xl p-6 border-2 border-emerald-500 shadow-md relative flex flex-col justify-between hover-elevate">
-                  <div className="absolute -top-3 right-4 bg-emerald-600 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
-                    Recommended
+                {/* 2. Offline: Only IELTS Full Course */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-rose-500 shadow-xl relative flex flex-col justify-between hover-elevate group">
+                  <div className="absolute top-0 right-0 bg-rose-600 text-white text-[10px] font-black px-3.5 py-1 rounded-bl-2xl uppercase tracking-wider">
+                    MOST POPULAR OFFLINE
                   </div>
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-4">
-                      5x
+
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-bold">
+                      ⭐
                     </div>
-                    <h3 className="text-xl font-black text-slate-900 font-heading mb-1">5 Mock Package</h3>
-                    <p className="text-xs text-slate-500 mb-4">স্ট্যান্ডার্ড প্র্যাকটিস ও ওয়ান-অন-ওয়ান রিভিউ</p>
-                    
-                    <ul className="space-y-2 text-xs text-slate-700 border-t border-slate-100 pt-4">
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ৫টি ফুল লেংথ মক টেস্ট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> রাইটিং লাইন-বাই-লাইন মার্কিং</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> স্পিকিং এক্সামিনার ড্রিল</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ১-অন-১ রিভিউ মিটিং</li>
-                    </ul>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">আনুমানিক ২ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold text-[11px]">4 Modules Mastery</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        Only IELTS Full Course
+                      </h3>
+                      <div className="text-xs font-bold text-rose-600 mt-0.5">ক্যাম্পাস কমপ্লিট ৪ মডিউল ব্যাচ</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      L, R, W, S ৪টি মডিউলের অফিসিয়াল ক্যামব্রিজ স্ট্র্যাটেজি, ফেস-টু-ফেস রাইটিং চেক ও ডিরেক্ট মেন্টর কেয়ার।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>৩৬টি অন-ক্যাম্পাস হাই-ইল্ড ক্লাস</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>সরাসরি মেন্টর দিয়ে খাতা মূল্যায়ন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>অন-স্পট স্পিকিং ইন্টারভিউ ও মক</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>রিয়েল এক্সাম এনভায়রনমেন্ট মক টেস্ট</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="text-xs text-slate-400 line-through">BDT 3,500</div>
-                    <div className="text-2xl font-black text-emerald-700 font-heading mb-3">BDT 2,200</div>
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ১৮,০০০/-</div>
+                      <div className="text-2xl font-black text-rose-600 font-heading">৳ ১২,৯৯৯/-</div>
+                    </div>
                     <button 
-                      onClick={() => openModal("Mock Program — 5 Mock Package")}
-                      className="btn-cta-amber w-full justify-center py-2.5 text-xs font-bold cursor-pointer"
+                      onClick={() => openModal("Offline Course — Only IELTS Full Course (৳ ১২,৯৯৯)")} 
+                      className="btn-cta-blue w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
                     >
-                      Book 5 Mocks →
+                      Enroll in Full Course →
                     </button>
                   </div>
                 </div>
 
-                {/* 7 Mock Package */}
-                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-emerald-400 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold mb-4">
-                      7x
+                {/* 3. Offline: Only Speaking Intensive */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-emerald-200 shadow-lg relative flex flex-col justify-between hover-elevate group">
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                      🎙️
                     </div>
-                    <h3 className="text-xl font-black text-slate-900 font-heading mb-1">7 Mock Package</h3>
-                    <p className="text-xs text-slate-500 mb-4">ইন-ডেপথ ডায়াগনস্টিক অ্যানালাইসিস</p>
-                    
-                    <ul className="space-y-2 text-xs text-slate-700 border-t border-slate-100 pt-4">
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ৭টি ফুল লেংথ মক টেস্ট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ডায়াগনস্টিক ব্যান্ড রিপোর্ট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> মডিউল-ওয়াইজ উইকনেস ফিক্স</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> সল্যুশন ক্লাস অ্যাক্সেস</li>
-                    </ul>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">১ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[11px]">Speaking Only</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        Only Speaking Intensive
+                      </h3>
+                      <div className="text-xs font-bold text-emerald-600 mt-0.5">স্পিকিং ফ্লুয়েন্সি ও কিউ কার্ড ল্যাব</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      স্পিকিংয়ের জড়তা কাটিয়ে এক্সামিনারের সামনে স্বাভাবিকভাবে ব্যান্ড ৭.৫+ রেসপন্স দেওয়ার প্র্যাকটিক্যাল কোর্স।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ডেইলি ১-অন-১ ফেস-টু-ফেস স্পিকিং ড্রিল</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>পার্ট ১, ২, ৩ কমপ্লিট স্ট্র্যাটেজি</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ফোনেটিক্স ও ন্যাচারাল প্রোনাউনসিয়েশন</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="text-xs text-slate-400 line-through">BDT 4,800</div>
-                    <div className="text-2xl font-black text-slate-900 font-heading mb-3">BDT 2,900</div>
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
+                      <div className="text-2xl font-black text-emerald-700 font-heading">৳ ৪,৯৯৯/-</div>
+                    </div>
                     <button 
-                      onClick={() => openModal("Mock Program — 7 Mock Package")}
-                      className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold cursor-pointer"
+                      onClick={() => openModal("Offline Course — Only Speaking Intensive (৳ ৪,৯৯৯)")} 
+                      className="btn-cta-amber w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
                     >
-                      Book 7 Mocks →
+                      Enroll in Speaking →
                     </button>
                   </div>
                 </div>
 
-                {/* 10 Mock Package */}
-                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-emerald-400 transition-all flex flex-col justify-between hover-elevate">
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold mb-4">
-                      10x
+                {/* 4. Offline: Only Writing Expertizer */}
+                <div className="bg-white rounded-3xl p-6 border-2 border-purple-200 shadow-lg relative flex flex-col justify-between hover-elevate group">
+                  <div className="space-y-4">
+                    <div className="w-11 h-11 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold">
+                      ✍️
                     </div>
-                    <h3 className="text-xl font-black text-slate-900 font-heading mb-1">10 Mock Package</h3>
-                    <p className="text-xs text-slate-500 mb-4">কমপ্লিট রিয়েল এক্সাম সিমুলেশন</p>
-                    
-                    <ul className="space-y-2 text-xs text-slate-700 border-t border-slate-100 pt-4">
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ১০টি ফুল লেংথ মক টেস্ট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> আনলিমিটেড স্পিকিং অডিট</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ব্যান্ড ৯ রাইটিং মডেলস</li>
-                      <li className="flex items-center gap-2"><span className="text-emerald-600 font-bold">✓</span> ফ্রি এক্সপার্ট স্টাডি প্ল্যান</li>
-                    </ul>
+
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">১ মাস ১০ দিন</span>
+                      <span className="px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 font-bold text-[11px]">Writing Only</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-black text-slate-900 font-heading">
+                        Only Writing Expertizer
+                      </h3>
+                      <div className="text-xs font-bold text-purple-600 mt-0.5">টাস্ক ১ ও ২ লাইন-বাই-লাইন ল্যাব</div>
+                    </div>
+
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      ক্যাম্পাসে বসে সিনিয়র এক্সামিনারের সরাসরি তত্ত্বাবধানে টাস্ক ১ ও ২ লেখার টেকনিক ও ভুল সংশোধনের ক্লাস।
+                    </p>
+
+                    <div className="space-y-2.5 pt-3 border-t border-slate-100 text-xs text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>টাস্ক ১ ও ২ এর ২০+ স্ট্রাকচারাল টেমপ্লেট</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>সরাসরি লাল কালির লাইন-বাই-লাইন চেক</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>ব্যান্ড ৯ ভোকাবুলারি ও লিঙ্কার্স ব্যাংক</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="font-bold text-rose-600">৫ মাস ভ্যালিডিটি সাপোর্ট</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="text-xs text-slate-400 line-through">BDT 6,500</div>
-                    <div className="text-2xl font-black text-slate-900 font-heading mb-3">BDT 3,800</div>
+                    <div className="mb-4">
+                      <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
+                      <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৯৯৯/-</div>
+                    </div>
                     <button 
-                      onClick={() => openModal("Mock Program — 10 Mock Package")}
-                      className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold cursor-pointer"
+                      onClick={() => openModal("Offline Course — Only Writing Expertizer (৳ ৪,৯৯৯)")} 
+                      className="btn-cta-blue w-full justify-center py-3 text-xs font-extrabold cursor-pointer"
                     >
-                      Book 10 Mocks →
+                      Enroll in Writing →
                     </button>
                   </div>
                 </div>
+
               </div>
             </div>
           )}
@@ -616,110 +677,339 @@ export default function CoursesPage() {
       </section>
 
       {/* ==========================================================================
-          COURSE COMPARISON MATRIX TABLE
+          SECTION 2: FAST-TRACK SPECIALIZED PROGRAMS
           ========================================================================== */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1320px] mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="feature-pill-badge bg-blue-100 text-blue-700 mb-3">📊 Course Comparison</div>
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-[1320px] mx-auto px-6 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-extrabold uppercase tracking-wider border border-purple-200">
+              <Zap className="w-3.5 h-3.5 text-purple-600" />
+              <span>Targeted Skill Acceleration</span>
+            </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-              Compare Features & Find Your Best Fit
+              Fast-Track Specialized Programs
             </h2>
-            <p className="text-slate-500 text-sm sm:text-base mt-3">
-              আমাদের প্রতিটি কোর্সের সুযোগ-সুবিধা ও ব্যাপ্তি পাশাপাশি তুলনা করে আপনার জন্য সেরা কোর্সটি বেছে নিন।
+            <p className="text-slate-600 text-sm sm:text-base">
+              যাদের নির্দিষ্ট কোনো মডিউলে (যেমন শুধুমাত্র Writing, Speaking বা পছন্দের যেকোনো ২টি মডিউল) স্কোর বাড়ানো প্রয়োজন।
             </p>
           </div>
 
-          <div className="responsive-table-wrapper bg-white shadow-xl rounded-2xl overflow-hidden border border-slate-200">
-            <table className="w-full text-left border-collapse min-w-[700px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Writing Excellence */}
+            <div className="card-feature border-2 border-purple-100 hover:border-purple-300 p-8 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-2xl">
+                  ✍️
+                </div>
+                <div className="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold">
+                  Duration: ১ মাস ১০ দিন
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 font-heading">Writing Expertizer</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  রাইটিংয়ে আটকে থাকা ৫.৫ বা ৬.০ স্কোরকে ৭.৫+ এ উন্নীত করার জন্য লাইন-বাই-লাইন সংশোধন ও ট্র্যাপ এলিমিনেশন ল্যাব।
+                </p>
+                <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>টাস্ক ১ ও ২ এর ২০+ হাই-ব্যান্ড টেমপ্লেট</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>লাইন-বাই-লাইন লাল কালি ফিডব্যাক</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <div className="text-xs text-slate-400">Online ৳২,৯৯৯ | Offline</div>
+                  <div className="text-xl font-black text-purple-700 font-heading">৳ ৪,৯৯৯/-</div>
+                </div>
+                <button 
+                  onClick={() => openModal("Writing Expertizer Fast-Track")} 
+                  className="btn-cta-blue text-xs py-2.5 px-4 cursor-pointer"
+                >
+                  Enroll Now →
+                </button>
+              </div>
+            </div>
+
+            {/* Speaking Sprinter */}
+            <div className="card-feature border-2 border-emerald-100 hover:border-emerald-300 p-8 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl">
+                  🎙️
+                </div>
+                <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                  Duration: ১ মাস ১০ দিন
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 font-heading">Speaking Intensive</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  হেজিটেশন দূর করে প্রতিদিন ওয়ান-অন-ওয়ান স্পিকিং প্র্যাকটিস ও সাবলীলভাবে কথা বলার আত্মবিশ্বাস বুটক্যাম্প।
+                </p>
+                <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>প্রতিদিন ৩০ মিনিট লাইভ মেন্টর সেশন</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>লেটেস্ট স্পিকিং কিউ-কার্ড প্রেডিকশন</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <div className="text-xs text-slate-400">Online ৳২,৯৯৯ | Offline</div>
+                  <div className="text-xl font-black text-emerald-700 font-heading">৳ ৪,৯৯৯/-</div>
+                </div>
+                <button 
+                  onClick={() => openModal("Speaking Intensive Fast-Track")} 
+                  className="btn-cta-amber text-xs py-2.5 px-4 cursor-pointer"
+                >
+                  Enroll Now →
+                </button>
+              </div>
+            </div>
+
+            {/* Any 2 Modules Combo */}
+            <div className="card-feature border-2 border-amber-100 hover:border-amber-300 p-8 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-2xl">
+                  🎯
+                </div>
+                <div className="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+                  Duration: ১ মাস ১০ দিন
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900 font-heading">Any 2 Modules Combo</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  পছন্দের যেকোনো ২টি মডিউল (Writing + Speaking বা Reading + Writing) নিয়ে রিটেক বা টার্গেটেড স্কিল প্রিপারেশন।
+                </p>
+                <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>পছন্দের ২টি মডিউল বেছে নেওয়ার সুবিধা</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>আনলিমিটেড খাতা মূল্যায়ন ও স্পিকিং টেস্ট</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <div className="text-xs text-slate-400">Online Combo Pack</div>
+                  <div className="text-xl font-black text-amber-600 font-heading">৳ ৪,৫০০/-</div>
+                </div>
+                <button 
+                  onClick={() => openModal("Any 2 Modules Combo Pack (৳ ৪,৫০০)")} 
+                  className="btn-cta-blue text-xs py-2.5 px-4 cursor-pointer"
+                >
+                  Enroll Now →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 3: IELTS MOCK TEST PROGRAM (REAL EXAM SIMULATION)
+          ========================================================================== */}
+      <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <div className="max-w-[1320px] mx-auto px-6 relative z-10 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-extrabold uppercase tracking-wider border border-emerald-500/30">
+              <Award className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Official Exam Simulation</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
+              IELTS Mock Test Program
+            </h2>
+            <p className="text-slate-400 text-sm sm:text-base">
+              আসল পরীক্ষার হলের পরিবেশ, সময় ব্যবস্থাপনা ও নির্ভুল ব্যান্ড স্কোর প্রিডিকশনের জন্য পেপার-বেসড ও কম্পিউটার-ডেলিভার্ড মক টেস্ট সিরিজ।
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {mockProgram?.mockPackages?.map((pkg, idx) => (
+              <div 
+                key={idx} 
+                className="p-6 rounded-3xl bg-slate-800/90 border border-slate-700/80 hover:border-emerald-500/50 transition-all flex flex-col justify-between hover-elevate space-y-6"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-black">
+                      {pkg.count} Mock Tests
+                    </span>
+                    <span className="text-xs text-slate-400 line-through">{pkg.originalPrice}</span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-white font-heading">{pkg.title}</h3>
+                    <div className="text-2xl font-black text-emerald-400 font-heading mt-1">{pkg.price}</div>
+                  </div>
+
+                  <ul className="space-y-2.5 text-xs text-slate-300 border-t border-slate-700/60 pt-4">
+                    {pkg.features.map((f, fIdx) => (
+                      <li key={fIdx} className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => openModal(`Mock Package: ${pkg.title} (${pkg.price})`)}
+                  className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-xs shadow-md shadow-emerald-900/30 transition-all cursor-pointer"
+                >
+                  Book Mock Package →
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* Mock Center Highlights */}
+          <div className="p-6 rounded-3xl bg-slate-800/50 border border-slate-700/60 grid grid-cols-1 md:grid-cols-3 gap-6 text-center text-xs text-slate-300">
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-xl">🎧</span>
+              <span>Individual Wireless Headphones for Listening</span>
+            </div>
+            <div className="flex items-center justify-center gap-3 border-y md:border-y-0 md:border-x border-slate-700/60 py-3 md:py-0">
+              <span className="text-xl">🎙️</span>
+              <span>1-on-1 Recorded Speaking with Certified Examiners</span>
+            </div>
+            <div className="flex items-center justify-center gap-3">
+              <span className="text-xl">📊</span>
+              <span>Detailed TR, CC, LR, GRA Band Diagnostic Sheet</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==========================================================================
+          SECTION 4: COMPARE FEATURES & FIND YOUR BEST FIT
+          ========================================================================== */}
+      <section className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-[1320px] mx-auto px-6 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-extrabold uppercase tracking-wider border border-rose-200">
+              <span>⚖️ Transparent Comparison</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+              Compare Features & Find Your Best Fit
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base">
+              আপনার বাজেট, বর্তমান ইংরেজি দক্ষতা ও টার্গেট ব্যান্ড স্কোরের সাথে মিলিয়ে সঠিক কোর্সটি বেছে নিন।
+            </p>
+          </div>
+
+          {/* Comparison Table */}
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-x-auto">
+            <table className="w-full text-left text-xs border-collapse min-w-[700px]">
               <thead>
-                <tr className="bg-slate-900 text-white text-xs uppercase tracking-wider">
-                  <th className="p-4 bg-slate-950 text-emerald-400">Feature / Service</th>
-                  <th className="p-4 border-l border-slate-800">Pathway 01 (Build)</th>
-                  <th className="p-4 border-l border-slate-800 bg-rose-950/80 text-rose-300">Pathway 02 (Master)</th>
-                  <th className="p-4 border-l border-slate-800">Pathway 03 (Accelerate)</th>
-                  <th className="p-4 border-l border-slate-800">Fast-Track / Skills</th>
+                <tr className="bg-slate-900 text-white font-heading">
+                  <th className="p-4 sm:p-5 w-1/4">Feature & Perks</th>
+                  <th className="p-4 sm:p-5 border-l border-slate-800 text-blue-400">Basic to Advanced</th>
+                  <th className="p-4 sm:p-5 border-l border-slate-800 text-rose-400 bg-slate-800/60">IELTS Full Course</th>
+                  <th className="p-4 sm:p-5 border-l border-slate-800 text-amber-400">Crash Course</th>
+                  <th className="p-4 sm:p-5 border-l border-slate-800 text-purple-400">1 / 2 Modules Fast-Track</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Duration</td>
-                  <td className="p-4 border-l border-slate-100">3.5 – 4 Months</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-semibold">2.5 – 3 Months</td>
-                  <td className="p-4 border-l border-slate-100">40 Days</td>
-                  <td className="p-4 border-l border-slate-100">30 – 35 Days</td>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td className="p-4 font-bold text-slate-900">কোর্সের সময়কাল (Duration)</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-blue-700">আনুমানিক ৩.৫ মাস</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-rose-700 bg-rose-50/30">আনুমানিক ২ মাস ১০ দিন</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-amber-700">৪০ দিন স্প্রিন্ট</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-purple-700">১ মাস ১০ দিন</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Live Classes</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-blue-600">48 Classes</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-rose-600">36 Classes</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-purple-600">24 Classes</td>
-                  <td className="p-4 border-l border-slate-100">16 – 30 Labs</td>
+                <tr className="bg-slate-50/50">
+                  <td className="p-4 font-bold text-slate-900">ভ্যালিডিটি (Validity)</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-700">৫ মাস</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-700 bg-rose-50/30">৫ মাস</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-700">৫ মাস</td>
+                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-700">৫ মাস</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Full Mock Tests</td>
-                  <td className="p-4 border-l border-slate-100">15 Mock Tests</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-emerald-600">20 Mock Tests</td>
-                  <td className="p-4 border-l border-slate-100">10 Mock Tests</td>
-                  <td className="p-4 border-l border-slate-100">6 – 8 Skill Mocks</td>
+                <tr>
+                  <td className="p-4 font-bold text-slate-900">কোর্স ফি (Online / Offline)</td>
+                  <td className="p-4 border-l border-slate-100 font-black text-indigo-700 text-sm">৳ ১৫,৯৯৯ (Offline)</td>
+                  <td className="p-4 border-l border-slate-100 font-black text-rose-700 text-sm bg-rose-50/30">৳ ৭,৯৯৯ / ৳ ১২,৯৯৯</td>
+                  <td className="p-4 border-l border-slate-100 font-black text-amber-700 text-sm">৳ ৫,৯৯৯ (Online)</td>
+                  <td className="p-4 border-l border-slate-100 font-black text-purple-700 text-sm">৳ ২,৯৯৯ – ৳ ৪,৯৯৯</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Writing Evaluation</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-blue-600">Unlimited Line-by-Line</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-rose-600">Unlimited + Band 9 Model</td>
-                  <td className="p-4 border-l border-slate-100">Fast Templates + Audit</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-purple-600">30+ Essays</td>
+                <tr className="bg-slate-50/50">
+                  <td className="p-4 font-bold text-slate-900">মডিউল কভারেজ</td>
+                  <td className="p-4 border-l border-slate-100">All 4 + Grammar</td>
+                  <td className="p-4 border-l border-slate-100 bg-rose-50/30">All 4 Modules</td>
+                  <td className="p-4 border-l border-slate-100">All 4 High-Yield</td>
+                  <td className="p-4 border-l border-slate-100">Selected 1 or 2 Modules</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Daily 1-on-1 Speaking</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-600">Daily Included</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-emerald-600">Daily Examiner Drill</td>
-                  <td className="p-4 border-l border-slate-100">Exam Simulation</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-600">Daily Partner Drill</td>
+                <tr>
+                  <td className="p-4 font-bold text-slate-900">ফুল মক টেস্ট</td>
+                  <td className="p-4 border-l border-slate-100">১৫টি ফুল মক</td>
+                  <td className="p-4 border-l border-slate-100 bg-rose-50/30">২০টি ফুল মক</td>
+                  <td className="p-4 border-l border-slate-100">১০টি ফুল মক</td>
+                  <td className="p-4 border-l border-slate-100">৬-৮টি মডিউল টেস্ট</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Study Materials</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-slate-800">Free Books + Complete LMS</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-slate-800">Complete Master Pack</td>
-                  <td className="p-4 border-l border-slate-100">Crash Cheat-Sheets</td>
-                  <td className="p-4 border-l border-slate-100">Specialized Books</td>
+                <tr className="bg-slate-50/50">
+                  <td className="p-4 font-bold text-slate-900">রাইটিং লাল কালি খাতা চেক</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ আনলিমিটেড</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold bg-rose-50/30">✓ আনলিমিটেড</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ স্পিড রিভিউ</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ ৩০+ এসে কারেকশন</td>
                 </tr>
-                <tr className="hover:bg-slate-50">
-                  <td className="p-4 font-bold text-slate-900">Study Abroad Advisory</td>
-                  <td className="p-4 border-l border-slate-100 font-bold text-emerald-600">Full Free Support</td>
-                  <td className="p-4 border-l border-slate-100 bg-rose-50/30 font-bold text-emerald-600">Full Free Support + SOP</td>
-                  <td className="p-4 border-l border-slate-100">SOP Review</td>
-                  <td className="p-4 border-l border-slate-100 text-slate-400">Optional</td>
+                <tr>
+                  <td className="p-4 font-bold text-slate-900">Daily Speaking Drills</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ Daily Live</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold bg-rose-50/30">✓ Daily Live</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ Rapid Drills</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ ৩০টি ল্যাব সেশন</td>
                 </tr>
-                <tr className="hover:bg-slate-50 bg-slate-50/80">
-                  <td className="p-4 font-bold text-slate-900">Course Fee</td>
-                  <td className="p-4 border-l border-slate-200 font-black text-blue-600 text-base">BDT 10,500</td>
-                  <td className="p-4 border-l border-slate-200 bg-rose-100/60 font-black text-rose-600 text-base">BDT 9,500</td>
-                  <td className="p-4 border-l border-slate-200 font-black text-purple-600 text-base">BDT 7,500</td>
-                  <td className="p-4 border-l border-slate-200 font-black text-slate-900 text-base">From BDT 4,000</td>
+                <tr className="bg-slate-50/50">
+                  <td className="p-4 font-bold text-slate-900">Cambridge 1–19 Resources</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ ফ্রি পিডিএফ ও অডিও</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold bg-rose-50/30">✓ ফ্রি পিডিএফ ও অডিও</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ ফ্রি পিডিএফ ও অডিও</td>
+                  <td className="p-4 border-l border-slate-100 text-emerald-600 font-bold">✓ স্পেশালাইজড শিট</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-bold text-slate-900">Action</td>
                   <td className="p-4 border-l border-slate-100">
                     <button 
-                      onClick={() => openModal("Pathway 01 — IELTS Foundation to Advanced")} 
-                      className="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 cursor-pointer"
+                      onClick={() => openModal("Basic to Advanced IELTS (৳ ১৫,৯৯৯)")} 
+                      className="px-4 py-2 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 cursor-pointer w-full"
                     >
                       Enroll
                     </button>
                   </td>
                   <td className="p-4 border-l border-slate-100 bg-rose-50/30">
                     <button 
-                      onClick={() => openModal("Pathway 02 — Complete IELTS Mastery")} 
-                      className="px-4 py-2 bg-rose-600 text-white rounded-xl text-xs font-bold hover:bg-rose-700 cursor-pointer"
+                      onClick={() => openModal("IELTS Full Course")} 
+                      className="px-4 py-2 bg-rose-600 text-white rounded-xl text-xs font-bold hover:bg-rose-700 cursor-pointer w-full"
                     >
                       Enroll
                     </button>
                   </td>
                   <td className="p-4 border-l border-slate-100">
                     <button 
-                      onClick={() => openModal("Pathway 03 — 40-Day IELTS Crash Preparation")} 
-                      className="px-4 py-2 bg-purple-600 text-white rounded-xl text-xs font-bold hover:bg-purple-700 cursor-pointer"
+                      onClick={() => openModal("IELTS Crash Course (৳ ৫,৯৯৯)")} 
+                      className="px-4 py-2 bg-amber-600 text-white rounded-xl text-xs font-bold hover:bg-amber-700 cursor-pointer w-full"
                     >
                       Enroll
                     </button>
@@ -727,7 +1017,7 @@ export default function CoursesPage() {
                   <td className="p-4 border-l border-slate-100">
                     <button 
                       onClick={() => openModal("Fast-Track Programs Selection")} 
-                      className="px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 cursor-pointer"
+                      className="px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-slate-800 cursor-pointer w-full"
                     >
                       Choose
                     </button>
@@ -740,7 +1030,7 @@ export default function CoursesPage() {
       </section>
 
       {/* ==========================================================================
-          SECTION 3: ALL-INCLUSIVE STUDENT LEARNING KIT & MATERIALS
+          SECTION 5: ALL-INCLUSIVE STUDENT LEARNING KIT & MATERIALS
           ========================================================================== */}
       <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
         <div className="max-w-[1320px] mx-auto px-6 relative z-10">
@@ -785,7 +1075,7 @@ export default function CoursesPage() {
               <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-bold">💻</div>
               <h4 className="text-white font-bold text-base font-heading">24/7 LMS Portal Access</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                লাইভ ক্লাসের ফুল এইচডি রেকর্ডিং, ক্লাস নোটস এবং আজীবন লেকচার আর্কাইভ সুবিধা।
+                লাইভ ক্লাসের ফুল এইচডি রেকর্ডিং, ক্লাস নোটস এবং ৫ মাস এক্সটেন্ডেড সাপোর্ট আর্কাইভ।
               </p>
             </div>
           </div>
@@ -798,13 +1088,13 @@ export default function CoursesPage() {
       <section className="cta-banner-wrapper">
         <div className="max-w-[1320px] mx-auto px-6 text-center space-y-6">
           <span className="px-4 py-1.5 rounded-full bg-white/10 text-amber-300 text-xs font-bold uppercase tracking-wider border border-white/20">
-            Admissions Open • Limited Seats Per Batch
+            Admissions Open • 5 Months Extended Validity
           </span>
           <h2 className="cta-banner-headline font-heading">
-            Not Sure Which Pathway Is Right For You?
+            Not Sure Which Course Program Fits Your Target?
           </h2>
           <p className="text-blue-100 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
-            আমাদের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে মাত্র ১০ মিনিটে আপনার বর্তমান ব্যান্ড লেভেল ও উপযুক্ত পাথওয়ে জেনে নিন।
+            আমাদের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে মাত্র ১০ মিনিটে আপনার বর্তমান ব্যান্ড লেভেল ও সঠিক কোর্স সিলেক্ট করুন।
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button 
@@ -825,5 +1115,13 @@ export default function CoursesPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function CoursesPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Loading Courses...</div>}>
+      <CoursesContent />
+    </Suspense>
   );
 }

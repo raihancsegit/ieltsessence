@@ -229,49 +229,242 @@ export default function WhyUsPage() {
       </section>
 
       {/* ==========================================================================
-          4 CORE PILLARS OF EXCELLENCE
+          4 CORE PILLARS OF EXCELLENCE (WITH 4 MODULE EXAM TEST LIBRARIES)
           ========================================================================== */}
-      <section className="py-20 bg-white">
-        <div className="max-w-[1320px] mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="feature-pill-badge bg-blue-100 text-blue-700 mb-3">🏆 Our 4 Pillars</div>
+      <section id="pillars" className="py-20 bg-slate-50 border-y border-slate-200">
+        <div className="max-w-[1320px] mx-auto px-6 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="feature-pill-badge bg-rose-100 text-rose-700">🏆 4 Pillars of Excellence</div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-              The Pillars That Make Us #1
+              Module-Wise Real Exam Practice Hub
             </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              আইইএলটিএস-এর ৪টি মডিউলেই শতভাগ দখল আনতে অফিসিয়াল স্ট্যান্ডার্ডের রিয়েল এক্সাম টেস্ট দিন। প্রতিটি মডিউলের জন্য রয়েছে ৫টি করে ফুল-লেংথ অনলাইন টেস্ট।
+            </p>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-800 text-xs font-bold">
+              <span>🌐 Powered by IELTS Online Tests Exam Library</span>
+              <a 
+                href="https://ieltsonlinetests.com/ielts-exam-library" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="underline text-blue-600 font-extrabold ml-1 hover:text-blue-800"
+              >
+                Visit Library ↗
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover-elevate">
-              <div className="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-2xl mb-4 font-bold">1️⃣</div>
-              <h3 className="font-extrabold text-lg text-slate-900 mb-2 font-heading">Small Batch Focus</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                প্রতি ব্যাচে মাত্র ১৫-২০ জন শিক্ষার্থী হওয়ায় মেন্টর সরাসরি আপনার দুর্বলতা ট্র্যাক করে সমাধান দিতে পারেন।
-              </p>
+          {/* 4 MODULES GRID (5 EXAM TESTS EACH) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            {/* 1. LISTENING EXCELLENCE */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-blue-200 shadow-lg flex flex-col justify-between hover-elevate space-y-5">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl font-bold">
+                    🎧
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-700 text-[11px] font-black uppercase">
+                    Pillar 01
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-slate-900 font-heading">
+                  Listening Excellence
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 mb-4">
+                  অডিও ট্র্যাকিং, কি-ওয়ার্ড প্রিডিকশন ও ডিস্ট্রাক্টর এলিমিনেশন টেস্ট।
+                </p>
+
+                <div className="space-y-2 border-t border-slate-100 pt-3">
+                  {[1, 2, 3, 4, 5].map((testNum) => (
+                    <a
+                      key={testNum}
+                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-xs font-bold text-slate-800 hover:text-blue-700 transition-all group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-md bg-blue-600 text-white flex items-center justify-center text-[10px] font-black">
+                          {testNum}
+                        </span>
+                        <span>IELTS Listening Test 0{testNum}</span>
+                      </div>
+                      <span className="text-[10px] text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Take Test ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="https://ieltsonlinetests.com/ielts-exam-library"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold"
+              >
+                Take Listening Tests ↗
+              </a>
             </div>
 
-            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover-elevate">
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-4 font-bold">2️⃣</div>
-              <h3 className="font-extrabold text-lg text-slate-900 mb-2 font-heading">Data-Driven Diagnosis</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                মুখস্থ বিদ্যা নয়, ক্যামব্রিজ ট্র্যাপ এলিমিনেশন ও সেন্টেন্স স্ট্রাকচার অ্যানালাইসিসের মাধ্যমে স্কোরের নিশ্চয়তা।
-              </p>
+            {/* 2. READING MASTERY */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-emerald-200 shadow-lg flex flex-col justify-between hover-elevate space-y-5">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+                    📖
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[11px] font-black uppercase">
+                    Pillar 02
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-slate-900 font-heading">
+                  Reading Mastery
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 mb-4">
+                  স্কিমিং, স্ক্যানিং, ট্রু/ফলস/নট গিভেন ও হেডিং ম্যাচিং টেস্ট।
+                </p>
+
+                <div className="space-y-2 border-t border-slate-100 pt-3">
+                  {[1, 2, 3, 4, 5].map((testNum) => (
+                    <a
+                      key={testNum}
+                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 text-xs font-bold text-slate-800 hover:text-emerald-700 transition-all group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-md bg-emerald-600 text-white flex items-center justify-center text-[10px] font-black">
+                          {testNum}
+                        </span>
+                        <span>IELTS Reading Test 0{testNum}</span>
+                      </div>
+                      <span className="text-[10px] text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Take Test ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="https://ieltsonlinetests.com/ielts-exam-library"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta-amber w-full justify-center py-2.5 text-xs font-bold"
+              >
+                Take Reading Tests ↗
+              </a>
             </div>
 
-            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover-elevate">
-              <div className="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl mb-4 font-bold">3️⃣</div>
-              <h3 className="font-extrabold text-lg text-slate-900 mb-2 font-heading">Daily Speaking Lab</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                জড়তা ও ভীতি দূর করতে প্রতিদিন স্পিকিং পার্টনারের সাথে ২০ মিনিট রিয়েল টপিক ডিসকাশন ও ফিডব্যাক।
-              </p>
+            {/* 3. WRITING LAB */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-purple-200 shadow-lg flex flex-col justify-between hover-elevate space-y-5">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl font-bold">
+                    ✍️
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 text-[11px] font-black uppercase">
+                    Pillar 03
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-slate-900 font-heading">
+                  Writing Lab
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 mb-4">
+                  টাস্ক ১ ডাটা সিন্থেসিস ও টাস্ক ২ আর্গুমেন্টেটিভ এসে প্র্যাকটিস টেস্ট।
+                </p>
+
+                <div className="space-y-2 border-t border-slate-100 pt-3">
+                  {[1, 2, 3, 4, 5].map((testNum) => (
+                    <a
+                      key={testNum}
+                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-xs font-bold text-slate-800 hover:text-purple-700 transition-all group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-md bg-purple-600 text-white flex items-center justify-center text-[10px] font-black">
+                          {testNum}
+                        </span>
+                        <span>IELTS Writing Test 0{testNum}</span>
+                      </div>
+                      <span className="text-[10px] text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Take Test ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="https://ieltsonlinetests.com/ielts-exam-library"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold"
+              >
+                Take Writing Tests ↗
+              </a>
             </div>
 
-            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover-elevate">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-4 font-bold">4️⃣</div>
-              <h3 className="font-extrabold text-lg text-slate-900 mb-2 font-heading">Score Guarantee</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                ক্লাস ও মক টেস্ট শতভাগ সম্পন্ন করার পরও কাঙ্ক্ষিত স্কোর না পেলে পরবর্তী ব্যাচে ফ্রি রি-টেকের সুযোগ।
-              </p>
+            {/* 4. SPEAKING SPRINTER */}
+            <div className="bg-white rounded-3xl p-6 border-2 border-rose-200 shadow-lg flex flex-col justify-between hover-elevate space-y-5">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl font-bold">
+                    🎙️
+                  </div>
+                  <span className="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 text-[11px] font-black uppercase">
+                    Pillar 04
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-slate-900 font-heading">
+                  Speaking Sprinter
+                </h3>
+                <p className="text-xs text-slate-500 mt-1 mb-4">
+                  পার্ট ১, ২ কিউ-কার্ড ও পার্ট ৩ অ্যাবস্ট্রাক্ট ডিসকাশন সিমুলেশন টেস্ট।
+                </p>
+
+                <div className="space-y-2 border-t border-slate-100 pt-3">
+                  {[1, 2, 3, 4, 5].map((testNum) => (
+                    <a
+                      key={testNum}
+                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-300 text-xs font-bold text-slate-800 hover:text-rose-700 transition-all group"
+                    >
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-md bg-rose-600 text-white flex items-center justify-center text-[10px] font-black">
+                          {testNum}
+                        </span>
+                        <span>IELTS Speaking Test 0{testNum}</span>
+                      </div>
+                      <span className="text-[10px] text-rose-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Take Test ↗
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="https://ieltsonlinetests.com/ielts-exam-library"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta-amber w-full justify-center py-2.5 text-xs font-bold"
+              >
+                Take Speaking Tests ↗
+              </a>
             </div>
+
           </div>
         </div>
       </section>

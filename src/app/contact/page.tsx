@@ -71,11 +71,21 @@ export default function ContactPage() {
                   <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg flex-shrink-0">
                     📍
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900 text-sm font-heading">Head Office & Main Campus</h4>
-                    <p className="text-xs text-slate-600 mt-1 leading-relaxed font-medium">
-                      41 Lane, Badda, Dhaka 6000, Bangladesh
-                    </p>
+                  <div className="space-y-2">
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm font-heading">Branch Office (Badda Campus)</h4>
+                      <p className="text-xs text-slate-600 mt-0.5 leading-relaxed font-medium">
+                        Cha - 75 / C, SM Bhaban, Badda, Dhaka-1212
+                        <br />
+                        <span className="text-slate-500 font-normal">(মেইনরোডের সাথে, হোসেন মার্কেট সংলগ্ন, ইবনে-সিনা হসপিটালের বিপরীতে)</span>
+                      </p>
+                    </div>
+                    <div className="pt-1.5 border-t border-slate-100">
+                      <h4 className="font-bold text-slate-900 text-xs font-heading">Headquarter</h4>
+                      <p className="text-xs text-slate-600 mt-0.5 leading-relaxed font-medium">
+                        House - 1/B, Block - I, Road - 08, Banani, Dhaka-1213
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -86,9 +96,15 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm font-heading">Call & WhatsApp Helpline</h4>
-                    <p className="text-xs text-slate-500 mt-1">
-                      <strong className="text-slate-900 text-sm font-heading">+880 1738-474611</strong> (24/7 Response)
-                    </p>
+                    <div className="text-xs text-slate-600 mt-1 space-y-1">
+                      <div>
+                        <a href="tel:+8801738474611" className="hover:text-rose-600 font-bold text-slate-900 text-sm font-heading">01738 - 474611</a>
+                      </div>
+                      <div>
+                        <a href="tel:+8801540796074" className="hover:text-rose-600 font-bold text-slate-900 text-sm font-heading">01540 - 796074</a>
+                        <span className="text-slate-500 text-[11px] ml-1.5">(24/7 Response)</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -99,9 +115,14 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm font-heading">Official Email</h4>
-                    <p className="text-xs text-slate-600 mt-1">
-                      <a href="mailto:ieltsessencehr@gmail.com" className="text-rose-600 font-bold hover:underline">ieltsessencehr@gmail.com</a>
-                    </p>
+                    <div className="text-xs text-slate-600 mt-1 space-y-0.5">
+                      <div>
+                        <a href="mailto:ieltsessencehr@gmail.com" className="text-rose-600 font-bold hover:underline">ieltsessencehr@gmail.com</a>
+                      </div>
+                      <div>
+                        <a href="mailto:ieltsinhome@gmail.com" className="text-rose-600 font-bold hover:underline">ieltsinhome@gmail.com</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -270,11 +291,11 @@ export default function ContactPage() {
                 <div className="feature-pill-badge bg-rose-100 text-rose-700 mb-1">🗺️ Campus Directions & Location</div>
                 <h3 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading">Visit Our Main Campus In Person</h3>
                 <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  📍 41 Lane, Badda, Dhaka 6000, Bangladesh
+                  📍 Cha - 75 / C, SM Bhaban, Badda, Dhaka (হোসেন মার্কেট সংলগ্ন, ইবনে-সিনা হসপিটালের বিপরীতে)
                 </p>
               </div>
               <a 
-                href="https://maps.google.com/?q=41+Lane+Badda+Dhaka+6000+Bangladesh" 
+                href="https://maps.google.com/?q=Cha+75+C+SM+Bhaban+Badda+Dhaka+Bangladesh" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-cta-blue text-xs sm:text-sm py-2.5 px-6 font-bold shadow-md cursor-pointer"
@@ -287,7 +308,7 @@ export default function ContactPage() {
               {/* Google Map Embedded Frame */}
               <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 shadow-inner min-h-[380px] sm:min-h-[420px] bg-slate-100">
                 <iframe 
-                  src="https://maps.google.com/maps?q=41+Lane,+Badda,+Dhaka+6000,+Bangladesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=Cha+75+C,+SM+Bhaban,+Badda,+Dhaka,+Bangladesh&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   className="w-full h-full min-h-[380px] sm:min-h-[420px] border-0"
@@ -308,15 +329,23 @@ export default function ContactPage() {
                     </strong>
                   </div>
                   <p className="text-slate-700 font-semibold text-xs sm:text-sm leading-relaxed">
-                    41 Lane, Badda, Dhaka 6000, Bangladesh
+                    Cha - 75 / C, SM Bhaban, Badda, Dhaka
+                    <br />
+                    <span className="text-slate-500 font-normal text-xs">(হোসেন মার্কেট সংলগ্ন, ইবনে-সিনা হসপিটালের বিপরীতে)</span>
                   </p>
                   <div className="pt-1 flex flex-wrap gap-2 text-xs">
-                    <span className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold">
-                      📞 +880 1738-474611
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold">
+                    <a href="tel:+8801738474611" className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold hover:bg-rose-50">
+                      📞 01738 - 474611
+                    </a>
+                    <a href="tel:+8801540796074" className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold hover:bg-rose-50">
+                      📞 01540 - 796074
+                    </a>
+                    <a href="mailto:ieltsessencehr@gmail.com" className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold hover:bg-rose-50">
                       ✉️ ieltsessencehr@gmail.com
-                    </span>
+                    </a>
+                    <a href="mailto:ieltsinhome@gmail.com" className="px-2.5 py-1 rounded-lg bg-white border border-rose-200 text-rose-700 font-bold hover:bg-rose-50">
+                      ✉️ ieltsinhome@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -325,7 +354,7 @@ export default function ContactPage() {
                     <span>🚌</span> How to reach by Bus / Metro / Rickshaw:
                   </strong>
                   <p className="leading-relaxed text-slate-600 text-[11px] sm:text-xs">
-                    প্রগতি সরণি হয়ে বাড্ডা লিংক রোড বা হোসেন মার্কেট স্টপেজে নেমে ৪১ নং লেনে চলে আসলেই আমাদের ক্যাম্পাস দেখতে পাবেন।
+                    প্রগতি সরণি হয়ে বাড্ডা লিংক রোড বা হোসেন মার্কেট স্টপেজে নেমে এস এম ভবনে (ইবনে-সিনা হসপিটালের বিপরীতে) চলে আসলেই আমাদের ক্যাম্পাস দেখতে পাবেন।
                   </p>
                 </div>
 
@@ -420,28 +449,40 @@ export default function ContactPage() {
               <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg">🎓</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Admission & Batch Info</h4>
               <p className="text-xs text-slate-500">নতুন ব্যাচের সময়সূচী ও সিট বুকিং</p>
-              <div className="text-xs font-bold text-rose-600 pt-1 font-heading">+880 1738-474611</div>
+              <div className="text-xs font-bold text-rose-600 pt-1 font-heading space-y-0.5">
+                <div><a href="tel:+8801738474611" className="hover:underline">01738 - 474611</a></div>
+                <div><a href="tel:+8801540796074" className="hover:underline">01540 - 796074</a></div>
+              </div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">✈️</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Study Abroad & Visa</h4>
               <p className="text-xs text-slate-500">ইউনিভার্সিটি শর্টলিস্ট ও এসওপি রিভিউ</p>
-              <div className="text-xs font-bold text-blue-600 pt-1 font-heading">+880 1738-474611</div>
+              <div className="text-xs font-bold text-blue-600 pt-1 font-heading space-y-0.5">
+                <div><a href="tel:+8801738474611" className="hover:underline">01738 - 474611</a></div>
+                <div><a href="tel:+8801540796074" className="hover:underline">01540 - 796074</a></div>
+              </div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg">✍️</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Writing & Support Desk</h4>
               <p className="text-xs text-slate-500">রচনা জমা ও লাল কালি কারেকশন ফিডব্যাক</p>
-              <div className="text-xs font-bold text-purple-600 pt-1 font-heading">ieltsessencehr@gmail.com</div>
+              <div className="text-xs font-bold text-purple-600 pt-1 font-heading space-y-0.5">
+                <div><a href="mailto:ieltsessencehr@gmail.com" className="hover:underline break-all">ieltsessencehr@gmail.com</a></div>
+                <div><a href="mailto:ieltsinhome@gmail.com" className="hover:underline break-all">ieltsinhome@gmail.com</a></div>
+              </div>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-2 hover-elevate">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg">👨‍🏫</div>
               <h4 className="font-bold text-slate-900 text-sm font-heading">Mentor Direct Contact</h4>
               <p className="text-xs text-slate-500">জুয়েল স্যারের সাথে সরাসরি যোগাযোগ</p>
-              <div className="text-xs font-bold text-emerald-600 pt-1 font-heading">ieltsessencehr@gmail.com</div>
+              <div className="text-xs font-bold text-emerald-600 pt-1 font-heading space-y-0.5">
+                <div><a href="mailto:ieltsessencehr@gmail.com" className="hover:underline break-all">ieltsessencehr@gmail.com</a></div>
+                <div><a href="mailto:ieltsinhome@gmail.com" className="hover:underline break-all">ieltsinhome@gmail.com</a></div>
+              </div>
             </div>
           </div>
         </div>

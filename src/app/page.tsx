@@ -16,6 +16,40 @@ export default function HomePage() {
   // Interactive Speaking Audio Player State
   const [playingAudio, setPlayingAudio] = useState<"band8" | "band6" | null>(null);
 
+  // Hero Right Interactive Band State
+  const [heroActiveBand, setHeroActiveBand] = useState<"7.0" | "7.5" | "8.0" | "8.5">("8.5");
+
+  const heroBandData = {
+    "8.5": {
+      score: "Band 8.5",
+      badge: "Ivy League & Full Scholarship Tier",
+      breakdown: "L: 9.0 • R: 8.5 • W: 8.0 • S: 8.5",
+      timeline: "Sprint & Mock Series",
+      pathway: "Top Scorer Mentorship"
+    },
+    "8.0": {
+      score: "Band 8.0",
+      badge: "Oxford, Cambridge & PR Benchmark",
+      breakdown: "L: 8.5 • R: 8.0 • W: 7.5 • S: 8.0",
+      timeline: "40 Days – 2 Months",
+      pathway: "Accelerate Masterclass"
+    },
+    "7.5": {
+      score: "Band 7.5",
+      badge: "Global Tier-1 Universities",
+      breakdown: "L: 8.0 • R: 7.5 • W: 7.0 • S: 7.5",
+      timeline: "1.5 – 2.5 Months",
+      pathway: "Master Pathway"
+    },
+    "7.0": {
+      score: "Band 7.0",
+      badge: "Standard Direct Master's Entry",
+      breakdown: "L: 7.5 • R: 7.0 • W: 6.5 • S: 7.0",
+      timeline: "2 – 3.5 Months",
+      pathway: "Build Pathway"
+    }
+  };
+
   // Target Band Interactive Selector State
   const [selectedTargetBand, setSelectedTargetBand] = useState<string>("7.0+");
 
@@ -155,7 +189,7 @@ export default function HomePage() {
     },
     {
       q: "5. Do you offer online classes?",
-      a: "Yes, we offer live interactive online classes with HD recording access as well as physical offline classes at our 41 Lane, Badda, Dhaka 6000 campus."
+      a: "Yes, we offer live interactive online classes with HD recording access as well as physical offline classes at our Cha - 75 / C, SM Bhaban, Badda, Dhaka (হোসেন মার্কেট সংলগ্ন, ইবনে-সিনা হসপিটালের বিপরীতে) campus."
     },
     {
       q: "6. Do you provide Mock Tests?",
@@ -174,163 +208,259 @@ export default function HomePage() {
   return (
     <div className="space-y-0">
       {/* ==========================================================================
-          1. HOMEPAGE HERO SECTION
+          1. HOMEPAGE HERO SECTION (Ultra-Modern, High-Converting & Interactive)
           ========================================================================== */}
-      <section id="home" className="hero-wrapper relative overflow-hidden">
+      <section id="home" className="hero-wrapper relative overflow-hidden pt-8 pb-14 lg:pt-14 lg:pb-20">
         {/* Ambient Glowing Blur Orbs */}
-        <div className="ambient-glow-orb-rose -top-20 -left-20 pointer-events-none" />
-        <div className="ambient-glow-orb-blue top-40 -right-20 pointer-events-none" />
+        <div className="ambient-glow-orb-rose -top-24 -left-24 pointer-events-none opacity-60" />
+        <div className="ambient-glow-orb-blue top-32 -right-24 pointer-events-none opacity-60" />
 
-        <div className="max-w-[1320px] mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Hero Left Content */}
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            
+            {/* ================= Left Column: Hero Copy & Actions ================= */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="hero-pill-tag">
+              
+              {/* Top Trust Pill */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-rose-50/90 border border-rose-200/80 rounded-full text-rose-700 font-extrabold text-xs uppercase tracking-wider shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
                 <ShieldCheck className="w-4 h-4 text-rose-600" />
                 <span>#1 IELTS PREPARATION & STUDY ABROAD PLATFORM</span>
               </div>
 
-              <h1 className="hero-main-title text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight font-heading">
-                &ldquo; IELTS দিলে, ভাগ্য খোলে &rdquo; <br />
-                <span className="gradient-title-text animate-gradient-text">- IELTS ESSENCE</span>
-              </h1>
-
-              <div className="flex items-center gap-2 text-xs font-black text-rose-600 uppercase tracking-widest bg-rose-50 px-3 py-1 rounded-full w-fit border border-rose-100">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Dream • Define • Dominate</span>
-              </div>
-
-              {/* 4 Feature Points - Line by Line Tick List */}
-              <div className="space-y-3 pt-1">
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  </div>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
-                    ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত ইন্সট্রাকটরদের সরাসরি তত্ত্বাবধানে
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-rose-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-rose-600" />
-                  </div>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
-                    ৪ মডিউলের জন্য ৪ জন ডেডিকেটেড এক্সপার্টস
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                  </div>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
-                    প্রতিদিন আনলিমিটেড WRITING ইভ্যালুয়েশন ও ফিডব্যাক
-                  </span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600" />
-                  </div>
-                  <span className="text-sm sm:text-base font-bold text-slate-800">
-                    SPEAKING প্র্যাকটিসের জন্য Partner Pairing ও অ্যাসেসমেন্ট
-                  </span>
-                </div>
-              </div>
-
+              {/* Main Catchy Headline with Pristine Bengali Kerning */}
               <div className="space-y-2">
-                <p className="hero-description text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                <h1 className="text-3xl sm:text-5xl lg:text-[50px] xl:text-[56px] font-black leading-[1.18] text-slate-900 tracking-tight">
+                  <span className="font-bengali text-rose-600 inline-block drop-shadow-xs">
+                    “ IELTS দিলে, ভাগ্য খোলে ”
+                  </span>
+                  <br />
+                  <span className="bg-gradient-to-r from-slate-900 via-rose-600 to-blue-600 bg-clip-text text-transparent font-heading">
+                    — IELTS ESSENCE
+                  </span>
+                </h1>
+                
+                <div className="inline-flex items-center gap-2 text-xs font-black text-rose-700 uppercase tracking-widest bg-rose-50 border border-rose-200/90 px-3.5 py-1 rounded-full shadow-2xs">
+                  <Sparkles className="w-3.5 h-3.5 text-rose-600" />
+                  <span>DREAM • DEFINE • DOMINATE</span>
+                </div>
+              </div>
+
+              {/* Value Proposition Description */}
+              <div className="space-y-2.5">
+                <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
                   We diagnose your current performance, build your score roadmap, train your weaknesses, measure your improvement, and prepare you to perform.
                 </p>
-                <p className="text-sm sm:text-base font-bold text-emerald-700">
-                  Structured Preparation - Expert Feedback - Measurable Improvement
-                </p>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-2xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Structured Preparation • Expert Feedback • Measurable Improvement</span>
+                </div>
               </div>
 
-              {/* 3 CTAs from PDF */}
-              <div className="hero-cta-group flex flex-wrap items-center gap-3">
+              {/* Primary Dual CTAs */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <button 
                   onClick={() => openModal("Book an Expert Consultation - Hero")} 
-                  className="btn-cta-amber btn-shimmer cursor-pointer flex items-center gap-2 text-sm"
+                  className="btn-cta-amber btn-shimmer cursor-pointer flex items-center gap-2 px-6 py-3.5 rounded-full text-sm sm:text-base font-extrabold shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-all"
                 >
                   <span>Book an Expert Consultation</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
-                <button 
-                  onClick={() => openModal("Course Enrollment - Hero")} 
-                  className="btn-cta-blue btn-shimmer cursor-pointer flex items-center gap-2 text-sm"
+                
+                <Link
+                  href="/diagnostic"
+                  className="btn-cta-blue btn-shimmer cursor-pointer flex items-center gap-2 px-6 py-3.5 rounded-full text-sm sm:text-base font-extrabold shadow-lg shadow-blue-500/25 hover:scale-[1.02] transition-all"
                 >
-                  <span>Course Enrollment</span>
+                  <span>Free Diagnostic Test</span>
                   <GraduationCap className="w-4 h-4" />
-                </button>
+                </Link>
+              </div>
+
+              {/* Official Social Channels & WhatsApp Connect */}
+              <div className="flex flex-wrap items-center gap-2 pt-1">
                 <a
                   href="https://wa.me/8801738474611"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-header-outline text-slate-800 font-bold border border-emerald-300 bg-emerald-50 hover:bg-emerald-100 flex items-center gap-2 px-5 py-3 rounded-full text-sm transition-all shadow-xs"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
                 >
-                  <MessageSquare className="w-4 h-4 text-emerald-600" />
-                  <span>Guidance on WhatsApp</span>
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>WhatsApp: 01738-474611</span>
+                </a>
+
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565824504813"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
+                >
+                  <svg className="w-3.5 h-3.5 text-[#1877F2] fill-current" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span>Facebook Page</span>
+                </a>
+
+                <a
+                  href="https://www.youtube.com/@IELTSEssence/videos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-red-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
+                >
+                  <svg className="w-3.5 h-3.5 text-[#FF0000] fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                  <span>YouTube Channel</span>
                 </a>
               </div>
 
-              <div className="pt-4 flex items-center gap-4 text-xs font-semibold text-slate-500">
+              {/* Social Proof Students Count & Rating */}
+              <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-rose-600 text-white font-bold flex items-center justify-center border-2 border-white shadow-sm">S1</div>
-                  <div className="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center border-2 border-white shadow-sm">S2</div>
-                  <div className="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center border-2 border-white shadow-sm">S3</div>
-                  <div className="w-8 h-8 rounded-full bg-amber-500 text-white font-bold flex items-center justify-center border-2 border-white shadow-sm">+</div>
+                  <div className="w-7 h-7 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S1</div>
+                  <div className="w-7 h-7 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S2</div>
+                  <div className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S3</div>
+                  <div className="w-7 h-7 rounded-full bg-amber-500 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">+</div>
                 </div>
-                <div>
-                  <span className="text-slate-900 font-bold">1,500+ Ambitious Students</span> Enrolled Across Bangladesh
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-900 font-extrabold">1,500+ Ambitious Students</span>
+                  <span className="text-slate-300">•</span>
+                  <span className="text-amber-600 font-bold flex items-center gap-1">
+                    <span>⭐⭐⭐⭐⭐</span>
+                    <span className="text-slate-700 font-black">4.9/5</span>
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Hero Right 3D Showcase Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="hero-card-container hover-elevate">
+            {/* ================= Right Column: Interactive Score Roadmap & Mentorship Card ================= */}
+            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+              
+              <div className="hero-card-container">
+                
+                {/* Interactive Band Target Tab Selector */}
+                <div className="mb-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">Select Target Band:</span>
+                    <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100">Live Roadmap</span>
+                  </div>
+                  <div className="grid grid-cols-4 gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200">
+                    {(["7.0", "7.5", "8.0", "8.5"] as const).map((band) => (
+                      <button
+                        key={band}
+                        onClick={() => setHeroActiveBand(band)}
+                        className={`py-1.5 text-xs font-black rounded-lg transition-all cursor-pointer ${
+                          heroActiveBand === band
+                            ? "bg-white text-rose-600 shadow-xs scale-[1.02]"
+                            : "text-slate-600 hover:text-slate-900"
+                        }`}
+                      >
+                        Band {band}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Score Showcase Banner Card */}
                 <div className="hero-score-badge-card">
-                  <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">TARGET BAND GUARANTEE</div>
-                  <div className="score-giant-number font-heading">Band 8.5</div>
-                  <p className="text-xs text-slate-300 font-medium mt-2">Personalised Study Roadmap</p>
+                  <div className="flex items-center justify-between text-xs text-slate-300 font-medium mb-1">
+                    <span className="px-2 py-0.5 rounded-full bg-white/10 text-white text-[10px] font-bold">
+                      {heroBandData[heroActiveBand].pathway}
+                    </span>
+                    <span className="text-amber-400 font-bold text-[11px]">
+                      ⏱️ {heroBandData[heroActiveBand].timeline}
+                    </span>
+                  </div>
+
+                  <div className="score-giant-number font-heading mt-1">
+                    {heroBandData[heroActiveBand].score}
+                  </div>
+                  
+                  <p className="text-xs text-slate-200 font-bold mt-1">
+                    {heroBandData[heroActiveBand].badge}
+                  </p>
+
+                  <div className="mt-2.5 pt-2 border-t border-white/15 text-[11px] font-semibold text-rose-200 tracking-wide">
+                    Target Criteria: {heroBandData[heroActiveBand].breakdown}
+                  </div>
                 </div>
 
-                {/* 4 Pillars Breakdown */}
-                <div className="space-y-3 mt-6">
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3 hover:bg-rose-50/50 transition-all">
-                    <div className="w-9 h-9 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center font-bold shrink-0">🏆</div>
-                    <div>
-                      <div className="font-bold text-sm text-slate-900">Band 8 & 8.5 Scorer Mentors</div>
-                      <div className="text-xs text-slate-500">Expert guidance for top scores</div>
+                {/* 4 Sleek Highlight Cards with Hind Siliguri Typography */}
+                <div className="space-y-2 mt-4">
+                  
+                  {/* Item 1 */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-emerald-50/80 via-teal-50/40 to-white border border-emerald-200/90 shadow-2xs flex items-center gap-3 hover:border-emerald-400 hover:shadow-xs transition-all group">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
+                      🎯
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        <span className="text-emerald-700 font-black">ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত</span> ইন্সট্রাকটরদের সরাসরি তত্ত্বাবধানে
+                      </div>
+                      <div className="text-[10px] font-extrabold text-emerald-600 uppercase tracking-wider mt-0.5">
+                        Top Scorer Mentors (DUET, DU, BAU, BUP)
+                      </div>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3 hover:bg-emerald-50/50 transition-all">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0">✍️</div>
-                    <div>
-                      <div className="font-bold text-sm text-slate-900">Line-by-Line Writing Eval</div>
-                      <div className="text-xs text-slate-500">Detailed correction & feedback</div>
+                  {/* Item 2 */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-rose-50/80 via-pink-50/40 to-white border border-rose-200/90 shadow-2xs flex items-center gap-3 hover:border-rose-400 hover:shadow-xs transition-all group">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
+                      👨‍🏫
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        ৪ মডিউলের জন্য <span className="text-rose-700 font-black">৪ জন ডেডিকেটেড এক্সপার্টস</span>
+                      </div>
+                      <div className="text-[10px] font-extrabold text-rose-600 uppercase tracking-wider mt-0.5">
+                        4 Dedicated Module Specialists
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 3 */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50/80 via-indigo-50/40 to-white border border-blue-200/90 shadow-2xs flex items-center gap-3 hover:border-blue-400 hover:shadow-xs transition-all group">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
+                      ✍️
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        প্রতিদিন <span className="text-blue-700 font-black">আনলিমিটেড WRITING</span> ইভ্যালুয়েশন ও ফিডব্যাক
+                      </div>
+                      <div className="text-[10px] font-extrabold text-blue-600 uppercase tracking-wider mt-0.5">
+                        Daily Line-by-Line Cambridge Feedback
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 4 */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-amber-50/80 via-orange-50/40 to-white border border-amber-200/90 shadow-2xs flex items-center gap-3 hover:border-amber-400 hover:shadow-xs transition-all group">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
+                      🎙️
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        SPEAKING প্র্যাকটিসের জন্য <span className="text-amber-800 font-black">Partner Pairing ও অ্যাসেসমেন্ট</span>
+                      </div>
+                      <div className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider mt-0.5">
+                        Live Speaking Partner & Mock Simulation
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Floating Badges */}
-                <div className="hero-floating-tag-1">
-                  <div className="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shadow-md">★</div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-900">95% Success Rate</div>
-                    <div className="text-[10px] text-slate-400">Target Band Score</div>
-                  </div>
-                </div>
+                {/* Instant Action Button to Diagnostic Test */}
+                <Link
+                  href="/diagnostic"
+                  className="mt-3.5 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-slate-900 via-rose-700 to-blue-700 hover:from-slate-800 hover:to-blue-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-[1.01]"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Check Your Level — Free 3-Min Diagnostic Test</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
 
-                <div className="hero-floating-tag-2">
-                  <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-md">🌐</div>
-                  <div>
-                    <div className="text-xs font-bold text-slate-900">Study Abroad Pathway</div>
-                    <div className="text-[10px] text-slate-400">UK, Canada, Australia & USA</div>
-                  </div>
-                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -1177,19 +1307,25 @@ export default function HomePage() {
                   />
                 </div>
                 <h3 className="text-2xl font-black text-white font-heading">Jewel Ahamadinezad</h3>
+                <div className="text-sm font-bold text-amber-300 font-bengali mt-0.5">জুয়েল আহমাদিনেজাদ</div>
                 <p className="text-xs font-bold text-rose-400 mt-1 uppercase tracking-wider">
                   Founder &amp; Academic Director
                 </p>
-                <div className="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-slate-700 text-left space-y-1 text-xs text-slate-300">
+                <div className="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-slate-700 text-left space-y-1.5 text-xs text-slate-300">
                   <div className="font-bold text-amber-400">🎓 Academic Background:</div>
-                  <div>• B.Sc &amp; M.Sc in CSE (DUET)</div>
-                  <div>• Former President, DUET English Language Club (ELC)</div>
-                  <div>• Certified IELTS Strategist &amp; Mentor</div>
+                  <div>• B.Sc &amp; M.Sc in Computer Science &amp; Engineering</div>
+                  <div className="text-slate-400 font-medium">Dhaka University Of Engineering &amp; Technology (DUET)</div>
+                  <div className="pt-1">• Former President, DUET English Language Club (ELC)</div>
                 </div>
               </div>
 
               {/* Founder Speech & Engineering Mindset */}
               <div className="lg:col-span-8 space-y-6">
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-rose-950/40 via-purple-950/40 to-slate-900 border border-rose-500/30 text-xs sm:text-sm text-rose-200 font-bengali leading-relaxed">
+                  <strong className="text-amber-300 font-bold block mb-1">🌟 অভিজ্ঞ ইন্সট্রাকটরস প্যানেল:</strong>
+                  ঢাকা বিশ্ববিদ্যালয়, ডুয়েট, বাংলাদেশ কৃষি বিশ্ববিদ্যালয়, বিইউপি থেকে গ্র্যাজুয়েশন ও পোস্ট গ্র্যাজুয়েশন সম্পন্ন করা ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত প্রশিক্ষিত ইন্সট্রাকটরস প্যানেল।
+                </div>
+
                 <span className="text-xs font-black text-amber-400 uppercase tracking-widest bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
                   A Message From Our Founder
                 </span>

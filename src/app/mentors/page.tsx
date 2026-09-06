@@ -67,39 +67,39 @@ export default function MentorsPage() {
                   />
                 </div>
                 <h2 className="text-3xl font-black text-white font-heading">Jewel Ahamadinezad</h2>
-                <div className="text-rose-400 font-bold text-sm mt-1">Founder & Lead Mentor | DUET Graduate</div>
-                
-                <div className="inline-block px-4 py-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-full text-xs font-extrabold mt-4">
-                  Official IELTS Band 8.5 Scorer
-                </div>
+                <div className="text-base font-bold text-amber-300 font-bengali mt-0.5">জুয়েল আহমাদিনেজাদ</div>
+                <div className="text-rose-400 font-bold text-sm mt-1">Founder &amp; Academic Director</div>
+                <div className="text-xs text-slate-300 mt-1">B.Sc &amp; M.Sc in Computer Science &amp; Engineering</div>
+                <div className="text-xs text-slate-400">Dhaka University Of Engineering &amp; Technology (DUET)</div>
 
-                <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-center">
+                <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-6 text-center">
                   <div>
                     <div className="text-2xl font-black text-white font-heading">7+ Yrs</div>
                     <div className="text-[10px] text-slate-400 uppercase font-semibold">Experience</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-black text-rose-400 font-heading">2,500+</div>
-                    <div className="text-[10px] text-slate-400 uppercase font-semibold">Trained</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-black text-amber-300 font-heading">8.5</div>
-                    <div className="text-[10px] text-slate-400 uppercase font-semibold">Band Score</div>
+                    <div className="text-2xl font-black text-rose-400 font-heading">4,500+</div>
+                    <div className="text-[10px] text-slate-400 uppercase font-semibold">Students Trained</div>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-6">
+              <div className="p-4 rounded-2xl bg-gradient-to-r from-rose-950/50 via-purple-950/40 to-slate-800 border border-rose-500/30 text-xs sm:text-sm text-rose-200 font-bengali leading-relaxed">
+                <strong className="text-amber-300 font-bold block mb-1">🌟 অভিজ্ঞ ইন্সট্রাকটরস প্যানেল:</strong>
+                ঢাকা বিশ্ববিদ্যালয়, ডুয়েট, বাংলাদেশ কৃষি বিশ্ববিদ্যালয়, বিইউপি থেকে গ্র্যাজুয়েশন ও পোস্ট গ্র্যাজুয়েশন সম্পন্ন করা ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত প্রশিক্ষিত ইন্সট্রাকটরস প্যানেল।
+              </div>
+
               <div className="feature-pill-badge bg-rose-500/20 text-rose-400 border border-rose-500/30">🎯 Mentorship Philosophy</div>
               <h3 className="text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
                 "IELTS পরীক্ষায় সফলতার জন্য প্রয়োজন সঠিক দিকনির্দেশনা ও রিয়েল প্র্যাকটিস"
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                আমি জুয়েল আহমেদ, ঢাকা ইউনিভার্সিটি অব ইঞ্জিনিয়ারিং অ্যান্ড টেকনোলজি (DUET) থেকে পড়াশোনা সম্পন্ন করে বিগত ৭ বছর ধরে বাংলাদেশের শিক্ষার্থীদের IELTS ও স্টাডি অ্যাব্রড রোডম্যাপে সরাসরি মেন্টরিং করে আসছি।
+                আমি জুয়েল আহমাদিনেজাদ, ঢাকা ইউনিভার্সিটি অব ইঞ্জিনিয়ারিং অ্যান্ড টেকনোলজি (DUET) থেকে বিএসসি ও এমএসসি সম্পন্ন করে বিগত ৭ বছর ধরে বাংলাদেশের শিক্ষার্থীদের IELTS ও স্টাডি অ্যাব্রড রোডম্যাপে সরাসরি মেন্টরিং করে আসছি।
               </p>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                আমার ইউটিউব ক্লাস ও অফলাইন সেশনের মাধ্যমে হাজারো শিক্ষার্থী কোনো ব্যাকগ্রাউন্ডের দুর্বলতা সত্ত্বেও প্রথমবারেই ব্যান্ড ৭.০, ৭.৫ এবং ৮.০ স্কোর অর্জন করতে পেরেছে। মুখস্থ ফরম্যাট নয়—ক্যামব্রিজ অথেনটিক লজিকই আমাদের সাফল্যের চাবিকাঠি।
+                আমাদের মেন্টর প্যানেলের প্রত্যক্ষ তত্ত্বাবধানে হাজারো শিক্ষার্থী কোনো ব্যাকগ্রাউন্ডের দুর্বলতা সত্ত্বেও প্রথমবারেই ব্যান্ড ৭.০, ৭.৫ এবং ৮.০ স্কোর অর্জন করতে পেরেছে। মুখস্থ ফরম্যাট নয়—ক্যামব্রিজ অথেনটিক লজিকই আমাদের সাফল্যের চাবিকাঠি।
               </p>
 
               <div className="pt-4 flex flex-wrap gap-4">
@@ -133,8 +133,8 @@ export default function MentorsPage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
               Module-Wise Specialist Faculty Team
             </h2>
-            <p className="text-slate-500 text-sm sm:text-base mt-3">
-              প্রতিটি মডিউলের জন্য ডেডিকেটেড এক্সপার্ট যারা আপনার দুর্বল জায়গায় সরাসরি কাজ করেন।
+            <p className="text-slate-700 font-semibold text-sm sm:text-base mt-3">
+              ঢাকা বিশ্ববিদ্যালয়, ডুয়েট, বাংলাদেশ কৃষি বিশ্ববিদ্যালয়, বিইউপি থেকে গ্র্যাজুয়েশন ও পোস্ট গ্র্যাজুয়েশন সম্পন্ন করা ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত প্রশিক্ষিত ইন্সট্রাকটরস প্যানেল।
             </p>
           </div>
 

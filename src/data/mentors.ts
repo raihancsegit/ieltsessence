@@ -20,9 +20,9 @@ export interface Mentor {
 export const mentorsData: Mentor[] = [
   {
     id: "mentor-jewel",
-    name: "Jewel Ahamadinezad",
-    role: "Founder & Lead IELTS Instructor",
-    institution: "B.Sc in IPE, DUET | Ex-Mentor, Leading IELTS Centers",
+    name: "Jewel Ahamadinezad (জুয়েল আহমাদিনেজাদ)",
+    role: "Founder & Academic Director",
+    institution: "B.Sc & M.Sc in Computer Science & Engineering, Dhaka University Of Engineering & Technology (DUET)",
     overallBand: "8.5",
     scores: {
       listening: "9.0",
@@ -32,7 +32,7 @@ export const mentorsData: Mentor[] = [
     },
     experience: "7+ Years",
     studentsMentored: "4,500+",
-    bio: "IELTS ESSENCE-এর প্রতিষ্ঠাতা। ক্যামব্রিজ প্যাসেজ ডিকোড করার সহজ টেকনিক ও রাইটিংয়ের অনন্য ফর্মুলা দিয়ে হাজারো শিক্ষার্থীকে ব্যান্ড ৭.৫+ অর্জনে সাহায্য করেছেন।",
+    bio: "IELTS ESSENCE-এর প্রতিষ্ঠাতা ও একাডেমিক ডিরেক্টর। ক্যামব্রিজ প্যাসেজ ডিকোড করার ইঞ্জিনিয়ারিং লজিক ও রাইটিংয়ের অনন্য ফর্মুলা দিয়ে হাজারো শিক্ষার্থীকে ব্যান্ড ৭.৫+ অর্জনে সাহায্য করেছেন।",
     specialty: "Reading 9.0 Strategy & Writing Line-by-Line Correction",
     imageBg: "from-blue-600 to-indigo-700",
   },
@@ -40,7 +40,7 @@ export const mentorsData: Mentor[] = [
     id: "mentor-tahsin",
     name: "Tahsin Rahman",
     role: "Senior Speaking & Fluency Specialist",
-    institution: "Department of English, University of Dhaka",
+    institution: "Department of English, University of Dhaka (DU)",
     overallBand: "8.5",
     scores: {
       listening: "8.5",
@@ -58,7 +58,7 @@ export const mentorsData: Mentor[] = [
     id: "mentor-farhan",
     name: "Farhan Tanvir",
     role: "Writing Task 1 & 2 Evaluator",
-    institution: "IELTS Band 8.5 Scorer | Commonwealth Scholar",
+    institution: "Bangladesh University of Professionals (BUP) | IELTS Band 8.5",
     overallBand: "8.5",
     scores: {
       listening: "9.0",
@@ -76,7 +76,7 @@ export const mentorsData: Mentor[] = [
     id: "mentor-sumaiya",
     name: "Sumaiya Anjum",
     role: "Listening & Reading Speed Coach",
-    institution: "BRAC University (English Language & Linguistics)",
+    institution: "Bangladesh Agricultural University (BAU) | IELTS Band 8.0",
     overallBand: "8.0",
     scores: {
       listening: "9.0",

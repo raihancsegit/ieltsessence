@@ -162,8 +162,8 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   <Link href="/#target-band" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
                     🗓️ Target Band Timeline Estimator
                   </Link>
-                  <Link href="/why-us#comparison" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    📊 Module-wise Weakness Analyzer
+                  <Link href="/diagnostic" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
+                    📊 Diagnostic Assessment (Profile + 20 MCQs)
                   </Link>
                   <Link href="/faq" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
                     ❓ Preparation FAQ
@@ -206,31 +206,18 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   isActive("/courses") ? "text-rose-600 font-bold" : ""
                 }`}
               >
-                <span>📚 PROGRAMS</span>
+                <span>📚 Programs</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openSection === "programs" ? "rotate-180 text-rose-600" : "text-slate-400"}`} />
               </button>
               {openSection === "programs" && (
-                <div className="pl-4 pr-2 py-1.5 space-y-1 bg-slate-50/80 rounded-xl my-1 border border-slate-100 animate-fadeIn">
-                  <Link href="/courses#build" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    📘 Pathway 01: Foundation to Advanced (5.0–6.5+)
+                <div className="pl-4 pr-2 py-2 space-y-2 bg-slate-50/80 rounded-xl my-1 border border-slate-100 animate-fadeIn">
+                  <Link href="/courses?tab=online" onClick={onClose} className="block px-3 py-2 rounded-lg bg-white border border-slate-100 text-xs font-bold text-slate-800 hover:text-rose-600">
+                    🌐 Online Courses (Live Zoom)
+                    <div className="text-[10px] text-slate-500 font-normal">১/২ Modules • Crash • Full Course (৳৭,৯৯৯)</div>
                   </Link>
-                  <Link href="/courses#master" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    🚀 Pathway 02: Complete Mastery (6.5–7.5+)
-                  </Link>
-                  <Link href="/courses#accelerate" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    ⚡ Pathway 03: 40-Day Crash (Exam Ready)
-                  </Link>
-                  <Link href="/courses#writing" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    ✍️ 30-Day Writing Excellence
-                  </Link>
-                  <Link href="/courses#speaking" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    🎙️ 30-Day Speaking Sprinter
-                  </Link>
-                  <Link href="/courses#combo" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    🎯 35-Day Any 2 Modules Combo
-                  </Link>
-                  <Link href="/courses#mock-series" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    📝 IELTS Mock Test Program (3-10 Mocks)
+                  <Link href="/courses?tab=offline" onClick={onClose} className="block px-3 py-2 rounded-lg bg-white border border-slate-100 text-xs font-bold text-slate-800 hover:text-rose-600">
+                    🏢 Offline Courses (Badda Campus)
+                    <div className="text-[10px] text-slate-500 font-normal">Basic to Advanced • Full Course • Speaking / Writing</div>
                   </Link>
                 </div>
               )}
@@ -252,15 +239,29 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   <Link href="/resources#blog" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
                     📝 IELTS Blog
                   </Link>
-                  <Link href="/resources#recordings" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    🎬 Class Recordings
-                  </Link>
+                  <a 
+                    href="https://www.youtube.com/@IELTSEssence/videos" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onClick={onClose} 
+                    className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-red-600 flex items-center justify-between"
+                  >
+                    <span>🎬 Class Recordings</span>
+                    <span className="text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">YouTube ↗</span>
+                  </a>
                   <Link href="/resources#vault" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
                     📖 Premium Vocabulary Files
                   </Link>
-                  <Link href="/resources#samples" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
-                    ✍️ Band 7+ Writing Samples
-                  </Link>
+                  <a 
+                    href="https://writing9.com/band/7/0" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    onClick={onClose} 
+                    className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-amber-600 flex items-center justify-between"
+                  >
+                    <span>✍️ Band 7+ Writing Samples</span>
+                    <span className="text-[10px] bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded font-bold">Writing9 ↗</span>
+                  </a>
                   <Link href="/resources#speaking-qa" onClick={onClose} className="block px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600">
                     🎙️ Band 7+ Speaking Q/A
                   </Link>
@@ -372,10 +373,16 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         {/* Footer info in Drawer */}
         <div className="pt-6 border-t border-slate-100 space-y-3">
           <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Campus & Support</div>
-          <div className="text-xs text-slate-600 space-y-1">
-            <p>📍 41 Lane, Badda, Dhaka 6000</p>
-            <p>📞 +880 1738–474611</p>
-            <p>✉️ admissions@ieltsessence.com</p>
+          <div className="text-xs text-slate-600 space-y-2">
+            <p className="leading-snug">📍 Cha - 75 / C, SM Bhaban, Badda, Dhaka<br /><span className="text-[11px] text-slate-500">(হোসেন মার্কেট সংলগ্ন, ইবনে-সিনা হসপিটালের বিপরীতে)</span></p>
+            <div className="flex flex-col gap-1 pt-0.5">
+              <a href="tel:+8801738474611" className="text-slate-800 font-bold hover:text-rose-600">📞 +880 1738–474611</a>
+              <a href="tel:+8801540796074" className="text-slate-800 font-bold hover:text-rose-600">📞 +880 1540–796074</a>
+            </div>
+            <div className="flex flex-col gap-0.5 pt-0.5 text-[11.5px]">
+              <a href="mailto:ieltsessencehr@gmail.com" className="text-slate-600 hover:text-rose-600">✉️ ieltsessencehr@gmail.com</a>
+              <a href="mailto:ieltsinhome@gmail.com" className="text-slate-600 hover:text-rose-600">✉️ ieltsinhome@gmail.com</a>
+            </div>
           </div>
         </div>
       </div>

@@ -238,12 +238,12 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-2xl font-black text-white font-heading">Jewel Ahamadinezad</h3>
-                <div className="text-rose-400 font-bold text-sm mt-1">Founder & Lead Mentor | DUET</div>
-                <div className="inline-block px-3.5 py-1 bg-amber-400/20 text-amber-300 border border-amber-400/30 rounded-full text-xs font-extrabold mt-3">
-                  IELTS Band 8.5 Scorer
-                </div>
+                <div className="text-sm font-bold text-amber-300 font-bengali mt-0.5">জুয়েল আহমাদিনেজাদ</div>
+                <div className="text-rose-400 font-bold text-xs mt-1 uppercase tracking-wider">Founder &amp; Academic Director</div>
+                <div className="text-xs text-slate-300 mt-1">B.Sc &amp; M.Sc in Computer Science &amp; Engineering</div>
+                <div className="text-[11px] text-slate-400">Dhaka University Of Engineering &amp; Technology (DUET)</div>
 
-                <p className="text-xs text-slate-300 mt-5 leading-relaxed text-left">
+                <p className="text-xs text-slate-300 mt-4 leading-relaxed text-left">
                   "আমি বিশ্বাস করি ইংরেজি কোনো ভয়ের বিষয় নয়, এটি একটি দক্ষতা। সঠিক টেকনিক ও কনসিস্টেন্ট প্র্যাকটিসের মাধ্যমে বাংলাদেশের যেকোনো শিক্ষার্থী প্রথমবারেই ব্যান্ড ৭.৫+ অর্জন করতে সক্ষম।"
                 </p>
 
@@ -253,12 +253,8 @@ export default function AboutPage() {
                     <div className="text-[10px] text-slate-400 uppercase">Mentorship</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-white">2,500+</div>
-                    <div className="text-[10px] text-slate-400 uppercase">Students</div>
-                  </div>
-                  <div>
-                    <div className="text-xl font-bold text-white">8.5</div>
-                    <div className="text-[10px] text-slate-400 uppercase">Band Score</div>
+                    <div className="text-xl font-bold text-white">4,500+</div>
+                    <div className="text-[10px] text-slate-400 uppercase">Students Trained</div>
                   </div>
                 </div>
               </div>
@@ -270,8 +266,8 @@ export default function AboutPage() {
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading leading-tight">
                 Learn From Certified Band 8 & 8.5 Mentors Who Have Been There
               </h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                আমাদের মেন্টর প্যানেলে রয়েছেন ঢাকা বিশ্ববিদ্যালয়, ডুয়েট ও আন্তর্জাতিক বিভিন্ন বিশ্ববিদ্যালয়ের গ্র্যাজুয়েট ও সার্টিফায়েড ট্রেইনার।
+              <p className="text-slate-200 text-sm leading-relaxed font-semibold">
+                ঢাকা বিশ্ববিদ্যালয়, ডুয়েট, বাংলাদেশ কৃষি বিশ্ববিদ্যালয়, বিইউপি থেকে গ্র্যাজুয়েশন ও পোস্ট গ্র্যাজুয়েশন সম্পন্ন করা ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত প্রশিক্ষিত ইন্সট্রাকটরস প্যানেল।
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
