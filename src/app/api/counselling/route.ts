@@ -95,7 +95,44 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 3. Web3Forms (No-SMTP Instant Email Delivery)
+    // 3. Zero-Configuration Instant Email Delivery (FormSubmit.co API)
+    // Sends formatted lead email directly to ieltsessencehr@gmail.com & ieltsinhome@gmail.com without any SMTP config!
+    try {
+      const emailPayload = {
+        _subject: `🎯 New IELTS Lead: ${name} (${phone}) - ${subject}`,
+        _cc: "ieltsinhome@gmail.com",
+        _template: "table",
+        _captcha: "false",
+        "Student Name": leadData.name,
+        "Mobile / WhatsApp": leadData.phone,
+        "Target Band Score": leadData.targetScore,
+        "Preferred Mode": leadData.mode,
+        "Academic Status": leadData.academicStatus,
+        "Exam Timeline": leadData.examDateApprox,
+        "Payment Method / Trx": leadData.transactionId,
+        "Form / Source": leadData.subject,
+        "Submission Time (BST)": leadData.formattedTime,
+        "Student Message": body.message || "N/A"
+      };
+
+      const fsRes = await fetch("https://formsubmit.co/ajax/ieltsessencehr@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(emailPayload),
+      });
+
+      if (fsRes.ok) {
+        emailSent = true;
+        console.log("[ZERO-CONFIG EMAIL SENT] Delivered to ieltsessencehr@gmail.com & ieltsinhome@gmail.com via FormSubmit");
+      }
+    } catch (fsErr) {
+      console.error("[ZERO-CONFIG EMAIL ERROR]", fsErr);
+    }
+
+    // 4. Web3Forms (Secondary Redundant Delivery)
     const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
     if (web3formsKey) {
       try {
@@ -114,6 +151,7 @@ export async function POST(req: NextRequest) {
             examTimeline: leadData.examDateApprox,
             paymentMethod: leadData.paymentGateway,
             transactionId: leadData.transactionId,
+            message: body.message || "N/A",
             submittedAt: leadData.formattedTime,
           }),
         });

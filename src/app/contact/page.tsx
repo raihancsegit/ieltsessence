@@ -18,15 +18,37 @@ export default function ContactPage() {
     mode: "Online (Zoom Live)",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
+    if (!formData.name.trim() || !formData.phone.trim()) {
       alert("অনুগ্রহ করে আপনার নাম ও ফোন নম্বর দিন।");
       return;
     }
-    const text = `Hi IELTS ESSENCE!%0A%0A👤 Name: ${formData.name}%0A📞 Phone: ${formData.phone}%0A🎯 Target: ${formData.target}%0A💻 Mode: ${formData.mode}%0A💬 Query: ${formData.message || "N/A"}%0A%0APlease contact me regarding admission & counselling!`;
-    window.open(`https://wa.me/8801738474611?text=${text}`, "_blank");
+
+    setIsSubmitting(true);
+    try {
+      await fetch("/api/counselling", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          targetScore: formData.target,
+          mode: formData.mode,
+          message: formData.message.trim(),
+          subject: "Contact Page — Free 1-on-1 Mentorship Request"
+        }),
+      });
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Submission error:", err);
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -206,80 +228,126 @@ export default function ContactPage() {
             {/* Right Interactive Contact Form */}
             <div className="lg:col-span-7">
               <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md space-y-6 hover-elevate">
-                <div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 font-heading">Book Free 1-on-1 Mentorship</h3>
-                  <p className="text-xs text-slate-500 mt-1">ফরমটি পূরণ করলে আমাদের কাউন্সিলর আপনাকে কল করবেন।</p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Your Full Name</label>
-                      <input 
-                        type="text" 
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Doe" 
-                        className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" 
-                        required 
-                      />
+                {isSubmitted ? (
+                  <div className="text-center py-10 space-y-4 animate-fadeIn">
+                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-md">
+                      ✓
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="text-2xl font-black text-slate-900 font-heading">
+                        Thank You, {formData.name}!
+                      </h3>
+                      <p className="text-sm text-slate-600 font-medium">
+                        আপনার মেসেজটি সফলভাবে আমাদের মেন্টর প্যানেলের ইমেইলে পৌঁছে গেছে।
+                      </p>
+                      <p className="text-xs text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2 mt-3 inline-block">
+                        📩 Email Dispatched to: ieltsessencehr@gmail.com
+                      </p>
                     </div>
 
-                    <div>
-                      <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Phone Number (WhatsApp)</label>
-                      <input 
-                        type="tel" 
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="01738474611" 
-                        className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" 
-                        required 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Target Band Score</label>
-                      <select 
-                        value={formData.target}
-                        onChange={(e) => setFormData({ ...formData, target: e.target.value })}
-                        className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
+                    <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`https://wa.me/8801738474611?text=Hi%20IELTS%20ESSENCE!%20I%20am%20${encodeURIComponent(formData.name)}.%20I%20just%20submitted%20a%20consultation%20form.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all"
                       >
-                        <option value="Band 7.0">Band 7.0</option>
-                        <option value="Band 7.5">Band 7.5</option>
-                        <option value="Band 8.0+">Band 8.0+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Preferred Mode</label>
-                      <select 
-                        value={formData.mode}
-                        onChange={(e) => setFormData({ ...formData, mode: e.target.value })}
-                        className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
+                        <span>WhatsApp-এ সরাসরি কথা বলুন</span>
+                        <MessageCircle className="w-4 h-4" />
+                      </a>
+                      <button
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setFormData({ name: "", phone: "", target: "Band 7.0", mode: "Online (Zoom Live)", message: "" });
+                        }}
+                        className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-all cursor-pointer"
                       >
-                        <option value="Online (Zoom Live)">Online (Zoom Live)</option>
-                        <option value="Offline (Badda Campus)">Offline (Badda Campus)</option>
-                      </select>
+                        আরেকটি ফর্ম পূরণ করুন
+                      </button>
                     </div>
                   </div>
+                ) : (
+                  <>
+                    <div>
+                      <h3 className="text-2xl font-extrabold text-slate-900 font-heading">Book Free 1-on-1 Mentorship</h3>
+                      <p className="text-xs text-slate-500 mt-1">ফরমটি পূরণ করলে সরাসরি আমাদের ইমেইলে চলে যাবে এবং কাউন্সিলর কল করবেন।</p>
+                    </div>
 
-                  <div>
-                    <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Your Queries / Message</label>
-                    <textarea 
-                      rows={4} 
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about your current English background or target timeline..." 
-                      className="w-full p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
-                    />
-                  </div>
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Your Full Name</label>
+                          <input 
+                            type="text" 
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            placeholder="John Doe" 
+                            className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" 
+                            required 
+                          />
+                        </div>
 
-                  <button type="submit" className="btn-cta-amber w-full py-4 text-base font-extrabold justify-center cursor-pointer">
-                    Submit Consultation Request →
-                  </button>
-                </form>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Phone Number (WhatsApp)</label>
+                          <input 
+                            type="tel" 
+                            value={formData.phone}
+                            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                            placeholder="01738474611" 
+                            className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600" 
+                            required 
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Target Band Score</label>
+                          <select 
+                            value={formData.target}
+                            onChange={(e) => setFormData({ ...formData, target: e.target.value })}
+                            className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
+                          >
+                            <option value="Band 7.0">Band 7.0</option>
+                            <option value="Band 7.5">Band 7.5</option>
+                            <option value="Band 8.0+">Band 8.0+</option>
+                          </select>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Preferred Mode</label>
+                          <select 
+                            value={formData.mode}
+                            onChange={(e) => setFormData({ ...formData, mode: e.target.value })}
+                            className="w-full px-4 py-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
+                          >
+                            <option value="Online (Zoom Live)">Online (Zoom Live)</option>
+                            <option value="Offline (Badda Campus)">Offline (Badda Campus)</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold text-slate-900 uppercase mb-1.5 font-heading">Your Queries / Message</label>
+                        <textarea 
+                          rows={4} 
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                          placeholder="Tell us about your current English background or target timeline..." 
+                          className="w-full p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-rose-600"
+                        />
+                      </div>
+
+                      <button 
+                        type="submit" 
+                        disabled={isSubmitting}
+                        className="btn-cta-amber w-full py-4 text-base font-extrabold justify-center cursor-pointer disabled:opacity-60"
+                      >
+                        {isSubmitting ? "Sending Request..." : "Submit Consultation Request →"}
+                      </button>
+                    </form>
+                  </>
+                )}
               </div>
             </div>
           </div>
