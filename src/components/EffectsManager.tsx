@@ -5,11 +5,35 @@ import { usePathname } from "next/navigation";
 import { MessageCircle, ArrowUp } from "lucide-react";
 
 const ADMISSIONS_DATA = [
-  { name: "তানভীর আহমেদ", city: "চট্টগ্রাম", course: "Basic To Advanced (Band 8.0 Target)", time: "২ মিনিট আগে" },
-  { name: "সাদিয়া ইসলাম", city: "ধানমন্ডি, ঢাকা", course: "Writing 7.5+ Masterclass", time: "৫ মিনিট আগে" },
-  { name: "রাকিবুল হাসান", city: "সিলেট", course: "40-Day IELTS Crash Course", time: "১২ মিনিট আগে" },
-  { name: "মেহেদী হাসান", city: "উত্তরা, ঢাকা", course: "Speaking Confidence Lab", time: "১৮ মিনিট আগে" },
-  { name: "নুসরাত জাহান", city: "রাজশাহী", course: "1-on-1 VIP Mentorship", time: "২৫ মিনিট আগে" }
+  { name: "মো. আরিফ হাসান", city: "ঢাকা", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "১ মিনিট আগে" },
+  { name: "নুসরাত জাহান", city: "চট্টগ্রাম", course: "IELTS Full Course (4 Modules)", time: "৩ মিনিট আগে" },
+  { name: "তানভীর আহমেদ", city: "রাজশাহী", course: "IELTS Crash Course (৪০ দিন)", time: "৫ মিনিট আগে" },
+  { name: "সাদিয়া রহমান", city: "খুলনা", course: "Writing Expertizer Masterclass", time: "৮ মিনিট আগে" },
+  { name: "মাহমুদুল হাসান", city: "সিলেট", course: "Speaking Intensive Course", time: "১০ মিনিট আগে" },
+  { name: "ফাহিম হোসেন", city: "কুমিল্লা", course: "IELTS Full Course (4 Modules)", time: "১২ মিনিট আগে" },
+  { name: "জান্নাতুল ফেরদৌস", city: "রংপুর", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "১৫ মিনিট আগে" },
+  { name: "সাইফুর রহমান", city: "ময়মনসিংহ", course: "IELTS Crash Course (৪০ দিন)", time: "১৮ মিনিট আগে" },
+  { name: "তাসনিম আক্তার", city: "বরিশাল", course: "Speaking Intensive Course", time: "২২ মিনিট আগে" },
+  { name: "রাফিউল ইসলাম", city: "গাজীপুর", course: "Writing Expertizer Masterclass", time: "২৫ মিনিট আগে" },
+  { name: "সুমাইয়া সুলতানা", city: "বগুড়া", course: "IELTS Full Course (4 Modules)", time: "২৮ মিনিট আগে" },
+  { name: "আদনান কবির", city: "নারায়ণগঞ্জ", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "৩২ মিনিট আগে" },
+  { name: "মেহেদী হাসান", city: "কক্সবাজার", course: "IELTS Crash Course (৪০ দিন)", time: "৩৫ মিনিট আগে" },
+  { name: "আফরিন নওয়ার", city: "যশোর", course: "Writing Expertizer Masterclass", time: "৩৮ মিনিট আগে" },
+  { name: "শাকিল আহমেদ", city: "টাঙ্গাইল", course: "Speaking Intensive Course", time: "৪২ মিনিট আগে" },
+  { name: "মিম আক্তার", city: "নোয়াখালী", course: "IELTS Full Course (4 Modules)", time: "৪৫ মিনিট আগে" },
+  { name: "রাকিবুল হাসান", city: "দিনাজপুর", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "৪৮ মিনিট আগে" },
+  { name: "ফারজানা ইয়াসমিন", city: "পাবনা", course: "IELTS Crash Course (৪০ দিন)", time: "৫২ মিনিট আগে" },
+  { name: "নাঈম ইসলাম", city: "ব্রাহ্মণবাড়িয়া", course: "Speaking Intensive Course", time: "৫৫ মিনিট আগে" },
+  { name: "তানজিলা আক্তার", city: "ফেনী", course: "Writing Expertizer Masterclass", time: "৫৮ মিনিট আগে" },
+  { name: "সাদ রহমান", city: "কুষ্টিয়া", course: "IELTS Full Course (4 Modules)", time: "১ ঘণ্টা আগে" },
+  { name: "লামিয়া ইসলাম", city: "নরসিংদী", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "১ ঘণ্টা আগে" },
+  { name: "ইমরান হোসেন", city: "চাঁদপুর", course: "IELTS Crash Course (৪০ দিন)", time: "১ ঘণ্টা আগে" },
+  { name: "সাফা তাসনিম", city: "রাজবাড়ী", course: "Speaking Intensive Course", time: "২ ঘণ্টা আগে" },
+  { name: "আবদুল্লাহ আল মামুন", city: "সুনামগঞ্জ", course: "IELTS Full Course (4 Modules)", time: "২ ঘণ্টা আগে" },
+  { name: "সোহানা রহমান", city: "ঝিনাইদহ", course: "Writing Expertizer Masterclass", time: "২ ঘণ্টা আগে" },
+  { name: "শুভ দাস", city: "নড়াইল", course: "Basic to Advanced IELTS (৩.৫ মাস)", time: "৩ ঘণ্টা আগে" },
+  { name: "ইসরাত জাহান", city: "লক্ষ্মীপুর", course: "IELTS Crash Course (৪০ দিন)", time: "৩ ঘণ্টা আগে" },
+  { name: "জুবায়ের আহমেদ", city: "জামালপুর", course: "Speaking Intensive Course", time: "৩ ঘণ্টা আগে" }
 ];
 
 export default function EffectsManager() {
@@ -109,21 +133,37 @@ export default function EffectsManager() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 3. Social Proof Toast Notification Cycle (Matching HTML exactly)
+  // 3. Social Proof Toast Notification Cycle (29 Students Live Rotation)
   useEffect(() => {
     let index = 0;
+    
+    // Initial display after 3.5 seconds
+    const initialTimeout = setTimeout(() => {
+      setToastNotification(ADMISSIONS_DATA[index]);
+      setShowToast(true);
+
+      const hideTimeout = setTimeout(() => {
+        setShowToast(false);
+      }, 4500);
+
+      index = (index + 1) % ADMISSIONS_DATA.length;
+    }, 3500);
+
     const interval = setInterval(() => {
       setToastNotification(ADMISSIONS_DATA[index]);
       setShowToast(true);
 
       setTimeout(() => {
         setShowToast(false);
-      }, 5000);
+      }, 4500);
 
       index = (index + 1) % ADMISSIONS_DATA.length;
-    }, 14000);
+    }, 11000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -164,16 +204,16 @@ export default function EffectsManager() {
       <div className="admission-toast-container">
         {toastNotification && (
           <div className={`admission-toast-card ${showToast ? "show" : ""}`}>
-            <div className="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-base flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center font-bold text-base flex-shrink-0 shadow-xs">
               🎓
             </div>
             <div className="text-xs">
-              <div className="font-extrabold text-slate-900 flex items-center gap-1.5 font-heading">
+              <div className="font-black text-slate-900 flex items-center gap-1.5 font-bengali text-[13px] leading-tight">
                 <span>{toastNotification.name} ({toastNotification.city})</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
               </div>
-              <div className="text-rose-600 font-semibold text-[11px] mt-0.5">{toastNotification.course}</div>
-              <div className="text-[10px] text-slate-400 font-medium">ভর্তি নিশ্চিত হয়েছে • {toastNotification.time}</div>
+              <div className="text-rose-600 font-bold text-[11px] mt-0.5 font-bengali">{toastNotification.course}</div>
+              <div className="text-[10px] text-slate-500 font-medium font-bengali">ভর্তি নিশ্চিত হয়েছে • {toastNotification.time}</div>
             </div>
           </div>
         )}
