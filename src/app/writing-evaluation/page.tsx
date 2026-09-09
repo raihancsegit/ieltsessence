@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { 
   ChevronRight, Award, ShieldCheck, 
-  HelpCircle, ArrowRight, Play, Pause, RotateCcw, Sparkles
+  HelpCircle, ArrowRight, Play, Pause, RotateCcw, Sparkles,
+  Clock, CheckCircle2, Zap, Send, MessageCircle, X, Timer, Bot
 } from "lucide-react";
 
 export default function WritingEvaluationPage() {
@@ -19,6 +20,49 @@ export default function WritingEvaluationPage() {
   // Timer states
   const [timerSeconds, setTimerSeconds] = useState(40 * 60);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+
+  // 15-Hour Automatic Evaluation States
+  const [showAutoModal, setShowAutoModal] = useState(false);
+  const [candidateName, setCandidateName] = useState("");
+  const [candidatePhone, setCandidatePhone] = useState("");
+  const [candidateEmail, setCandidateEmail] = useState("");
+  const [targetBand, setTargetBand] = useState("7.5");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeSubmission, setActiveSubmission] = useState<any>(null);
+  const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number } | null>(null);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("ielts_essence_writing_sub");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        setActiveSubmission(parsed);
+      }
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    if (!activeSubmission?.evaluationDueAt) {
+      setTimeLeft(null);
+      return;
+    }
+
+    const calculateTime = () => {
+      const diff = new Date(activeSubmission.evaluationDueAt).getTime() - new Date().getTime();
+      if (diff <= 0) {
+        setTimeLeft(null);
+      } else {
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        setTimeLeft({ hours, minutes, seconds });
+      }
+    };
+
+    calculateTime();
+    const interval = setInterval(calculateTime, 1000);
+    return () => clearInterval(interval);
+  }, [activeSubmission]);
 
   useEffect(() => {
     let interval: any = null;
@@ -73,6 +117,58 @@ export default function WritingEvaluationPage() {
     window.open(`https://wa.me/8801738474611?text=${text}`, "_blank");
   };
 
+  const handleAutoSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!candidateName.trim() || !candidatePhone.trim()) {
+      alert("আপনার নাম ও মোবাইল নম্বর প্রদান করুন।");
+      return;
+    }
+    if (wordCount < 20) {
+      alert("অনুগ্রহ করে এসে বক্সে কমপক্ষে ২০ শব্দের লেখা টাইপ বা পেস্ট করুন।");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const promptLabels: Record<string, string> = {
+        p1: "Task 2: Universities job skills vs knowledge",
+        p2: "Task 2: Fast food advantages vs disadvantages",
+        p3: "Task 2: Public transport vs roads investment",
+        p4: "Task 1: Households with internet access",
+      };
+
+      const res = await fetch("/api/writing-evaluation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: candidateName,
+          phone: candidatePhone,
+          email: candidateEmail,
+          targetBand,
+          taskType: activeTask,
+          promptTitle: promptLabels[selectedPrompt] || selectedPrompt,
+          essayText,
+          wordCount,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.submission) {
+        setActiveSubmission(data.submission);
+        try {
+          localStorage.setItem("ielts_essence_writing_sub", JSON.stringify(data.submission));
+        } catch {}
+        setShowAutoModal(false);
+      } else {
+        alert(data.error || "সাবমিট করতে সমস্যা হয়েছে।");
+      }
+    } catch {
+      alert("সার্ভারের সাথে সংযোগ করা সম্ভব হয়নি।");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="space-y-0">
       {/* ==========================================================================
@@ -94,7 +190,7 @@ export default function WritingEvaluationPage() {
           </h1>
 
           <p className="inner-hero-subtitle">
-            টাস্ক রেসপন্স, কোহিশন, লেক্সিক্যাল রিসোর্স ও গ্রামার ধরে প্রতিটি ভুলের বিশদ সংশোধন এবং ব্যান্ড ৯ অল্টারনেটিভ সেন্টেন্স সহ ২৪ ঘণ্টার মধ্যে পূর্ণাঙ্গ মূল্যায়ন রিপোর্ট।
+            টাস্ক রেসপন্স, কোহিশন, লেক্সিক্যাল রিসোর্স ও গ্রামার ধরে প্রতিটি ভুলের বিশদ সংশোধন এবং ব্যান্ড ৯ অল্টারনেটিভ সেন্টেন্স সহ ১৫ ঘণ্টার মধ্যে পূর্ণাঙ্গ অটোমেটিক মূল্যায়ন রিপোর্ট।
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
@@ -116,6 +212,71 @@ export default function WritingEvaluationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Left Writing Sandbox */}
             <div className="lg:col-span-8 space-y-6">
+
+              {/* Active 15-Hour Evaluation Live Status Tracker */}
+              {activeSubmission && (
+                <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-50 via-rose-50 to-orange-50 border-2 border-amber-200/80 shadow-md space-y-4 animate-fadeIn">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-amber-200/60 pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
+                      <span className="text-xs font-black text-slate-900 uppercase tracking-wider font-heading">
+                        ⚡ অটোমেটিক ইভ্যালুয়েশন প্রসেসিং চলছে
+                      </span>
+                    </div>
+                    <span className="px-3 py-1 rounded-full bg-white/80 border border-amber-200 text-slate-700 text-xs font-bold font-heading">
+                      ID: {activeSubmission.id}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-xs text-slate-500 font-medium">প্রার্থী ও লক্ষ্য:</div>
+                      <div className="text-sm font-bold text-slate-900 font-heading">
+                        {activeSubmission.name} • <span className="text-rose-600">Target Band {activeSubmission.targetBand}</span>
+                      </div>
+                      <div className="text-xs text-slate-500 mt-1">
+                        জমা দেওয়ার সময়: <strong>{activeSubmission.formattedSubmittedAt}</strong>
+                      </div>
+                    </div>
+
+                    <div className="sm:text-right bg-white/70 p-3 rounded-2xl border border-amber-100">
+                      <div className="text-[11px] font-bold text-amber-900 uppercase font-heading flex items-center sm:justify-end gap-1">
+                        <Clock className="w-3.5 h-3.5 text-amber-600" />
+                        রিপোর্ট পাওয়ার কাউন্টডাউন (১৫ ঘণ্টা):
+                      </div>
+                      <div className="text-2xl font-black text-rose-600 font-heading tracking-tight mt-0.5">
+                        {timeLeft ? (
+                          `${timeLeft.hours} ঘণ্টা ${timeLeft.minutes} মি. ${timeLeft.seconds} সে.`
+                        ) : (
+                          <span className="text-emerald-600">রিপোর্ট প্রস্তুত হচ্ছে...</span>
+                        )}
+                      </div>
+                      <div className="text-[10px] text-slate-500 mt-0.5">
+                        আনুমানিক ডেলিভারি: <strong>{activeSubmission.formattedDueAt}</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white/90 border border-amber-100 text-xs text-slate-700 flex items-center justify-between gap-3 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <Bot className="w-4 h-4 text-purple-600 shrink-0" />
+                      <span>
+                        আপনার নিবন্ধিত মোবাইল/হোয়াটসঅ্যাপে আগামী <strong>১৫ ঘণ্টার মধ্যে</strong> স্বয়ংক্রিয় স্কোর কার্ড ও লাইন-বাই-লাইন কারেকশন পৌঁছে যাবে।
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setActiveSubmission(null);
+                        try { localStorage.removeItem("ielts_essence_writing_sub"); } catch {}
+                      }}
+                      className="text-[11px] text-slate-400 hover:text-rose-600 underline font-medium cursor-pointer"
+                    >
+                      নতুন এসে সাবমিট করুন
+                    </button>
+                  </div>
+                </div>
+              )}
+
               <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md space-y-6 hover-elevate">
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
                   <div>
@@ -203,17 +364,42 @@ export default function WritingEvaluationPage() {
                 </div>
 
                 {/* Submission Action */}
-                <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+                <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
-                    <div className="text-xs font-bold text-slate-900 font-heading">Free 1-Essay Assessment Trial</div>
-                    <div className="text-[11px] text-slate-400">২৪ ঘণ্টার মধ্যে মেন্টর ফিডব্যাক ও ব্যান্ড স্কোর পাবেন</div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-xs font-extrabold text-slate-900 font-heading">
+                        অটোমেটিক ইভ্যালুয়েশন সিস্টেম অ্যাক্টিভ
+                      </span>
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">
+                      রাইটিং সাবমিট করলে আগামী <strong>১৫ ঘণ্টা পর</strong> স্বয়ংক্রিয় বিস্তারিত মূল্যায়ন রিপোর্ট পাবেন
+                    </div>
                   </div>
-                  <button 
-                    onClick={handleSubmitEvaluation} 
-                    className="btn-cta-amber py-3.5 px-6 text-sm font-bold cursor-pointer"
-                  >
-                    Submit For Band 8.5 Evaluation →
-                  </button>
+
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <button 
+                      onClick={() => {
+                        if (wordCount < 20) {
+                          alert("অনুগ্রহ করে এসে বক্সে কমপক্ষে ২০ শব্দের লেখা টাইপ বা পেস্ট করুন।");
+                          return;
+                        }
+                        setShowAutoModal(true);
+                      }} 
+                      className="btn-cta-amber py-3 px-5 text-xs font-extrabold cursor-pointer flex items-center gap-2 shadow-sm"
+                    >
+                      <span>⚡</span>
+                      <span>১৫ ঘণ্টার অটো ইভ্যালুয়েশন নিন →</span>
+                    </button>
+                    <button 
+                      onClick={handleSubmitEvaluation} 
+                      className="btn-cta-blue py-3 px-4 text-xs font-bold cursor-pointer flex items-center gap-1.5"
+                      title="সরাসরি হোয়াটসঅ্যাপে পাঠিয়ে মেন্টরের সাথে কথা বলুন"
+                    >
+                      <span>💬</span>
+                      <span>হোয়াটসঅ্যাপ</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -421,6 +607,125 @@ export default function WritingEvaluationPage() {
           </div>
         </div>
       </section>
+
+      {/* 15-HOUR AUTOMATIC EVALUATION POPUP MODAL */}
+      {showAutoModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-fadeIn">
+          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-100 space-y-5 relative max-h-[90vh] overflow-y-auto">
+            <button
+              onClick={() => setShowAutoModal(false)}
+              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center font-bold text-sm cursor-pointer transition-colors"
+            >
+              ✕
+            </button>
+
+            <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl font-bold shadow-2xs">
+                ⚡
+              </div>
+              <div>
+                <h3 className="text-xl font-black text-slate-900 font-heading">
+                  ১৫ ঘণ্টার অটোমেটিক ইভ্যালুয়েশন
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  আগামী ১৫ ঘণ্টা পর আপনার পূর্ণাঙ্গ স্কোর কার্ড ও ফিডব্যাক তৈরি হবে
+                </p>
+              </div>
+            </div>
+
+            {/* Submission Summary Box */}
+            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs space-y-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">সিলেক্টেড টাস্ক:</span>
+                <span className="font-bold text-slate-900">Task {activeTask} ({wordCount} words)</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">প্রসেসিং টাইম:</span>
+                <span className="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                  ঠিক ১৫ ঘণ্টার মধ্যে
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-500">রিপোর্টে থাকবে:</span>
+                <span className="font-semibold text-slate-700">TR, CC, LR, GRA + ব্যান্ড ৯ অল্টারনেটিভ</span>
+              </div>
+            </div>
+
+            <form onSubmit={handleAutoSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-900 uppercase mb-1 font-heading">
+                  আপনার পূর্ণ নাম *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="যেমন: তানভীর আহমেদ"
+                  value={candidateName}
+                  onChange={(e) => setCandidateName(e.target.value)}
+                  className="w-full px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900 focus:outline-none focus:border-rose-600"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-900 uppercase mb-1 font-heading">
+                  মোবাইল / হোয়াটসঅ্যাপ নম্বর * (রিপোর্ট পাঠানো হবে)
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="যেমন: 017XXXXXXXX"
+                  value={candidatePhone}
+                  onChange={(e) => setCandidatePhone(e.target.value)}
+                  className="w-full px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900 focus:outline-none focus:border-rose-600"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-900 uppercase mb-1 font-heading">
+                  ইমেইল অ্যাড্রেস (ঐচ্ছিক - পিডিএফ রিপোর্টের জন্য)
+                </label>
+                <input
+                  type="email"
+                  placeholder="example@gmail.com"
+                  value={candidateEmail}
+                  onChange={(e) => setCandidateEmail(e.target.value)}
+                  className="w-full px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-semibold text-slate-900 focus:outline-none focus:border-rose-600"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-900 uppercase mb-1 font-heading">
+                  টার্গেট ব্যান্ড স্কোর
+                </label>
+                <select
+                  value={targetBand}
+                  onChange={(e) => setTargetBand(e.target.value)}
+                  className="w-full px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:border-rose-600"
+                >
+                  <option value="7.0">Band 7.0 (Good User)</option>
+                  <option value="7.5">Band 7.5 (High Competency)</option>
+                  <option value="8.0">Band 8.0 (Very Good User)</option>
+                  <option value="8.5">Band 8.5 (Expert Level)</option>
+                </select>
+              </div>
+
+              <div className="pt-3">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-cta-amber w-full justify-center py-3.5 text-sm font-extrabold cursor-pointer shadow-md disabled:opacity-50"
+                >
+                  {isSubmitting ? "সাবমিট হচ্ছে..." : "সাবমিট করুন (১৫ ঘণ্টার কাউন্টডাউন শুরু) →"}
+                </button>
+              </div>
+
+              <p className="text-[11px] text-slate-400 text-center">
+                🔒 আপনার এসে সম্পূর্ণ নিরাপদ ও গোপনীয় রাখা হবে। রিপোর্ট প্রস্তুত হলে স্বয়ংক্রিয় নোটিফিকেশন পাবেন।
+              </p>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
