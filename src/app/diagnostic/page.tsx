@@ -347,21 +347,21 @@ export default function DiagnosticPage() {
           </h1>
 
           <p className="inner-hero-subtitle">
-            ১০ মিনিটের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে আপনার বর্তমান ইংরেজি ফাউন্ডেশন লেভেল, গ্রামার নির্ভুলতা এবং টার্গেট ব্যান্ডের জন্য সঠিক কোর্স পাথওয়ে জেনে নিন।
+            ৫ মিনিটের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে আপনার বর্তমান ইংরেজি ফাউন্ডেশন লেভেল, গ্রামার নির্ভুলতা এবং টার্গেট ব্যান্ডের জন্য সঠিক কোর্স পাথওয়ে জেনে নিন।
           </p>
 
           {/* Stepper Pill */}
           <div className="inline-flex items-center p-1.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-slate-300">
-            <span className={`px-4 py-1.5 rounded-xl transition-all ${currentStep === 1 ? "bg-rose-600 text-white font-black shadow-md" : ""}`}>
-              1. Student Goal Profile
+            <span className={`px-3.5 py-1.5 rounded-xl transition-all ${currentStep === 1 ? "bg-rose-600 text-white font-black shadow-md" : ""}`}>
+              1. Goal Profile (১ মিনিট)
             </span>
             <span className="px-2 text-slate-500">→</span>
-            <span className={`px-4 py-1.5 rounded-xl transition-all ${currentStep === 2 ? "bg-rose-600 text-white font-black shadow-md" : ""}`}>
-              2. 20-Question Foundation Test
+            <span className={`px-3.5 py-1.5 rounded-xl transition-all ${currentStep === 2 ? "bg-rose-600 text-white font-black shadow-md" : ""}`}>
+              2. ২০টি ফাউন্ডেশন প্রশ্ন (৪ মিনিট)
             </span>
             <span className="px-2 text-slate-500">→</span>
-            <span className={`px-4 py-1.5 rounded-xl transition-all ${currentStep === 3 ? "bg-emerald-600 text-white font-black shadow-md" : ""}`}>
-              3. Instant Diagnostic Report
+            <span className={`px-3.5 py-1.5 rounded-xl transition-all ${currentStep === 3 ? "bg-emerald-600 text-white font-black shadow-md" : ""}`}>
+              3. ইনস্ট্যান্ট রিপোর্ট
             </span>
           </div>
         </div>

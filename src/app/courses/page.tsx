@@ -1148,7 +1148,7 @@ function CoursesContent() {
             Not Sure Which Course Program Fits Your Target?
           </h2>
           <p className="text-blue-100 text-sm sm:text-base max-w-2xl mx-auto font-light leading-relaxed">
-            আমাদের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে মাত্র ১০ মিনিটে আপনার বর্তমান ব্যান্ড লেভেল ও সঠিক কোর্স সিলেক্ট করুন।
+            আমাদের ফ্রি ডায়াগনস্টিক টেস্ট দিয়ে মাত্র ৫ মিনিটে আপনার বর্তমান ব্যান্ড লেভেল ও সঠিক কোর্স সিলেক্ট করুন।
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button 

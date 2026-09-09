@@ -7,7 +7,8 @@ import confetti from "canvas-confetti";
 import { 
   Sparkles, ArrowRight, CheckCircle2, Star, Trophy, Users, BookOpen, 
   ShieldCheck, Calculator, PenTool, Award, PlayCircle, ChevronRight, 
-  MessageSquare, ChevronDown, Phone, Globe, Volume2, Pause, Play, ArrowUp, GraduationCap
+  MessageSquare, ChevronDown, Phone, Globe, Volume2, Pause, Play, ArrowUp, GraduationCap,
+  Timer, Target, Mic
 } from "lucide-react";
 
 export default function HomePage() {
@@ -25,28 +26,52 @@ export default function HomePage() {
       badge: "Ivy League & Full Scholarship Tier",
       breakdown: "L: 9.0 • R: 8.5 • W: 8.0 • S: 8.5",
       timeline: "Sprint & Mock Series",
-      pathway: "Top Scorer Mentorship"
+      pathway: "Top Scorer Mentorship",
+      modules: [
+        { label: "L", score: "9.0", name: "Listening" },
+        { label: "R", score: "8.5", name: "Reading" },
+        { label: "W", score: "8.0", name: "Writing" },
+        { label: "S", score: "8.5", name: "Speaking" },
+      ]
     },
     "8.0": {
       score: "Band 8.0",
       badge: "Oxford, Cambridge & PR Benchmark",
       breakdown: "L: 8.5 • R: 8.0 • W: 7.5 • S: 8.0",
       timeline: "40 Days – 2 Months",
-      pathway: "Accelerate Masterclass"
+      pathway: "Accelerate Masterclass",
+      modules: [
+        { label: "L", score: "8.5", name: "Listening" },
+        { label: "R", score: "8.0", name: "Reading" },
+        { label: "W", score: "7.5", name: "Writing" },
+        { label: "S", score: "8.0", name: "Speaking" },
+      ]
     },
     "7.5": {
       score: "Band 7.5",
       badge: "Global Tier-1 Universities",
       breakdown: "L: 8.0 • R: 7.5 • W: 7.0 • S: 7.5",
       timeline: "1.5 – 2.5 Months",
-      pathway: "Master Pathway"
+      pathway: "Master Pathway",
+      modules: [
+        { label: "L", score: "8.0", name: "Listening" },
+        { label: "R", score: "7.5", name: "Reading" },
+        { label: "W", score: "7.0", name: "Writing" },
+        { label: "S", score: "7.5", name: "Speaking" },
+      ]
     },
     "7.0": {
       score: "Band 7.0",
       badge: "Standard Direct Master's Entry",
       breakdown: "L: 7.5 • R: 7.0 • W: 6.5 • S: 7.0",
       timeline: "2 – 3.5 Months",
-      pathway: "Build Pathway"
+      pathway: "Build Pathway",
+      modules: [
+        { label: "L", score: "7.5", name: "Listening" },
+        { label: "R", score: "7.0", name: "Reading" },
+        { label: "W", score: "6.5", name: "Writing" },
+        { label: "S", score: "7.0", name: "Speaking" },
+      ]
     }
   };
 
@@ -222,10 +247,10 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-6">
               
               {/* Top Trust Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-rose-50/90 border border-rose-200/80 rounded-full text-rose-700 font-extrabold text-xs uppercase tracking-wider shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-                <ShieldCheck className="w-4 h-4 text-rose-600" />
-                <span>#1 IELTS PREPARATION & STUDY ABROAD PLATFORM</span>
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-rose-50/90 border border-rose-200/80 rounded-full text-rose-700 font-extrabold text-xs sm:text-[13px] tracking-normal shadow-2xs font-bengali">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-rose-600 shrink-0" />
+                <span>বাংলাদেশের একমাত্র অ্যাসেসমেন্ট ভিত্তিক Transformation-Oriented আইইএলটিএস প্ল্যাটফর্ম</span>
               </div>
 
               {/* Main Catchy Headline with Pristine Bengali Kerning */}
@@ -247,13 +272,88 @@ export default function HomePage() {
               </div>
 
               {/* Value Proposition Description */}
-              <div className="space-y-2.5">
-                <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                  We diagnose your current performance, build your score roadmap, train your weaknesses, measure your improvement, and prepare you to perform.
-                </p>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-bold shadow-2xs">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Structured Preparation • Expert Feedback • Measurable Improvement</span>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                We diagnose your current performance, build your score roadmap, train your weaknesses, measure your improvement, and prepare you to perform.
+              </p>
+
+              {/* 4 Feature Micro-Cards with Vector Icons & Glassmorphic Highlights */}
+              <div className="space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  {/* Item 1: Top Mentors */}
+                  <div className="p-3 rounded-2xl bg-white/90 backdrop-blur-xs border border-emerald-200/80 shadow-2xs hover:border-emerald-400 hover:shadow-md hover:-translate-y-0.5 transition-all group flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+                      <Award className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13px] sm:text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        <span className="text-emerald-700 font-black">ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত</span> মেন্টরশিপ
+                      </div>
+                      <div className="text-[10px] font-extrabold text-emerald-600 uppercase tracking-wider mt-0.5">
+                        DUET, DU, BAU, BUP Top Scorers
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 2: 4 Dedicated Specialists */}
+                  <div className="p-3 rounded-2xl bg-white/90 backdrop-blur-xs border border-rose-200/80 shadow-2xs hover:border-rose-400 hover:shadow-md hover:-translate-y-0.5 transition-all group flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform">
+                      <Users className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13px] sm:text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        ৪ মডিউলে <span className="text-rose-700 font-black">৪ জন ডেডিকেটেড এক্সপার্টস</span>
+                      </div>
+                      <div className="text-[10px] font-extrabold text-rose-600 uppercase tracking-wider mt-0.5">
+                        Dedicated Module Specialists
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 3: Unlimited Writing Feedback */}
+                  <div className="p-3 rounded-2xl bg-white/90 backdrop-blur-xs border border-blue-200/80 shadow-2xs hover:border-blue-400 hover:shadow-md hover:-translate-y-0.5 transition-all group flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+                      <PenTool className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13px] sm:text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        প্রতিদিন <span className="text-blue-700 font-black">আনলিমিটেড WRITING</span> ফিডব্যাক
+                      </div>
+                      <div className="text-[10px] font-extrabold text-blue-600 uppercase tracking-wider mt-0.5">
+                        Daily Line-by-Line Cambridge Audit
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Item 4: Speaking Partner Pairing */}
+                  <div className="p-3 rounded-2xl bg-white/90 backdrop-blur-xs border border-amber-200/80 shadow-2xs hover:border-amber-400 hover:shadow-md hover:-translate-y-0.5 transition-all group flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                      <Mic className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[13px] sm:text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
+                        SPEAKING <span className="text-amber-800 font-black">পার্টনার পেয়ারিং ও অ্যাসেসমেন্ট</span>
+                      </div>
+                      <div className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider mt-0.5">
+                        Live 1-on-1 Mock & Cambridge Scoring
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3 Core Quality Pillars Segmented Dock */}
+                <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 p-1 sm:p-1.5 rounded-2xl bg-slate-100/80 border border-slate-200/80 shadow-2xs">
+                  <div className="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-xl text-emerald-800 border border-emerald-100/80 shadow-2xs text-xs font-extrabold">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Structured Preparation</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-xl text-blue-800 border border-blue-100/80 shadow-2xs text-xs font-extrabold">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                    <span>Expert Feedback</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-xl text-rose-800 border border-rose-100/80 shadow-2xs text-xs font-extrabold">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                    <span>Measurable Improvement</span>
+                  </div>
                 </div>
               </div>
 
@@ -261,7 +361,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <button 
                   onClick={() => openModal("Book an Expert Consultation - Hero")} 
-                  className="btn-cta-amber btn-shimmer cursor-pointer flex items-center gap-2 px-6 py-3.5 rounded-full text-sm sm:text-base font-extrabold shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-all"
+                  className="btn-cta-amber btn-shimmer cursor-pointer flex items-center gap-2 px-7 py-3.5 rounded-2xl text-sm sm:text-base font-extrabold shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-all"
                 >
                   <span>Book an Expert Consultation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -269,65 +369,71 @@ export default function HomePage() {
                 
                 <Link
                   href="/diagnostic"
-                  className="btn-cta-blue btn-shimmer cursor-pointer flex items-center gap-2 px-6 py-3.5 rounded-full text-sm sm:text-base font-extrabold shadow-lg shadow-blue-500/25 hover:scale-[1.02] transition-all"
+                  className="btn-cta-blue btn-shimmer cursor-pointer flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm sm:text-base font-extrabold shadow-lg shadow-blue-500/25 hover:scale-[1.02] transition-all"
                 >
                   <span>Free Diagnostic Test</span>
                   <GraduationCap className="w-4 h-4" />
                 </Link>
               </div>
 
-              {/* Official Social Channels & WhatsApp Connect */}
-              <div className="flex flex-wrap items-center gap-2 pt-1">
-                <a
-                  href="https://wa.me/8801738474611"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
-                >
-                  <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>WhatsApp: 01738-474611</span>
-                </a>
-
-                <a
-                  href="https://www.facebook.com/profile.php?id=61565824504813"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
-                >
-                  <svg className="w-3.5 h-3.5 text-[#1877F2] fill-current" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                  <span>Facebook Page</span>
-                </a>
-
-                <a
-                  href="https://www.youtube.com/@IELTSEssence/videos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-red-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
-                >
-                  <svg className="w-3.5 h-3.5 text-[#FF0000] fill-current" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
-                  <span>YouTube Channel</span>
-                </a>
-              </div>
-
-              {/* Social Proof Students Count & Rating */}
-              <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-600">
-                <div className="flex -space-x-2">
-                  <div className="w-7 h-7 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S1</div>
-                  <div className="w-7 h-7 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S2</div>
-                  <div className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S3</div>
-                  <div className="w-7 h-7 rounded-full bg-amber-500 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">+</div>
+              {/* Integrated Social Proof & Quick Connect Bar */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/70">
+                {/* Student Proof Badges */}
+                <div className="flex items-center gap-3 text-xs font-semibold text-slate-700">
+                  <div className="flex -space-x-2">
+                    <div className="w-7 h-7 rounded-full bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S1</div>
+                    <div className="w-7 h-7 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S2</div>
+                    <div className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">S3</div>
+                    <div className="w-7 h-7 rounded-full bg-amber-500 text-white font-bold text-[10px] flex items-center justify-center border-2 border-white shadow-xs">+</div>
+                  </div>
+                  <div className="flex items-center gap-2 font-bengali">
+                    <span className="text-slate-900 font-extrabold">১,৫০০+ শিক্ষার্থী</span>
+                    <span className="text-slate-300">•</span>
+                    <span className="text-amber-600 font-bold flex items-center gap-1 font-sans">
+                      <span>⭐⭐⭐⭐⭐</span>
+                      <span className="text-slate-800 font-black">4.9/5</span>
+                    </span>
+                  </div>
                 </div>
+
+                {/* Quick-Connect Icon Chips */}
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-900 font-extrabold">1,500+ Ambitious Students</span>
-                  <span className="text-slate-300">•</span>
-                  <span className="text-amber-600 font-bold flex items-center gap-1">
-                    <span>⭐⭐⭐⭐⭐</span>
-                    <span className="text-slate-700 font-black">4.9/5</span>
-                  </span>
+                  <a
+                    href="https://wa.me/8801738474611"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
+                    title="Chat on WhatsApp"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="hidden sm:inline">WhatsApp</span>
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61565824504813"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
+                    title="Visit Facebook Page"
+                  >
+                    <svg className="w-3.5 h-3.5 text-[#1877F2] fill-current" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span className="hidden sm:inline">Facebook</span>
+                  </a>
+
+                  <a
+                    href="https://www.youtube.com/@IELTSEssence/videos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-red-800 text-xs font-extrabold transition-all shadow-2xs hover:scale-105"
+                    title="Watch on YouTube"
+                  >
+                    <svg className="w-3.5 h-3.5 text-[#FF0000] fill-current" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    <span className="hidden sm:inline">YouTube</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -335,23 +441,46 @@ export default function HomePage() {
             {/* ================= Right Column: Interactive Score Roadmap & Mentorship Card ================= */}
             <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               
-              <div className="hero-card-container">
+              {/* Floating Live Achievement Badge 1 */}
+              <div className="hidden sm:flex items-center gap-2.5 absolute -top-3.5 -right-2 z-20 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl shadow-xl border border-slate-200/90 hover:scale-105 transition-transform">
+                <div className="w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center text-xs font-black shadow-xs">
+                  🏆
+                </div>
+                <div className="text-left font-bengali">
+                  <div className="text-[11px] font-black text-slate-900 leading-none">তাহমিদ হাসান • Band 8.5</div>
+                  <div className="text-[9px] font-extrabold text-rose-600 uppercase mt-0.5 font-sans">DUET ➔ Univ. of Melbourne</div>
+                </div>
+              </div>
+
+              {/* Floating Live Metric Badge 2 */}
+              <div className="hidden sm:flex items-center gap-2 absolute -bottom-3 -left-3 z-20 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-xl border border-slate-200/90 hover:scale-105 transition-transform">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10.5px] font-black text-slate-800 font-bengali">⚡ ৯৮% ফার্স্ট-অ্যাটেম্পট সাকসেস রেট</span>
+              </div>
+              
+              <div className="hero-card-container relative overflow-hidden bg-white/95 backdrop-blur-md rounded-3xl border border-slate-200/90 shadow-2xl p-5 sm:p-6">
                 
                 {/* Interactive Band Target Tab Selector */}
-                <div className="mb-3">
+                <div className="mb-3.5">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">Select Target Band:</span>
-                    <span className="text-[10px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md border border-rose-100">Live Roadmap</span>
+                    <div className="flex items-center gap-1.5 text-[11px] font-black text-slate-600 uppercase tracking-wider">
+                      <Target className="w-3.5 h-3.5 text-rose-600" />
+                      <span>Select Target Band:</span>
+                    </div>
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-600 bg-rose-50 px-2.5 py-0.5 rounded-full border border-rose-100 shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                      Live Roadmap
+                    </span>
                   </div>
-                  <div className="grid grid-cols-4 gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200">
+                  <div className="grid grid-cols-4 gap-1.5 p-1 bg-slate-100/90 rounded-2xl border border-slate-200/80">
                     {(["7.0", "7.5", "8.0", "8.5"] as const).map((band) => (
                       <button
                         key={band}
                         onClick={() => setHeroActiveBand(band)}
-                        className={`py-1.5 text-xs font-black rounded-lg transition-all cursor-pointer ${
+                        className={`py-2 text-xs font-black rounded-xl transition-all cursor-pointer ${
                           heroActiveBand === band
-                            ? "bg-white text-rose-600 shadow-xs scale-[1.02]"
-                            : "text-slate-600 hover:text-slate-900"
+                            ? "bg-white text-rose-600 shadow-sm scale-[1.02] border border-slate-200/60 font-black"
+                            : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
                         }`}
                       >
                         Band {band}
@@ -361,102 +490,107 @@ export default function HomePage() {
                 </div>
 
                 {/* Score Showcase Banner Card */}
-                <div className="hero-score-badge-card">
+                <div className="hero-score-badge-card rounded-2xl p-5 bg-gradient-to-br from-[#0B132B] via-[#121B3B] to-[#1E1B4B] border border-white/10 shadow-xl relative overflow-hidden text-center">
                   <div className="flex items-center justify-between text-xs text-slate-300 font-medium mb-1">
-                    <span className="px-2 py-0.5 rounded-full bg-white/10 text-white text-[10px] font-bold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-xs text-white text-[10.5px] font-bold border border-white/10 flex items-center gap-1">
+                      <GraduationCap className="w-3.5 h-3.5 text-rose-400" />
                       {heroBandData[heroActiveBand].pathway}
                     </span>
-                    <span className="text-amber-400 font-bold text-[11px]">
-                      ⏱️ {heroBandData[heroActiveBand].timeline}
+                    <span className="text-amber-300 font-bold text-[11px] bg-amber-400/10 px-2 py-0.5 rounded-md border border-amber-400/20 flex items-center gap-1">
+                      <span>⏱️</span> {heroBandData[heroActiveBand].timeline}
                     </span>
                   </div>
 
-                  <div className="score-giant-number font-heading mt-1">
+                  <div className="score-giant-number font-heading my-1">
                     {heroBandData[heroActiveBand].score}
                   </div>
                   
-                  <p className="text-xs text-slate-200 font-bold mt-1">
+                  <p className="text-xs text-slate-200 font-bold">
                     {heroBandData[heroActiveBand].badge}
                   </p>
 
-                  <div className="mt-2.5 pt-2 border-t border-white/15 text-[11px] font-semibold text-rose-200 tracking-wide">
-                    Target Criteria: {heroBandData[heroActiveBand].breakdown}
+                  {/* 4-Module Score Breakdown Grid */}
+                  <div className="mt-3 pt-2.5 border-t border-white/10 text-left">
+                    <div className="flex items-center justify-between mb-1.5 text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                      <span>Module Score Target:</span>
+                      <span className="text-rose-300 font-semibold">{heroBandData[heroActiveBand].breakdown}</span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {heroBandData[heroActiveBand].modules.map((m) => (
+                        <div key={m.label} className="bg-white/5 hover:bg-white/10 transition-colors border border-white/10 rounded-xl py-1 px-1.5 text-center">
+                          <div className="text-[9px] text-slate-400 font-bold uppercase">{m.name}</div>
+                          <div className="text-xs font-black text-white">{m.score}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* 4 Sleek Highlight Cards with Hind Siliguri Typography */}
-                <div className="space-y-2 mt-4">
+                {/* Instant Action Button to Diagnostic Test (Redesigned 5-Min Smart Assessment) */}
+                <div className="mt-3.5 relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-rose-500 via-amber-400 to-sky-500 rounded-2xl blur-xs opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Item 1 */}
-                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-emerald-50/80 via-teal-50/40 to-white border border-emerald-200/90 shadow-2xs flex items-center gap-3 hover:border-emerald-400 hover:shadow-xs transition-all group">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
-                      🎯
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
-                        <span className="text-emerald-700 font-black">ব্যান্ড ৮ ও ৮.৫ প্রাপ্ত</span> ইন্সট্রাকটরদের সরাসরি তত্ত্বাবধানে
-                      </div>
-                      <div className="text-[10px] font-extrabold text-emerald-600 uppercase tracking-wider mt-0.5">
-                        Top Scorer Mentors (DUET, DU, BAU, BUP)
-                      </div>
-                    </div>
-                  </div>
+                  <Link
+                    href="/diagnostic"
+                    className="relative block w-full p-4 rounded-2xl bg-gradient-to-b from-slate-900 via-slate-950 to-[#0B132B] border border-rose-500/40 text-white shadow-2xl transition-all duration-300 hover:scale-[1.01] cursor-pointer overflow-hidden"
+                  >
+                    {/* Background subtle radial spotlight */}
+                    <div className="absolute -right-8 -top-8 w-32 h-32 bg-rose-500/20 rounded-full blur-2xl pointer-events-none" />
+                    <div className="absolute -left-8 -bottom-8 w-32 h-32 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
 
-                  {/* Item 2 */}
-                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-rose-50/80 via-pink-50/40 to-white border border-rose-200/90 shadow-2xs flex items-center gap-3 hover:border-rose-400 hover:shadow-xs transition-all group">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
-                      👨‍🏫
+                    {/* Top Status Badges */}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-500/25 border border-rose-400/40 text-[10.5px] font-black text-rose-200 uppercase tracking-wider">
+                        <span className="w-2 h-2 rounded-full bg-rose-400 animate-ping inline-block" />
+                        Free Diagnostic Test
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-amber-300 bg-amber-400/20 border border-amber-300/40 px-2.5 py-0.5 rounded-full shadow-xs">
+                        <Timer className="w-3 h-3 text-amber-400" />
+                        ৫ মিনিটে ইনস্ট্যান্ট রেজাল্ট
+                      </span>
                     </div>
-                    <div className="min-w-0">
-                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
-                        ৪ মডিউলের জন্য <span className="text-rose-700 font-black">৪ জন ডেডিকেটেড এক্সপার্টস</span>
-                      </div>
-                      <div className="text-[10px] font-extrabold text-rose-600 uppercase tracking-wider mt-0.5">
-                        4 Dedicated Module Specialists
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Item 3 */}
-                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50/80 via-indigo-50/40 to-white border border-blue-200/90 shadow-2xs flex items-center gap-3 hover:border-blue-400 hover:shadow-xs transition-all group">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
-                      ✍️
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
-                        প্রতিদিন <span className="text-blue-700 font-black">আনলিমিটেড WRITING</span> ইভ্যালুয়েশন ও ফিডব্যাক
+                    {/* Title & Bengali subtitle */}
+                    <div className="space-y-0.5">
+                      <div className="text-base sm:text-lg font-black text-white tracking-tight leading-snug flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0 animate-pulse" />
+                        <span>Check Your Level & Predicted Band</span>
                       </div>
-                      <div className="text-[10px] font-extrabold text-blue-600 uppercase tracking-wider mt-0.5">
-                        Daily Line-by-Line Cambridge Feedback
-                      </div>
+                      <p className="text-[11.5px] text-slate-300 font-medium font-bengali leading-snug">
+                        ২০টি সিলেক্টেড প্রশ্নে গ্রামার ও ভোকাবুলারি টেস্ট করে সঠিক ব্যান্ড প্রেডিকশন পান।
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Item 4 */}
-                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-amber-50/80 via-orange-50/40 to-white border border-amber-200/90 shadow-2xs flex items-center gap-3 hover:border-amber-400 hover:shadow-xs transition-all group">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm group-hover:scale-105 transition-transform">
-                      🎙️
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[13.5px] font-black text-slate-900 leading-tight font-bengali">
-                        SPEAKING প্র্যাকটিসের জন্য <span className="text-amber-800 font-black">Partner Pairing ও অ্যাসেসমেন্ট</span>
+                    {/* 3 Value Pillars */}
+                    <div className="grid grid-cols-3 gap-1.5 my-2.5 pt-2 border-t border-white/10 text-[10.5px] font-bold text-slate-200">
+                      <div className="flex items-center justify-center gap-1 bg-white/5 rounded-lg py-1 px-1 border border-white/5">
+                        <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                        <span>২০ প্রশ্ন</span>
                       </div>
-                      <div className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider mt-0.5">
-                        Live Speaking Partner & Mock Simulation
+                      <div className="flex items-center justify-center gap-1 bg-white/5 rounded-lg py-1 px-1 border border-white/5">
+                        <CheckCircle2 className="w-3 h-3 text-sky-400 shrink-0" />
+                        <span>উইকনেস গ্যাপ</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-1 bg-white/5 rounded-lg py-1 px-1 border border-white/5">
+                        <CheckCircle2 className="w-3 h-3 text-amber-400 shrink-0" />
+                        <span>ফ্রি রিপোর্ট</span>
                       </div>
                     </div>
-                  </div>
+
+                    {/* Primary CTA Bar */}
+                    <div className="pt-2 border-t border-white/10 flex items-center justify-between gap-2">
+                      <div className="text-xs font-bold text-amber-300 font-bengali flex items-center gap-1.5">
+                        <span className="text-base leading-none animate-bounce">👉</span>
+                        <span>টেস্ট শুরু করুন (সম্পূর্ণ বিনামূল্যে)</span>
+                      </div>
+
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-rose-600 via-rose-500 to-amber-500 text-white font-black text-xs shadow-md transition-all group-hover:scale-105">
+                        <span>Start Test</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-
-                {/* Instant Action Button to Diagnostic Test */}
-                <Link
-                  href="/diagnostic"
-                  className="mt-3.5 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-slate-900 via-rose-700 to-blue-700 hover:from-slate-800 hover:to-blue-600 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md transition-all hover:scale-[1.01]"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Check Your Level — Free 3-Min Diagnostic Test</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
 
               </div>
             </div>
