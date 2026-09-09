@@ -277,19 +277,25 @@ export default function WhyUsPage() {
                 </p>
 
                 <div className="space-y-2 border-t border-slate-100 pt-3">
-                  {[1, 2, 3, 4, 5].map((testNum) => (
+                  {[
+                    { num: 1, url: "https://ieltsonlinetests.com/ielts-mock-test-2024-march-listening-practice-test-2?mode=practice_test&parts=full&duration=32" },
+                    { num: 2, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-july-listening-practice-test-1?mode=practice_test&parts=full&duration=32" },
+                    { num: 3, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-march-listening-practice-test-1?mode=practice_test&parts=full&duration=32" },
+                    { num: 4, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-september-listening-practice-test-2?mode=practice_test&parts=full&duration=32" },
+                    { num: 5, url: "https://ieltsonlinetests.com/ielts-mock-test-2026-january-listening-practice-test-1?mode=practice_test&parts=full&duration=32" },
+                  ].map((test) => (
                     <a
-                      key={testNum}
-                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      key={test.num}
+                      href={test.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-xs font-bold text-slate-800 hover:text-blue-700 transition-all group"
                     >
                       <div className="flex items-center gap-2">
                         <span className="w-5 h-5 rounded-md bg-blue-600 text-white flex items-center justify-center text-[10px] font-black">
-                          {testNum}
+                          {test.num}
                         </span>
-                        <span>IELTS Listening Test 0{testNum}</span>
+                        <span>IELTS Listening Test 0{test.num}</span>
                       </div>
                       <span className="text-[10px] text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
                         Take Test ↗
@@ -300,7 +306,7 @@ export default function WhyUsPage() {
               </div>
 
               <a
-                href="https://ieltsonlinetests.com/ielts-exam-library"
+                href="https://ieltsonlinetests.com/ielts-mock-test-2024-march-listening-practice-test-2?mode=practice_test&parts=full&duration=32"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold"
@@ -329,19 +335,25 @@ export default function WhyUsPage() {
                 </p>
 
                 <div className="space-y-2 border-t border-slate-100 pt-3">
-                  {[1, 2, 3, 4, 5].map((testNum) => (
+                  {[
+                    { num: 1, url: "https://ieltsonlinetests.com/ielts-mock-test-2024-february-reading-practice-test-1?mode=practice_test&parts=full&duration=60" },
+                    { num: 2, url: "https://ieltsonlinetests.com/ielts-mock-test-2024-october-reading-practice-test-1?mode=practice_test&parts=full&duration=60" },
+                    { num: 3, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-september-reading-practice-test-1?mode=practice_test&parts=full&duration=60" },
+                    { num: 4, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-june-reading-practice-test-1?mode=practice_test&parts=full&duration=60" },
+                    { num: 5, url: "https://ieltsonlinetests.com/ielts-mock-test-2025-july-reading-practice-test-1?mode=practice_test&parts=full&duration=60" },
+                  ].map((test) => (
                     <a
-                      key={testNum}
-                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      key={test.num}
+                      href={test.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 text-xs font-bold text-slate-800 hover:text-emerald-700 transition-all group"
                     >
                       <div className="flex items-center gap-2">
                         <span className="w-5 h-5 rounded-md bg-emerald-600 text-white flex items-center justify-center text-[10px] font-black">
-                          {testNum}
+                          {test.num}
                         </span>
-                        <span>IELTS Reading Test 0{testNum}</span>
+                        <span>IELTS Reading Test 0{test.num}</span>
                       </div>
                       <span className="text-[10px] text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
                         Take Test ↗
@@ -352,7 +364,7 @@ export default function WhyUsPage() {
               </div>
 
               <a
-                href="https://ieltsonlinetests.com/ielts-exam-library"
+                href="https://ieltsonlinetests.com/ielts-mock-test-2024-february-reading-practice-test-1?mode=practice_test&parts=full&duration=60"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta-amber w-full justify-center py-2.5 text-xs font-bold"
@@ -384,7 +396,7 @@ export default function WhyUsPage() {
                   {[1, 2, 3, 4, 5].map((testNum) => (
                     <a
                       key={testNum}
-                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      href={`https://wa.me/8801738474611?text=${encodeURIComponent(`Hi IELTS ESSENCE! I want to submit IELTS Writing Test 0${testNum} for expert evaluation.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 text-xs font-bold text-slate-800 hover:text-purple-700 transition-all group"
@@ -395,8 +407,8 @@ export default function WhyUsPage() {
                         </span>
                         <span>IELTS Writing Test 0{testNum}</span>
                       </div>
-                      <span className="text-[10px] text-purple-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Take Test ↗
+                      <span className="text-[10px] text-emerald-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                        WhatsApp ↗
                       </span>
                     </a>
                   ))}
@@ -404,7 +416,7 @@ export default function WhyUsPage() {
               </div>
 
               <a
-                href="https://ieltsonlinetests.com/ielts-exam-library"
+                href={`https://wa.me/8801738474611?text=${encodeURIComponent("Hi IELTS ESSENCE! I want to take IELTS Writing Tests & get expert evaluation.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta-blue w-full justify-center py-2.5 text-xs font-bold"
@@ -436,7 +448,7 @@ export default function WhyUsPage() {
                   {[1, 2, 3, 4, 5].map((testNum) => (
                     <a
                       key={testNum}
-                      href="https://ieltsonlinetests.com/ielts-exam-library"
+                      href={`https://wa.me/8801738474611?text=${encodeURIComponent(`Hi IELTS ESSENCE! I want to schedule an IELTS Speaking Test 0${testNum} 1-on-1 mock interview.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-300 text-xs font-bold text-slate-800 hover:text-rose-700 transition-all group"
@@ -447,8 +459,8 @@ export default function WhyUsPage() {
                         </span>
                         <span>IELTS Speaking Test 0{testNum}</span>
                       </div>
-                      <span className="text-[10px] text-rose-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                        Take Test ↗
+                      <span className="text-[10px] text-emerald-600 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                        WhatsApp ↗
                       </span>
                     </a>
                   ))}
@@ -456,7 +468,7 @@ export default function WhyUsPage() {
               </div>
 
               <a
-                href="https://ieltsonlinetests.com/ielts-exam-library"
+                href={`https://wa.me/8801738474611?text=${encodeURIComponent("Hi IELTS ESSENCE! I want to take IELTS Speaking Tests & book a 1-on-1 mock interview.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-cta-amber w-full justify-center py-2.5 text-xs font-bold"
