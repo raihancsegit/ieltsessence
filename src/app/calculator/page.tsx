@@ -139,7 +139,7 @@ export default function CalculatorPage() {
                       </span>
                     </div>
                     <select 
-                      value={listening} 
+                      value={listening.toFixed(1)} 
                       onChange={(e) => setListening(parseFloat(e.target.value))}
                       className="w-full px-3 py-2.5 bg-white rounded-xl border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:border-rose-600"
                     >
@@ -152,6 +152,8 @@ export default function CalculatorPage() {
                       <option value="6.0">Band 6.0 (23-25/40)</option>
                       <option value="5.5">Band 5.5 (18-22/40)</option>
                       <option value="5.0">Band 5.0 (16-17/40)</option>
+                      <option value="4.5">Band 4.5 (13-15/40)</option>
+                      <option value="4.0">Band 4.0 (10-12/40)</option>
                     </select>
                   </div>
 
@@ -166,7 +168,7 @@ export default function CalculatorPage() {
                       </span>
                     </div>
                     <select 
-                      value={reading} 
+                      value={reading.toFixed(1)} 
                       onChange={(e) => setReading(parseFloat(e.target.value))}
                       className="w-full px-3 py-2.5 bg-white rounded-xl border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:border-rose-600"
                     >
@@ -179,6 +181,8 @@ export default function CalculatorPage() {
                       <option value="6.0">Band 6.0 (23-26/40)</option>
                       <option value="5.5">Band 5.5 (19-22/40)</option>
                       <option value="5.0">Band 5.0 (15-18/40)</option>
+                      <option value="4.5">Band 4.5 (13-14/40)</option>
+                      <option value="4.0">Band 4.0 (10-12/40)</option>
                     </select>
                   </div>
 
@@ -193,7 +197,7 @@ export default function CalculatorPage() {
                       </span>
                     </div>
                     <select 
-                      value={writing} 
+                      value={writing.toFixed(1)} 
                       onChange={(e) => setWriting(parseFloat(e.target.value))}
                       className="w-full px-3 py-2.5 bg-white rounded-xl border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:border-rose-600"
                     >
@@ -206,6 +210,8 @@ export default function CalculatorPage() {
                       <option value="6.0">Band 6.0 (Competent)</option>
                       <option value="5.5">Band 5.5 (Modest)</option>
                       <option value="5.0">Band 5.0 (Modest)</option>
+                      <option value="4.5">Band 4.5 (Limited)</option>
+                      <option value="4.0">Band 4.0 (Limited)</option>
                     </select>
                   </div>
 
@@ -220,7 +226,7 @@ export default function CalculatorPage() {
                       </span>
                     </div>
                     <select 
-                      value={speaking} 
+                      value={speaking.toFixed(1)} 
                       onChange={(e) => setSpeaking(parseFloat(e.target.value))}
                       className="w-full px-3 py-2.5 bg-white rounded-xl border border-slate-200 text-sm font-bold text-slate-900 focus:outline-none focus:border-rose-600"
                     >
@@ -233,6 +239,8 @@ export default function CalculatorPage() {
                       <option value="6.0">Band 6.0 (Basic Fluent)</option>
                       <option value="5.5">Band 5.5 (Hesitant)</option>
                       <option value="5.0">Band 5.0 (Limited)</option>
+                      <option value="4.5">Band 4.5 (Basic User)</option>
+                      <option value="4.0">Band 4.0 (Intermittent)</option>
                     </select>
                   </div>
                 </div>
