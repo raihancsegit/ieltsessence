@@ -741,14 +741,18 @@ function CoursesContent() {
                 <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-2xl">
                   ✍️
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold">
-                  Duration: ১ মাস ১০ দিন
+                <div className="inline-block px-3 py-1 rounded-full bg-purple-100 text-purple-800 text-xs font-bold font-heading">
+                  Duration: 2 Months Class + 3 Months Practice Support
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 font-heading">Writing Expertizer</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   রাইটিংয়ে আটকে থাকা ৫.৫ বা ৬.০ স্কোরকে ৭.৫+ এ উন্নীত করার জন্য লাইন-বাই-লাইন সংশোধন ও ট্র্যাপ এলিমিনেশন ল্যাব।
                 </p>
                 <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-purple-700">২০টি ইনটেনসিভ ক্লাস (20 Classes)</span>
+                  </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>টাস্ক ১ ও ২ এর ২০+ হাই-ব্যান্ড টেমপ্লেট</span>
@@ -759,18 +763,18 @@ function CoursesContent() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                    <span className="font-semibold text-rose-600">২ মাস ক্লাস সাপোর্ট + ৩ মাস প্র্যাকটিস সাপোর্ট</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-slate-400">Online ৳২,৯৯৯ | Offline</div>
+                  <div className="text-xs text-slate-400">Class + Practice Pack</div>
                   <div className="text-xl font-black text-purple-700 font-heading">৳ ৪,৯৯৯/-</div>
                 </div>
                 <button 
-                  onClick={() => openModal("Writing Expertizer Fast-Track")} 
+                  onClick={() => openModal("Writing Expertizer (৳ ৪,৯৯৯)")} 
                   className="btn-cta-blue text-xs py-2.5 px-4 cursor-pointer"
                 >
                   Enroll Now →
@@ -784,14 +788,18 @@ function CoursesContent() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-2xl">
                   🎙️
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-                  Duration: ১ মাস ১০ দিন
+                <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold font-heading">
+                  Duration: 2 Months Class + 3 Months Practice Support
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 font-heading">Speaking Intensive</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   হেজিটেশন দূর করে প্রতিদিন ওয়ান-অন-ওয়ান স্পিকিং প্র্যাকটিস ও সাবলীলভাবে কথা বলার আত্মবিশ্বাস বুটক্যাম্প।
                 </p>
                 <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-bold text-emerald-700">২০টি ইনটেনসিভ সেশন (20 Classes)</span>
+                  </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>প্রতিদিন ৩০ মিনিট লাইভ মেন্টর সেশন</span>
@@ -802,18 +810,18 @@ function CoursesContent() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                    <span className="font-semibold text-rose-600">২ মাস ক্লাস সাপোর্ট + ৩ মাস প্র্যাকটিস সাপোর্ট</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-slate-400">Online ৳২,৯৯৯ | Offline</div>
+                  <div className="text-xs text-slate-400">Class + Practice Pack</div>
                   <div className="text-xl font-black text-emerald-700 font-heading">৳ ৪,৯৯৯/-</div>
                 </div>
                 <button 
-                  onClick={() => openModal("Speaking Intensive Fast-Track")} 
+                  onClick={() => openModal("Speaking Intensive (৳ ৪,৯৯৯)")} 
                   className="btn-cta-amber text-xs py-2.5 px-4 cursor-pointer"
                 >
                   Enroll Now →
@@ -821,42 +829,48 @@ function CoursesContent() {
               </div>
             </div>
 
-            {/* Any 2 Modules Combo */}
-            <div className="card-feature border-2 border-amber-100 hover:border-amber-300 p-8 flex flex-col justify-between">
+            {/* Professional Writing & Speaking Mastery */}
+            <div className="card-feature border-2 border-amber-200 hover:border-amber-400 p-8 flex flex-col justify-between shadow-md">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-2xl">
-                  🎯
+                  🏆
                 </div>
-                <div className="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
-                  Duration: ১ মাস ১০ দিন
+                <div className="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold font-heading">
+                  Duration: 2 Months Class + 3 Months Practice Support
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 font-heading">Any 2 Modules Combo</h3>
+                <h3 className="text-2xl font-bold text-slate-900 font-heading">
+                  Professional Writing & Speaking Mastery
+                </h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  পছন্দের যেকোনো ২টি মডিউল (Writing + Speaking বা Reading + Writing) নিয়ে রিটেক বা টার্গেটেড স্কিল প্রিপারেশন।
+                  Writing এবং Speaking-এ কাঙ্ক্ষিত ব্যান্ড ৭.৫+ নিশ্চিত করার জন্য সমন্বিত স্পেশালাইজড কম্বো মাস্টার প্রোগ্রাম।
                 </p>
                 <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>পছন্দের ২টি মডিউল বেছে নেওয়ার সুবিধা</span>
+                    <span className="font-bold text-amber-700">৩৫টি ফুল মাস্টার ক্লাস (35 Classes)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>আনলিমিটেড খাতা মূল্যায়ন ও স্পিকিং টেস্ট</span>
+                    <span>টাস্ক ১ ও ২ লাইন-বাই-লাইন লাল কালি মূল্যায়ন</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>৫ মাস এক্সটেন্ডেড প্র্যাকটিস সাপোর্ট</span>
+                    <span>ডেইলি স্পিকিং ড্রিল ও এক্সক্লুসিভ ক্যামব্রিজ মেথড</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span className="font-semibold text-rose-600">২ মাস ক্লাস সাপোর্ট + ৩ মাস প্র্যাকটিস সাপোর্ট</span>
                   </div>
                 </div>
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="text-xs text-slate-400">Online Combo Pack</div>
-                  <div className="text-xl font-black text-amber-600 font-heading">৳ ৪,৫০০/-</div>
+                  <div className="text-xs text-slate-400">Complete Mastery Pack</div>
+                  <div className="text-xl font-black text-amber-600 font-heading">৳ ৭,৯৯৯/-</div>
                 </div>
                 <button 
-                  onClick={() => openModal("Any 2 Modules Combo Pack (৳ ৪,৫০০)")} 
+                  onClick={() => openModal("Professional Writing & Speaking Mastery (৳ ৭,৯৯৯)")} 
                   className="btn-cta-blue text-xs py-2.5 px-4 cursor-pointer"
                 >
                   Enroll Now →
