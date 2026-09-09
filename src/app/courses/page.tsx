@@ -205,9 +205,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ৩,৫০০/-</div>
-                      <div className="text-2xl font-black text-slate-900 font-heading">৳ ২,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ৩,৫০০/-</div>
+                        <div className="text-2xl font-black text-slate-900 font-heading">৳ ২,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 14% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Online Course — যেকোন ১টি Module (৳ ২,৯৯৯)")} 
@@ -262,9 +267,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ৬,০০০/-</div>
-                      <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৫০০/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ৬,০০০/-</div>
+                        <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৫০০/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 25% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Online Course — যেকোনো ২টি Module (৳ ৪,৫০০)")} 
@@ -323,9 +333,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ৮,০০০/-</div>
-                      <div className="text-2xl font-black text-amber-600 font-heading">৳ ৫,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ৮,০০০/-</div>
+                        <div className="text-2xl font-black text-amber-600 font-heading">৳ ৫,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 25% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Online Course — IELTS Crash Course (৳ ৫,৯৯৯)")} 
@@ -388,9 +403,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ১২,০০০/-</div>
-                      <div className="text-2xl font-black text-rose-600 font-heading">৳ ৭,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ১২,০০০/-</div>
+                        <div className="text-2xl font-black text-rose-600 font-heading">৳ ৭,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 33% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Online Course — IELTS Full Course (৳ ৭,৯৯৯)")} 
@@ -477,9 +497,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ২২,০০০/-</div>
-                      <div className="text-2xl font-black text-indigo-700 font-heading">৳ ১৫,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ২২,০০০/-</div>
+                        <div className="text-2xl font-black text-indigo-700 font-heading">৳ ১৫,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 27% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Offline Course — Basic to Advanced IELTS (৳ ১৫,৯৯৯)")} 
@@ -542,9 +567,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ১৮,০০০/-</div>
-                      <div className="text-2xl font-black text-rose-600 font-heading">৳ ১২,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ১৮,০০০/-</div>
+                        <div className="text-2xl font-black text-rose-600 font-heading">৳ ১২,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 28% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Offline Course — Only IELTS Full Course (৳ ১২,৯৯৯)")} 
@@ -599,9 +629,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
-                      <div className="text-2xl font-black text-emerald-700 font-heading">৳ ৪,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
+                        <div className="text-2xl font-black text-emerald-700 font-heading">৳ ৪,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 29% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Offline Course — Only Speaking Intensive (৳ ৪,৯৯৯)")} 
@@ -656,9 +691,14 @@ function CoursesContent() {
                   </div>
 
                   <div className="pt-6 mt-4 border-t border-slate-100">
-                    <div className="mb-4">
-                      <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
-                      <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৯৯৯/-</div>
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div>
+                        <div className="text-xs text-slate-400 line-through">৳ ৭,০০০/-</div>
+                        <div className="text-2xl font-black text-purple-700 font-heading">৳ ৪,৯৯৯/-</div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 text-xs font-black tracking-tight font-heading shadow-2xs">
+                        <span>🔥</span> 29% OFF
+                      </span>
                     </div>
                     <button 
                       onClick={() => openModal("Offline Course — Only Writing Expertizer (৳ ৪,৯৯৯)")} 
